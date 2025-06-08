@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 255 255 255;
+  --secondary: 0 0 0;
+}
+
+/* Apply font variables */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-orbitron);
+    letter-spacing: 0.05em;
+  }
+
+  body {
+    font-family: var(--font-space-grotesk);
+  }
+
+  .button-text {
+    font-family: var(--font-orbitron);
+    letter-spacing: 0.05em;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  }
+}
+
+.logo-glow {
+  animation: logoGlow 2s ease-out forwards;
+}
+
+body {
+  background-color: black;
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.animated-gradient-text {
+  background: linear-gradient(270deg, #8a2be2, #1e90ff, #8a2be2);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Update the button styles to be more futuristic */
+.button-ellipse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: bold;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  min-width: 180px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.button-text {
+  color: black;
+  font-family: var(--font-orbitron);
+}
+
+.button-ellipse:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  background-color: white;
+}
+
+.button-ellipse:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 26px;
+  background: linear-gradient(45deg, #8a2be2, #1e90ff, #8a2be2);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: gradientAnimation 10s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button-ellipse:hover:before {
+  opacity: 1;
+}
+
+/* New styles */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Team page specific styles */
+.team-title {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+/* Team Card Wrapper Styles */
+.team-card-wrapper {
+  position: relative;
+  height: 450px;
+  width: 100%;
+}
+
+/* Hide default profile card content */
+.nova-team-card .pc-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nova-team-card .avatar {
+  display: none;
+}
+
+/* Custom team card content */
+.team-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.team-icon-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.team-role-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 15px currentColor);
+}
+
+.team-role-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+.team-card-wrapper:hover .team-role-icon {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.team-info-section {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.team-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-orbitron);
+}
+
+.team-member-role {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.team-member-description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.team-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid currentColor;
+  border-opacity: 0.5;
+}
+
+.team-connect-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid currentColor;
+  border-opacity: 0.3;
+  color: currentColor;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-orbitron);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: auto;
+}
+
+.team-connect-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mouse-follower {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: 255 255 255;
+    --secondary: 0 0 0;
+  }
+}
