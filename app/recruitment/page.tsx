@@ -88,23 +88,8 @@ const steps = [
   },
   {
     number: "03",
-    title: "First Interview",
+    title: "Interview",
     description: "Meet with our recruitment team to discuss your experience, skills, and interest in NOVA.",
-  },
-  {
-    number: "04",
-    title: "Case Study",
-    description: "Complete a small case study or project relevant to the position you're applying for.",
-  },
-  {
-    number: "05",
-    title: "Team Interview",
-    description: "Meet with potential team members and department leaders for a more in-depth conversation.",
-  },
-  {
-    number: "06",
-    title: "Offer",
-    description: "Successful candidates will receive an offer to join the NOVA team!",
   },
 ]
 
