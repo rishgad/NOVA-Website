@@ -53,6 +53,19 @@
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
 .logo-glow {
   animation: logoGlow 2s ease-out forwards;
 }
@@ -85,7 +98,7 @@ body::-webkit-scrollbar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 30px;
+  padding: 12px 32px;
   background-color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: bold;
@@ -308,6 +321,30 @@ section {
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
   mix-blend-mode: screen;
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 640px) {
+  .button-ellipse {
+    min-width: 160px;
+    height: 48px;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  .team-card-wrapper {
+    height: 400px;
+  }
+
+  .team-role-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-role-icon svg {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
