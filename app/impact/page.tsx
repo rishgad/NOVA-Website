@@ -169,7 +169,6 @@ const mentoringPartners: MentoringPartner[] = [
   { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
   { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg" },
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-  { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Meta_Platforms_logo.svg" },
   { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
   { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel_logo_%282020%29.svg" },
   { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" },
@@ -240,47 +239,6 @@ export default function ImpactAndPurpose() {
           </p>
           <div className="flex justify-center">
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mentoring Partners Carousel Section */}
-      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
-        <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
-            Mentoring Partners & Affiliates
-          </h2>
-          <p className="text-lg text-center mb-12 text-gray-300 max-w-3xl mx-auto">
-            We are proud to collaborate with and receive mentorship from leaders across various industries.
-          </p>
-
-          <div className="relative">
-            <div className="flex animate-scroll">
-              {/* First set of logos */}
-              {mentoringPartners.map((partner, index) => (
-                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {mentoringPartners.map((partner, index) => (
-                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -357,6 +315,47 @@ export default function ImpactAndPurpose() {
                 <p className="text-sm sm:text-base text-gray-300 font-medium">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mentoring Partners Carousel Section */}
+      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
+            Mentoring Partners & Affiliates
+          </h2>
+          <p className="text-lg text-center mb-12 text-gray-300 max-w-3xl mx-auto">
+            We are proud to collaborate with and receive mentorship from leaders across various industries.
+          </p>
+
+          <div className="relative">
+            <div className="flex animate-scroll">
+              {/* First set of logos */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
