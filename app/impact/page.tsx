@@ -329,39 +329,18 @@ export default function ImpactAndPurpose() {
             We are proud to collaborate with and receive mentorship from leaders across various industries.
           </p>
 
-          <div className="relative overflow-hidden py-4">
-            <div className="flex animate-scroll whitespace-nowrap">
-              {/* First set of logos */}
-              {mentoringPartners.map((partner, index) => (
-                <div
-                  key={`first-${index}`}
-                  className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center w-[120px] sm:w-[150px]"
-                >
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-10 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {mentoringPartners.map((partner, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center w-[120px] sm:w-[150px]"
-                >
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-10 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 justify-items-center items-center max-w-6xl mx-auto">
+            {mentoringPartners.map((partner, index) => (
+              <div key={index} className="flex items-center justify-center w-full h-20">
+                <Image
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={partner.name}
+                  width={120}
+                  height={60}
+                  className="h-10 sm:h-12 w-auto object-contain" // Removed grayscale filter and opacity
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
