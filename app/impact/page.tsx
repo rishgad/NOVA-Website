@@ -5,12 +5,12 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { TrendingUp, Users, Target, Award, GraduationCap, Building2, FileText, Rocket } from "lucide-react"
+import { TrendingUp, Users, Target, Building2, GraduationCap, FileText, Rocket } from "lucide-react"
 
 interface Project {
   name: string
   description: string
-  logo: string
+  icon: React.ReactNode
   color: string
   gradient: string
 }
@@ -26,7 +26,6 @@ interface ImpactArea {
   icon: React.ReactNode
   title: string
   description: string
-  stats: string
   color: string
   gradient: string
 }
@@ -35,42 +34,42 @@ const projects: Project[] = [
   {
     name: "VeneerVision AI",
     description: "AI-powered dental imaging",
-    logo: "/placeholder.svg?height=80&width=200&text=VeneerVision+AI",
+    icon: <Target className="w-8 h-8" />,
     color: "text-blue-400",
     gradient: "from-blue-600 to-blue-400",
   },
   {
     name: "Media and Newsletter Bots",
     description: "Automated content distribution",
-    logo: "/placeholder.svg?height=80&width=200&text=Media+Bots",
+    icon: <Users className="w-8 h-8" />,
     color: "text-green-400",
     gradient: "from-green-600 to-green-400",
   },
   {
     name: "MGOIT AI Research Publications",
     description: "Cutting-edge AI research",
-    logo: "/placeholder.svg?height=80&width=200&text=MGOIT+Research",
+    icon: <FileText className="w-8 h-8" />,
     color: "text-purple-400",
     gradient: "from-purple-600 to-purple-400",
   },
   {
     name: "Right Technology Partners AI Integration",
     description: "Enterprise AI solutions",
-    logo: "/placeholder.svg?height=80&width=200&text=Right+Tech",
+    icon: <Building2 className="w-8 h-8" />,
     color: "text-orange-400",
     gradient: "from-orange-600 to-orange-400",
   },
   {
     name: "Outerscope",
     description: "Expanding AI ventures",
-    logo: "/placeholder.svg?height=80&width=200&text=Outerscope",
+    icon: <Rocket className="w-8 h-8" />,
     color: "text-pink-400",
     gradient: "from-pink-600 to-pink-400",
   },
   {
     name: "Generative AI Platforms",
     description: "Next-generation AI platforms",
-    logo: "/placeholder.svg?height=80&width=200&text=GenAI+Platform",
+    icon: <TrendingUp className="w-8 h-8" />,
     color: "text-yellow-400",
     gradient: "from-yellow-600 to-yellow-400",
   },
@@ -85,7 +84,7 @@ const animatedStats: AnimatedStat[] = [
   },
   {
     icon: <Users className="w-8 h-8" />,
-    value: "50+",
+    value: "20+",
     label: "Projects Completed",
     color: "text-blue-400",
   },
@@ -96,9 +95,9 @@ const animatedStats: AnimatedStat[] = [
     color: "text-purple-400",
   },
   {
-    icon: <Award className="w-8 h-8" />,
-    value: "25+",
-    label: "Industry Awards",
+    icon: <Building2 className="w-8 h-8" />,
+    value: "50+",
+    label: "Startups Reached",
     color: "text-orange-400",
   },
 ]
@@ -109,7 +108,6 @@ const impactAreas: ImpactArea[] = [
     title: "Student Success Stories",
     description:
       "Empowering students with real-world experience to launch their careers and startups. Our members gain the skills, network, and confidence needed to succeed in competitive industries.",
-    stats: "85% of members secure internships or job offers within 6 months",
     color: "text-blue-400",
     gradient: "from-blue-600 to-blue-400",
   },
@@ -118,7 +116,6 @@ const impactAreas: ImpactArea[] = [
     title: "Austin Startup Ecosystem",
     description:
       "Supporting Austin's thriving startup community with strategic consulting, technology solutions, and business development. We help local entrepreneurs scale their ventures and attract investment.",
-    stats: "Helped 15+ Austin startups raise over $5M in funding",
     color: "text-green-400",
     gradient: "from-green-600 to-green-400",
   },
@@ -127,7 +124,6 @@ const impactAreas: ImpactArea[] = [
     title: "Research & Publications",
     description:
       "Conducting cutting-edge research for Fortune 500 companies and publishing insights that shape industry standards. Our research drives innovation and informs strategic decisions.",
-    stats: "Published 20+ research papers with 10,000+ citations",
     color: "text-purple-400",
     gradient: "from-purple-600 to-purple-400",
   },
@@ -136,7 +132,6 @@ const impactAreas: ImpactArea[] = [
     title: "Innovation Catalyst",
     description:
       "Bridging the gap between academic research and practical business applications. We transform theoretical concepts into market-ready solutions that drive growth and efficiency.",
-    stats: "Launched 8 successful products from research initiatives",
     color: "text-orange-400",
     gradient: "from-orange-600 to-orange-400",
   },
@@ -280,13 +275,9 @@ export default function ImpactAndPurpose() {
                   {area.title}
                 </h3>
 
-                <p className="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                   {area.description}
                 </p>
-
-                <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-4">
-                  <p className={`${area.color} font-semibold text-sm`}>{area.stats}</p>
-                </div>
 
                 {/* Animated border */}
                 <div
@@ -320,9 +311,16 @@ export default function ImpactAndPurpose() {
                 <div className="flex flex-col items-center text-center h-full relative z-10">
                   <div className="w-full h-20 sm:h-24 flex items-center justify-center mb-4 sm:mb-6">
                     <div
-                      className={`w-32 h-16 bg-gradient-to-r ${project.gradient} rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
+                      className={`w-16 h-16 rounded-full bg-gradient-to-r ${project.gradient} flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
                     >
-                      <span className="text-white font-bold text-sm">{project.name.split(" ")[0]}</span>
+                      <div className="relative">
+                        {project.icon}
+                        <div
+                          className={`absolute inset-0 text-white opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                        >
+                          {project.icon}
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <h3
