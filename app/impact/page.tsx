@@ -166,7 +166,6 @@ const mentoringPartners: MentoringPartner[] = [
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
   { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
   { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" },
-  { name: "Tesla", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" },
   { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
   { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg" },
   { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
@@ -329,22 +328,10 @@ export default function ImpactAndPurpose() {
           </p>
 
           <div className="relative mb-20">
-            <div className="flex animate-scroll min-w-max">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
               {/* First set of logos */}
               {mentoringPartners.map((partner, index) => (
-                <div key={`first-${index}`} className="flex-shrink-0 flex items-center justify-center px-8">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {mentoringPartners.map((partner, index) => (
-                <div key={`second-${index}`} className="flex-shrink-0 flex items-center justify-center px-8">
+                <div key={`first-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
                   <Image
                     src={partner.logo || "/placeholder.svg"}
                     alt={partner.name}
