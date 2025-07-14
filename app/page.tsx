@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "./components/Footer"
-import { Briefcase, Users, Rocket, TrendingUp, Star, Zap } from "lucide-react"
+import { Briefcase, Users, Rocket, TrendingUp, Star, Zap, MapPin, Globe, Trophy } from "lucide-react"
 
 const partners = [
   { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
@@ -59,6 +59,30 @@ const opportunities = [
     description: "Build a portfolio that gets noticed by recruiters and industry leaders",
     color: "text-pink-400",
     gradient: "from-pink-600 to-pink-400",
+  },
+]
+
+const expansionHighlights = [
+  {
+    icon: <MapPin className="w-8 h-8" />,
+    title: "UT Austin Founding Chapter",
+    description: "Born in the heart of innovation at one of America's top universities",
+    color: "text-orange-500",
+    gradient: "from-orange-600 to-orange-400",
+  },
+  {
+    icon: <Globe className="w-8 h-8" />,
+    title: "National Expansion",
+    description: "Expanding to elite universities across the nation - be part of the movement",
+    color: "text-blue-500",
+    gradient: "from-blue-600 to-blue-400",
+  },
+  {
+    icon: <Trophy className="w-8 h-8" />,
+    title: "Pioneer Advantage",
+    description: "Join the founding generation and shape the future of student consulting",
+    color: "text-purple-500",
+    gradient: "from-purple-600 to-purple-400",
   },
 ]
 
@@ -251,56 +275,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Preview Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Our Services</h2>
+      {/* Founding Chapter & Expansion Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Be Part of Something <span className="animated-gradient-text">Revolutionary</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              NOVA started at UT Austin and is rapidly expanding nationwide. Join the founding generation and help us
+              redefine student consulting.
+            </p>
+          </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="h-48 sm:h-56 relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop&q=80&auto=format"
-                  alt="Strategic Consulting"
-                  fill
-                  className="object-cover brightness-75"
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Strategic Consulting</h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                  Comprehensive strategic consulting services to help your business navigate complex challenges and
-                  capitalize on new opportunities.
-                </p>
-                <div className="flex justify-center">
-                  <Link href="/strategic-consulting" className="button-ellipse">
-                    <span className="button-text">View Projects</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {expansionHighlights.map((highlight, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden text-center"
+              >
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${highlight.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
 
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="h-48 sm:h-56 relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=400&fit=crop&q=80&auto=format"
-                  alt="Technology Solutions"
-                  fill
-                  className="object-cover brightness-75"
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Technology Solutions</h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                  Modern technology solutions designed to give your business a competitive edge in today's digital
-                  landscape.
-                </p>
-                <div className="flex justify-center">
-                  <Link href="/technology-solutions" className="button-ellipse">
-                    <span className="button-text">View Projects</span>
-                  </Link>
+                {/* Floating icon animation */}
+                <div
+                  className={`${highlight.color} mb-4 sm:mb-6 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {highlight.icon}
+                    <div
+                      className={`absolute inset-0 ${highlight.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {highlight.icon}
+                    </div>
+                  </div>
                 </div>
+
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
+                  {highlight.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  {highlight.description}
+                </p>
+
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${highlight.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
               </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8">
+              Don't just witness the future of consulting—help create it. Your journey to extraordinary begins now.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+              <Link href="/recruitment" className="button-ellipse">
+                <span className="button-text">Apply Now</span>
+              </Link>
+              <Link href="/about" className="button-ellipse">
+                <span className="button-text">Meet Our Founders</span>
+              </Link>
             </div>
           </div>
         </div>

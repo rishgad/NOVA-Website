@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { TrendingUp, Users, Target, Building2, GraduationCap, FileText, Rocket } from "lucide-react"
+import { TrendingUp, Users, Target, Building2, GraduationCap, FileText, Rocket, Shield, BarChart3 } from "lucide-react"
 
 interface Project {
   name: string
@@ -46,23 +46,23 @@ const projects: Project[] = [
     gradient: "from-green-600 to-green-400",
   },
   {
-    name: "MGOIT AI Research Publications",
-    description: "Cutting-edge AI research",
-    icon: <FileText className="w-8 h-8" />,
+    name: "AI Security and Testing Bot",
+    description: "Advanced cybersecurity solutions",
+    icon: <Shield className="w-8 h-8" />,
     color: "text-purple-400",
     gradient: "from-purple-600 to-purple-400",
   },
   {
-    name: "Right Technology Partners AI Integration",
+    name: "AI Security and Testing Bot",
     description: "Enterprise AI solutions",
     icon: <Building2 className="w-8 h-8" />,
     color: "text-orange-400",
     gradient: "from-orange-600 to-orange-400",
   },
   {
-    name: "Outerscope",
-    description: "Expanding AI ventures",
-    icon: <Rocket className="w-8 h-8" />,
+    name: "Exploring the World of Trading and AI",
+    description: "Financial technology innovations",
+    icon: <BarChart3 className="w-8 h-8" />,
     color: "text-pink-400",
     gradient: "from-pink-600 to-pink-400",
   },
@@ -339,6 +339,25 @@ export default function ImpactAndPurpose() {
                 ></div>
               </div>
             ))}
+          </div>
+
+          {/* Cool Call to Action for Projects */}
+          <div className="text-center mt-16">
+            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto relative overflow-hidden group">
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"></div>
+
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+                This is just the <span className="animated-gradient-text">beginning</span>
+              </h3>
+              <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+                Behind the scenes, we're working on groundbreaking projects that will reshape entire industries. The
+                future of AI consulting is being written right here, right now.
+              </p>
+              <Link href="/recruitment" className="button-ellipse group">
+                <span className="button-text">Join Us to Explore Many More Projects</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
