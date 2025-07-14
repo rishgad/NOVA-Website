@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-// Removed Image import as logo is being removed
 import { useState } from "react"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,35 +13,35 @@ export default function Header() {
     <>
       <Link
         href="/"
-        className="text-white hover:text-gray-300 opacity-80 hover:opacity-100 transition-opacity"
+        className="group text-white hover:text-purple-400 transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]"
         onClick={() => setIsOpen(false)}
       >
         Home
       </Link>
       <Link
         href="/about"
-        className="text-white hover:text-gray-300 opacity-80 hover:opacity-100 transition-opacity"
+        className="group text-white hover:text-blue-400 transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"
         onClick={() => setIsOpen(false)}
       >
         Meet the Team
       </Link>
       <Link
         href="/impact"
-        className="text-white hover:text-gray-300 opacity-80 hover:opacity-100 transition-opacity"
+        className="group text-white hover:text-green-400 transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]"
         onClick={() => setIsOpen(false)}
       >
         Our Impact
       </Link>
       <Link
         href="/recruitment"
-        className="text-white hover:text-gray-300 opacity-80 hover:opacity-100 transition-opacity"
+        className="group text-white hover:text-orange-400 transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]"
         onClick={() => setIsOpen(false)}
       >
         Join Us
       </Link>
       <Link
         href="/contact"
-        className="text-white hover:text-gray-300 opacity-80 hover:opacity-100 transition-opacity"
+        className="group text-white hover:text-pink-400 transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(244,114,182,0.5)]"
         onClick={() => setIsOpen(false)}
       >
         Contact Us
@@ -53,15 +52,13 @@ export default function Header() {
   return (
     <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-2">
-        <div className="flex justify-center md:justify-end items-center">
+        <div className="flex justify-center items-center">
           {" "}
-          {/* Changed to justify-end for desktop */}
+          {/* Changed to justify-center for both mobile and desktop */}
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4 text-sm font-orbitron tracking-wider">{navLinks}</div>
           {/* Mobile Navigation (Hamburger Menu) - Always visible and centered on mobile */}
           <div className="md:hidden w-full flex justify-center">
-            {" "}
-            {/* Added w-full and flex justify-center */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
