@@ -8,21 +8,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
-import { Mail, Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react"
+import { Phone, MapPin, Clock, MessageCircle, Send, Linkedin } from "lucide-react" // Added Linkedin icon
 
 const contactMethods = [
   {
-    icon: <Mail className="w-6 h-6" />,
-    title: "Email Us",
-    description: "Send us a detailed message",
-    contact: "info@novaconsulting.com",
-    action: "mailto:info@novaconsulting.com",
-    color: "text-blue-400",
-    gradient: "from-blue-600 to-blue-400",
-  },
-  {
     icon: <Phone className="w-6 h-6" />,
-    title: "Call or Text",
+    title: "Call Us",
     description: "Quick questions or urgent matters",
     contact: "(717) 704-7895",
     action: "tel:+17177047895",
@@ -37,6 +28,15 @@ const contactMethods = [
     action: "sms:+17177047895",
     color: "text-purple-400",
     gradient: "from-purple-600 to-purple-400",
+  },
+  {
+    icon: <Linkedin className="w-6 h-6" />, // LinkedIn icon
+    title: "Connect on LinkedIn",
+    description: "Follow our journey and message us",
+    contact: "linkedin.com/company/texas-nova",
+    action: "https://www.linkedin.com/company/texas-nova/",
+    color: "text-blue-400",
+    gradient: "from-blue-600 to-blue-400",
   },
 ]
 
@@ -77,7 +77,7 @@ ${message}
 Sent from NOVA Consulting website contact form
   `)
 
-    const mailtoLink = `mailto:info@novaconsulting.com?subject=${mailtoSubject}&body=${mailtoBody}`
+    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
     window.location.href = mailtoLink
 
     toast({

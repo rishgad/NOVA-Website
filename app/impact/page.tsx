@@ -36,6 +36,11 @@ interface ClientIndustry {
   color: string
 }
 
+interface MentoringPartner {
+  name: string
+  logo: string
+}
+
 const projects: Project[] = [
   {
     name: "VeneerVision AI",
@@ -129,7 +134,7 @@ const impactAreas: ImpactArea[] = [
     icon: <FileText className="w-12 h-12" />,
     title: "Research & Publications",
     description:
-      "Conducting cutting-edge research for Fortune 500 companies and publishing insights that shape industry standards. Our research drives innovation and informs strategic decisions.",
+      "Conducting cutting-edge research for leading companies and publishing insights that shape industry standards. Our research drives innovation and informs strategic decisions.",
     color: "text-purple-400",
     gradient: "from-purple-600 to-purple-400",
   },
@@ -154,6 +159,19 @@ const clientIndustries: ClientIndustry[] = [
   { name: "Manufacturing", icon: "🏭", color: "text-red-400" },
   { name: "Education", icon: "📚", color: "text-indigo-400" },
   { name: "Real Estate", icon: "🏢", color: "text-teal-400" },
+]
+
+const mentoringPartners: MentoringPartner[] = [
+  { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
+  { name: "Microsoft", logo: "/placeholder.svg?height=60&width=120&text=Microsoft" },
+  { name: "Amazon", logo: "/placeholder.svg?height=60&width=120&text=Amazon" },
+  { name: "Meta", logo: "/placeholder.svg?height=60&width=120&text=Meta" },
+  { name: "NVIDIA", logo: "/placeholder.svg?height=60&width=120&text=NVIDIA" },
+  { name: "IBM", logo: "/placeholder.svg?height=60&width=120&text=IBM" },
+  { name: "Salesforce", logo: "/placeholder.svg?height=60&width=120&text=Salesforce" },
+  { name: "Deloitte", logo: "/placeholder.svg?height=60&width=120&text=Deloitte" },
+  { name: "EY", logo: "/placeholder.svg?height=60&width=120&text=EY" },
+  { name: "KPMG", logo: "/placeholder.svg?height=60&width=120&text=KPMG" },
 ]
 
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
@@ -223,8 +241,49 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
-      {/* Client Industries Moving Panel */}
+      {/* Mentoring Partners Carousel Section */}
       <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
+            Mentoring Partners & Affiliates
+          </h2>
+          <p className="text-lg text-center mb-12 text-gray-300 max-w-3xl mx-auto">
+            We are proud to collaborate with and receive mentorship from leaders across various industries.
+          </p>
+
+          <div className="relative">
+            <div className="flex animate-scroll">
+              {/* First set of logos */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Industries Moving Panel */}
+      <section className="py-16 sm:py-20 relative z-10 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
             We serve clients in these realms
@@ -263,7 +322,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Animated Impact Stats */}
-      <section className="py-16 sm:py-20 relative z-10">
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
             Our Impact by the Numbers
@@ -300,7 +359,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Impact Areas Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">How We Make a Difference</h2>
 
@@ -348,7 +407,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Our Projects Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
           <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
