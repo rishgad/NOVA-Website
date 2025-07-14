@@ -1,8 +1,6 @@
 "use client"
 
 import type React from "react"
-
-import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Footer from "../components/Footer"
@@ -162,20 +160,8 @@ const clientIndustries: ClientIndustry[] = [
   { name: "Real Estate", icon: "🏢", color: "text-teal-400" },
 ]
 
-const mentoringPartners: MentoringPartner[] = [
-  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-  { name: "Cisco", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" },
-  { name: "Tesla", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" },
-  { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" },
-  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
-  { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg" },
-  { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
-  { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
-  { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
-  { name: "HP", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" },
-  { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" },
-]
+// Removed mentoringPartners array as the section is being removed
+// const mentoringPartners: MentoringPartner[] = [...]
 
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
   const [count, setCount] = useState(0)
@@ -319,7 +305,8 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
-      {/* Mentoring Partners Section */}
+      {/* Removed Mentoring Partners Section */}
+      {/*
       <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
@@ -337,13 +324,14 @@ export default function ImpactAndPurpose() {
                   alt={partner.name}
                   width={120}
                   height={60}
-                  className="h-10 sm:h-12 w-auto object-contain" // Removed grayscale filter and opacity
+                  className="h-10 sm:h-12 w-auto object-contain"
                 />
               </div>
             ))}
           </div>
         </div>
       </section>
+      */}
 
       {/* Impact Areas Section */}
       <section className="py-20 px-6 relative z-10">
