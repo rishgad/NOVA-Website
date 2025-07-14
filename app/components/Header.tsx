@@ -52,11 +52,9 @@ export default function Header() {
   return (
     <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-2">
-        <div className="flex justify-center items-center">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 font-orbitron tracking-wider">
-            {" "}
-            {/* Increased space-x from 4 to 8 */}
+        <div className="flex items-center">
+          {/* Desktop Navigation - Takes full width and justifies links between */}
+          <div className="hidden md:flex flex-1 justify-between items-center font-orbitron tracking-wider">
             {navLinks}
           </div>
           {/* Mobile Navigation (Hamburger Menu) - Always visible and centered on mobile */}
