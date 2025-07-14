@@ -1,11 +1,11 @@
-"use client" // This component needs to be a client component for interactivity
+"use client"
 
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Menu } from "lucide-react" // Import icons for menu
-import { Button } from "@/components/ui/button" // Assuming shadcn/ui button is available
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet" // Assuming shadcn/ui sheet is available
+import { Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -53,8 +53,9 @@ export default function Header() {
   return (
     <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-2">
-        <div className="flex justify-between items-center">
-          <Link href="/" className="w-20 sm:w-24">
+        <div className="flex justify-center md:justify-between items-center">
+          {/* Logo - Hidden on mobile, visible on medium screens and up */}
+          <Link href="/" className="hidden md:block w-24">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
               alt="NOVA Consulting"
@@ -67,7 +68,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4 text-sm font-orbitron tracking-wider">{navLinks}</div>
 
-          {/* Mobile Navigation (Hamburger Menu) */}
+          {/* Mobile Navigation (Hamburger Menu) - Centered when logo is hidden */}
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
