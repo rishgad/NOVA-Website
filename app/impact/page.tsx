@@ -180,9 +180,6 @@ function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
-  const numericValue = Number.parseInt(targetValue.replace(/\D/g, ""))
-  const suffix = targetValue.replace(/\d/g, "")
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -208,7 +205,7 @@ function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string
       const progress = Math.min((currentTime - startTime) / duration, 1)
 
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
-      setCount(Math.floor(easeOutQuart * numericValue))
+      setCount(Math.floor(easeOutQuart * Number.parseInt(targetValue.replace(/\D/g, ""))))
 
       if (progress < 1) {
         requestAnimationFrame(animate)
@@ -216,7 +213,9 @@ function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string
     }
 
     requestAnimationFrame(animate)
-  }, [isVisible, numericValue, duration])
+  }, [isVisible, targetValue, duration])
+
+  const suffix = targetValue.replace(/\d/g, "")
 
   return (
     <span id={`counter-${targetValue}`} className="font-bold text-3xl sm:text-4xl">
@@ -320,7 +319,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Mentoring Partners Section */}
-      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
             Mentors & Affiliates from these Companies
@@ -329,39 +328,18 @@ export default function ImpactAndPurpose() {
             We are proud to collaborate with and receive mentorship from leaders across various industries.
           </p>
 
-          <div className="relative mb-20">
-            <div className="flex animate-scroll">
-              {/* First set of logos */}
-              {mentoringPartners.map((partner, index) => (
-                <div
-                  key={`first-${index}`}
-                  className="flex-shrink-0 w-[150px] mx-16 sm:mx-24 flex items-center justify-center"
-                >
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {mentoringPartners.map((partner, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex-shrink-0 w-[150px] mx-16 sm:mx-24 flex items-center justify-center"
-                >
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-16 gap-y-12 justify-items-center mb-20">
+            {mentoringPartners.map((partner, index) => (
+              <div key={index} className="flex items-center justify-center p-2">
+                <Image
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={partner.name}
+                  width={120}
+                  height={60}
+                  className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
