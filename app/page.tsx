@@ -142,19 +142,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Full Name and AI Explanation Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
-        <div className="container mx-auto text-center max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-            NOVA: <span className="animated-gradient-text">New Opportunities for Virtual Advancements</span>
-          </h2>
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Our name reflects our core mission: to create groundbreaking opportunities by leveraging cutting-edge AI and
-            virtual technologies. We empower businesses and individuals to thrive in the digital frontier.
-          </p>
-        </div>
-      </section>
-
       {/* Partners Carousel Section */}
       <section className="py-16 sm:py-20 relative z-10 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
@@ -290,6 +277,19 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Full Name and AI Explanation Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
+        <div className="container mx-auto text-center max-w-3xl">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+            NOVA: <span className="animated-gradient-text">New Opportunities for Virtual Advancements</span>
+          </h2>
+          <p className="text-lg text-gray-300 leading-relaxed">
+            Our name reflects our core mission: to create groundbreaking opportunities by leveraging cutting-edge AI and
+            virtual technologies. We empower businesses and individuals to thrive in the digital frontier.
+          </p>
         </div>
       </section>
 
