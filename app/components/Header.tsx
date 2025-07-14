@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
+// Removed Image import as logo is being removed
 import { useState } from "react"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -53,28 +53,26 @@ export default function Header() {
   return (
     <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-2">
-        <div className="flex justify-center md:justify-between items-center">
-          {/* Logo - Hidden on screens smaller than 'md', visible on 'md' and up */}
-          <Link href="/" className="hidden md:block w-24">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
-              alt="NOVA Consulting"
-              width={200}
-              height={100}
-              className="w-full h-auto opacity-90 mix-blend-screen"
-            />
-          </Link>
-
+        <div className="flex justify-center md:justify-end items-center">
+          {" "}
+          {/* Changed to justify-end for desktop */}
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4 text-sm font-orbitron tracking-wider">{navLinks}</div>
-
-          {/* Mobile Navigation (Hamburger Menu) - Centered when logo is hidden */}
-          <div className="md:hidden">
+          {/* Mobile Navigation (Hamburger Menu) - Always visible and centered on mobile */}
+          <div className="md:hidden w-full flex justify-center">
+            {" "}
+            {/* Added w-full and flex justify-center */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white">
-                  <Menu className="h-6 w-6" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white h-12 w-12 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 relative overflow-hidden group"
+                >
+                  <Menu className="h-7 w-7 relative z-10" />
                   <span className="sr-only">Toggle navigation menu</span>
+                  {/* Cool effect for the button */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-full"></div>
                 </Button>
               </SheetTrigger>
               <SheetContent
