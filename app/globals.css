@@ -63,7 +63,7 @@
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 40s linear infinite; /* Increased duration for smoother scroll */
 }
 
 .logo-glow {
