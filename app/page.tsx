@@ -5,39 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import Footer from "./components/Footer"
 
-const projects = [
-  {
-    name: "VeneerVision AI",
-    description: "AI-powered dental imaging",
-    logo: "/placeholder.svg?height=80&width=200&text=VeneerVision+AI",
-  },
-  {
-    name: "Media and Newsletter Bots",
-    description: "Automated content distribution",
-    logo: "/placeholder.svg?height=80&width=200&text=Media+Bots",
-  },
-  {
-    name: "MGOIT AI Research Publications",
-    description: "Cutting-edge AI research",
-    logo: "/placeholder.svg?height=80&width=200&text=MGOIT+Research",
-  },
-  {
-    name: "Right Technology Partners AI Integration",
-    description: "Enterprise AI solutions",
-    logo: "/placeholder.svg?height=80&width=200&text=Right+Tech",
-  },
-  {
-    name: "Outerscope",
-    description: "Expanding AI ventures",
-    logo: "/placeholder.svg?height=80&width=200&text=Outerscope",
-  },
-  {
-    name: "Generative AI Platforms",
-    description: "Next-generation AI platforms",
-    logo: "/placeholder.svg?height=80&width=200&text=GenAI+Platform",
-  },
-]
-
 const partners = [
   { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
   { name: "Microsoft", logo: "/placeholder.svg?height=60&width=120&text=Microsoft" },
@@ -117,25 +84,17 @@ export default function Home() {
               {/* First set of logos */}
               {partners.map((partner, index) => (
                 <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity filter grayscale"
-                  />
+                  <div className="h-8 sm:h-12 w-24 sm:w-32 bg-white bg-opacity-70 rounded flex items-center justify-center">
+                    <span className="text-black font-bold text-xs sm:text-sm">{partner.name}</span>
+                  </div>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {partners.map((partner, index) => (
                 <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity filter grayscale"
-                  />
+                  <div className="h-8 sm:h-12 w-24 sm:w-32 bg-white bg-opacity-70 rounded flex items-center justify-center">
+                    <span className="text-black font-bold text-xs sm:text-sm">{partner.name}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -143,41 +102,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects & Clients Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-black bg-opacity-30 relative z-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">Our Projects</h2>
-          <p className="text-lg sm:text-xl text-center mb-12 sm:mb-16 text-gray-300 max-w-3xl mx-auto">
-            Innovative AI solutions transforming industries and driving the future of technology
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow group"
-              >
-                <div className="flex flex-col items-center text-center h-full">
-                  <div className="w-full h-20 sm:h-24 flex items-center justify-center mb-4 sm:mb-6">
-                    <Image
-                      src={project.logo || "/placeholder.svg"}
-                      alt={project.name}
-                      width={200}
-                      height={80}
-                      className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white leading-tight">{project.name}</h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{project.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Who We Are</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
@@ -215,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Our Services</h2>
 
         <div className="max-w-6xl mx-auto">
@@ -270,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* Contact Preview Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Get In Touch</h2>
 
         <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto text-center">

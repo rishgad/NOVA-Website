@@ -9,6 +9,12 @@ interface ImpactProject {
   imageUrl: string
 }
 
+interface Project {
+  name: string
+  description: string
+  logo: string
+}
+
 const impactProjects: ImpactProject[] = [
   {
     title: "Education Technology Initiative",
@@ -42,6 +48,39 @@ const impactProjects: ImpactProject[] = [
       "Improved customer satisfaction and loyalty",
     ],
     imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=500&fit=crop&q=80&auto=format",
+  },
+]
+
+const projects: Project[] = [
+  {
+    name: "VeneerVision AI",
+    description: "AI-powered dental imaging",
+    logo: "/placeholder.svg?height=80&width=200&text=VeneerVision+AI",
+  },
+  {
+    name: "Media and Newsletter Bots",
+    description: "Automated content distribution",
+    logo: "/placeholder.svg?height=80&width=200&text=Media+Bots",
+  },
+  {
+    name: "MGOIT AI Research Publications",
+    description: "Cutting-edge AI research",
+    logo: "/placeholder.svg?height=80&width=200&text=MGOIT+Research",
+  },
+  {
+    name: "Right Technology Partners AI Integration",
+    description: "Enterprise AI solutions",
+    logo: "/placeholder.svg?height=80&width=200&text=Right+Tech",
+  },
+  {
+    name: "Outerscope",
+    description: "Expanding AI ventures",
+    logo: "/placeholder.svg?height=80&width=200&text=Outerscope",
+  },
+  {
+    name: "Generative AI Platforms",
+    description: "Next-generation AI platforms",
+    logo: "/placeholder.svg?height=80&width=200&text=GenAI+Platform",
   },
 ]
 
@@ -147,8 +186,41 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
-      {/* Impact Projects Section */}
+      {/* Our Projects Section */}
       <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
+          <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
+            Innovative AI solutions transforming industries and driving the future of technology
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow group"
+              >
+                <div className="flex flex-col items-center text-center h-full">
+                  <div className="w-full h-20 sm:h-24 flex items-center justify-center mb-4 sm:mb-6">
+                    <Image
+                      src={project.logo || "/placeholder.svg"}
+                      alt={project.name}
+                      width={200}
+                      height={80}
+                      className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white leading-tight">{project.name}</h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{project.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Projects Section */}
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Impact</h2>
 
@@ -190,7 +262,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Make an Impact?</h2>
           <p className="text-xl text-gray-300 mb-8">
