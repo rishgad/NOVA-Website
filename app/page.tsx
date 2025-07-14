@@ -105,9 +105,9 @@ export default function Home() {
   return (
     <div className="flex flex-col pt-16">
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-start items-center relative z-10 px-4 sm:px-6 pt-24">
+      <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-12">
         {" "}
-        {/* Changed justify-center to justify-start and added pt-24 */}
+        {/* Removed min-h-screen and justify-start, adjusted pt to 12 */}
         <div
           className={`w-48 sm:w-64 md:w-80 mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
