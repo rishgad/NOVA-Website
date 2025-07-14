@@ -320,7 +320,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Mentoring Partners Section */}
-      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
             Mentors & Affiliates from these Companies
@@ -329,18 +329,33 @@ export default function ImpactAndPurpose() {
             We are proud to collaborate with and receive mentorship from leaders across various industries.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 justify-items-center mb-20">
-            {mentoringPartners.map((partner, index) => (
-              <div key={index} className="flex items-center justify-center p-2">
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={partner.name}
-                  width={120}
-                  height={60}
-                  className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-            ))}
+          <div className="relative mb-20">
+            <div className="flex animate-scroll">
+              {/* First set of logos */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {mentoringPartners.map((partner, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -417,13 +432,11 @@ export default function ImpactAndPurpose() {
                     <div
                       className={`w-16 h-16 rounded-full bg-gradient-to-r ${project.gradient} flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
                     >
-                      <div className="relative">
+                      {project.icon}
+                      <div
+                        className={`absolute inset-0 text-white opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                      >
                         {project.icon}
-                        <div
-                          className={`absolute inset-0 text-white opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
-                        >
-                          {project.icon}
-                        </div>
                       </div>
                     </div>
                   </div>
