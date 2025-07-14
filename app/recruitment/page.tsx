@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp, Sparkles, Zap, Trophy } from "lucide-react"
 
 interface JobPosition {
   id: string
@@ -115,6 +115,30 @@ const faqs = [
   },
 ]
 
+const exclusiveFeatures = [
+  {
+    icon: <Sparkles className="w-8 h-8" />,
+    title: "Exclusive Access",
+    description: "Get early access to cutting-edge AI tools and platforms before they hit the market",
+    color: "text-purple-400",
+    gradient: "from-purple-600 to-purple-400",
+  },
+  {
+    icon: <Zap className="w-8 h-8" />,
+    title: "Fast-Track Program",
+    description: "Accelerated learning path with personalized mentorship from industry leaders",
+    color: "text-blue-400",
+    gradient: "from-blue-600 to-blue-400",
+  },
+  {
+    icon: <Trophy className="w-8 h-8" />,
+    title: "Achievement Recognition",
+    description: "Official certifications and LinkedIn endorsements that boost your professional profile",
+    color: "text-orange-400",
+    gradient: "from-orange-600 to-orange-400",
+  },
+]
+
 export default function Recruitment() {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
@@ -123,14 +147,29 @@ export default function Recruitment() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ fullName, email, resume })
+
+    // Create mailto link with application details
+    const subject = encodeURIComponent("NOVA Consulting Application - " + fullName)
+    const body = encodeURIComponent(`
+Application for Technical Consultant Position
+
+Name: ${fullName}
+Email: ${email}
+Resume: ${resume ? resume.name : "Not attached"}
+
+Please find my resume attached. I am excited about the opportunity to join NOVA Consulting and contribute to your innovative projects.
+
+Best regards,
+${fullName}
+    `)
+
+    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = mailtoLink
+
     toast({
-      title: "Application submitted!",
-      description: "We'll review your application and get back to you soon.",
+      title: "Application prepared!",
+      description: "Your email client will open. Please attach your resume and send the email.",
     })
-    setFullName("")
-    setEmail("")
-    setResume(null)
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -160,8 +199,63 @@ export default function Recruitment() {
         </div>
       </section>
 
+      {/* Exclusive Features Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Exclusive <span className="animated-gradient-text">Member Benefits</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Join NOVA and unlock exclusive opportunities that set you apart from the competition.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {exclusiveFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+              >
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+
+                {/* Floating icon animation */}
+                <div
+                  className={`${feature.color} mb-4 sm:mb-6 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {feature.icon}
+                    <div
+                      className={`absolute inset-0 ${feature.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {feature.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
+                  {feature.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-gray-300 text-center leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  {feature.description}
+                </p>
+
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Culture Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2">

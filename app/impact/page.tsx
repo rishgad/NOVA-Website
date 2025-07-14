@@ -30,6 +30,12 @@ interface ImpactArea {
   gradient: string
 }
 
+interface ClientIndustry {
+  name: string
+  icon: string
+  color: string
+}
+
 const projects: Project[] = [
   {
     name: "VeneerVision AI",
@@ -137,6 +143,19 @@ const impactAreas: ImpactArea[] = [
   },
 ]
 
+const clientIndustries: ClientIndustry[] = [
+  { name: "Technology", icon: "💻", color: "text-blue-400" },
+  { name: "Healthcare", icon: "🏥", color: "text-green-400" },
+  { name: "Media & Entertainment", icon: "🎬", color: "text-purple-400" },
+  { name: "Sports & Recreation", icon: "⚽", color: "text-orange-400" },
+  { name: "Hospitality", icon: "🏨", color: "text-pink-400" },
+  { name: "Retail & E-commerce", icon: "🛍️", color: "text-yellow-400" },
+  { name: "Financial Services", icon: "💰", color: "text-cyan-400" },
+  { name: "Manufacturing", icon: "🏭", color: "text-red-400" },
+  { name: "Education", icon: "📚", color: "text-indigo-400" },
+  { name: "Real Estate", icon: "🏢", color: "text-teal-400" },
+]
+
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -204,8 +223,47 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
+      {/* Client Industries Moving Panel */}
+      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-lg text-center mb-12 text-gray-300 max-w-3xl mx-auto">
+            From Fortune 500 companies to innovative startups, we serve clients across diverse industries
+          </p>
+
+          <div className="relative">
+            <div className="flex animate-scroll">
+              {/* First set of industries */}
+              {clientIndustries.map((industry, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
+                  <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+                    <div className="text-center">
+                      <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
+                      <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {clientIndustries.map((industry, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
+                  <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+                    <div className="text-center">
+                      <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
+                      <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Animated Impact Stats */}
-      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
             Our Impact by the Numbers
@@ -242,7 +300,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Impact Areas Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">How We Make a Difference</h2>
 
@@ -290,7 +348,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Our Projects Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
           <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
@@ -363,7 +421,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Make an Impact?</h2>
           <p className="text-xl text-gray-300 mb-8">
