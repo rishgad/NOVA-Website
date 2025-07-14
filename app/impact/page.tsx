@@ -333,25 +333,31 @@ export default function ImpactAndPurpose() {
             <div className="flex animate-scroll">
               {/* First set of logos */}
               {mentoringPartners.map((partner, index) => (
-                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                <div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 w-[150px] mx-16 sm:mx-24 flex items-center justify-center"
+                >
                   <Image
                     src={partner.logo || "/placeholder.svg"}
                     alt={partner.name}
                     width={120}
                     height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    className="h-8 sm:h-12 object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {mentoringPartners.map((partner, index) => (
-                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
+                <div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 w-[150px] mx-16 sm:mx-24 flex items-center justify-center"
+                >
                   <Image
                     src={partner.logo || "/placeholder.svg"}
                     alt={partner.name}
                     width={120}
                     height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    className="h-8 sm:h-12 object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               ))}
