@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Full Name and AI Explanation Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
         <div className="container mx-auto text-center max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
             NOVA: <span className="animated-gradient-text">New Opportunities for Virtual Advancements</span>
@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* Opportunities Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
         <div className="container mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
@@ -202,7 +202,7 @@ export default function Home() {
             {opportunities.map((opportunity, index) => (
               <div
                 key={index}
-                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
               >
                 {/* Animated background gradient */}
                 <div
@@ -289,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Founding Chapter & Expansion Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
         <div className="container mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
@@ -305,7 +305,7 @@ export default function Home() {
             {expansionHighlights.map((highlight, index) => (
               <div
                 key={index}
-                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden text-center"
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden text-center"
               >
                 {/* Animated background gradient */}
                 <div
@@ -362,7 +362,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Get In Touch</h2>
 
-        <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto text-center">
+        <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Ready to transform your business?</h3>
           <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
             Our team of experts is ready to help you navigate challenges and seize new opportunities.

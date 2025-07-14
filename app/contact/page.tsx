@@ -75,7 +75,7 @@ ${message}
 
 ---
 Sent from NOVA Consulting website contact form
-  `)
+`)
 
     const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
     window.location.href = mailtoLink
@@ -106,7 +106,7 @@ Sent from NOVA Consulting website contact form
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
+          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
             <div className="flex items-center mb-6">
               <Send className="w-6 h-6 text-blue-400 mr-3" />
               <h2 className="text-2xl font-bold text-white">Send us a Message</h2>
@@ -183,7 +183,7 @@ Sent from NOVA Consulting website contact form
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Logo and Description */}
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 text-center">
+            <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-center">
               <div className="w-32 mx-auto mb-6">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
@@ -207,7 +207,7 @@ Sent from NOVA Consulting website contact form
                 <a
                   key={index}
                   href={method.action}
-                  className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-6 block transform transition-all duration-300 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+                  className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 block transform transition-all duration-300 hover:scale-105 hover:shadow-glow relative overflow-hidden"
                 >
                   {/* Animated background gradient */}
                   <div
@@ -229,7 +229,7 @@ Sent from NOVA Consulting website contact form
             </div>
 
             {/* Office Information */}
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">Office Information</h3>
               <div className="space-y-4">
                 {officeInfo.map((info, index) => (
@@ -245,7 +245,7 @@ Sent from NOVA Consulting website contact form
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <a

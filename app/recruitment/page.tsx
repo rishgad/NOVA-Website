@@ -161,7 +161,7 @@ Please find my resume attached. I am excited about the opportunity to join NOVA 
 
 Best regards,
 ${fullName}
-    `)
+  `)
 
     const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${subject}&body=${body}`
     window.location.href = mailtoLink
@@ -200,7 +200,7 @@ ${fullName}
       </section>
 
       {/* Exclusive Features Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
         <div className="container mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
@@ -215,7 +215,7 @@ ${fullName}
             {exclusiveFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
               >
                 {/* Animated background gradient */}
                 <div
@@ -289,14 +289,14 @@ ${fullName}
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Why Join NOVA?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
                 <h3 className="text-xl font-bold mb-2 text-white">{benefit.title}</h3>
@@ -329,11 +329,11 @@ ${fullName}
       </section>
 
       {/* Application Form Section */}
-      <section id="apply" className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section id="apply" className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Apply Now</h2>
 
-          <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
+          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
             <h3 className="text-xl font-bold mb-6 text-white">Application for Technical Consultant</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -397,7 +397,7 @@ ${fullName}
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:shadow-glow"
+                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:shadow-glow"
               >
                 <button onClick={() => toggleFaq(index)} className="flex justify-between items-center w-full text-left">
                   <h3 className="text-xl font-bold text-white">{faq.question}</h3>

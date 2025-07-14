@@ -244,7 +244,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Client Industries Moving Panel */}
-      <section className="py-16 sm:py-20 relative z-10 overflow-hidden">
+      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
             We serve clients in these realms
@@ -258,7 +258,7 @@ export default function ImpactAndPurpose() {
               {/* First set of industries */}
               {clientIndustries.map((industry, index) => (
                 <div key={`first-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
-                  <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+                  <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
                     <div className="text-center">
                       <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
                       <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
@@ -269,7 +269,7 @@ export default function ImpactAndPurpose() {
               {/* Duplicate set for seamless loop */}
               {clientIndustries.map((industry, index) => (
                 <div key={`second-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
-                  <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+                  <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
                     <div className="text-center">
                       <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
                       <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
@@ -283,7 +283,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Animated Impact Stats */}
-      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
             Our Impact by the Numbers
@@ -293,7 +293,7 @@ export default function ImpactAndPurpose() {
             {animatedStats.map((stat, index) => (
               <div
                 key={index}
-                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-glow"
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-glow"
               >
                 <div
                   className={`${stat.color} mb-4 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
@@ -320,7 +320,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Mentoring Partners Section */}
-      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-20">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
             Mentors & Affiliates from these Companies
@@ -329,7 +329,7 @@ export default function ImpactAndPurpose() {
             We are proud to collaborate with and receive mentorship from leaders across various industries.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 justify-items-center items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 justify-items-center items-center max-w-6xl mx-auto">
             {mentoringPartners.map((partner, index) => (
               <div key={index} className="flex items-center justify-center w-full h-20">
                 <Image
@@ -394,7 +394,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Our Projects Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
           <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
@@ -405,7 +405,7 @@ export default function ImpactAndPurpose() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
               >
                 {/* Animated background gradient */}
                 <div
@@ -445,7 +445,7 @@ export default function ImpactAndPurpose() {
 
           {/* Cool Call to Action for Projects */}
           <div className="text-center mt-16">
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto relative overflow-hidden group">
+            <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto relative overflow-hidden group">
               {/* Animated background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"></div>
 
@@ -465,7 +465,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Make an Impact?</h2>
           <p className="text-xl text-gray-300 mb-8">

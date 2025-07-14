@@ -68,7 +68,7 @@ export default function TechnologySolutions() {
                 <h2 className="text-2xl font-bold text-white">{project.title}</h2>
                 <p className="text-gray-400">Client: {project.client}</p>
                 <p className="text-gray-300">{project.description}</p>
-                <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-4">
+                <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-xl p-4">
                   <h3 className="text-lg font-semibold text-white mb-2">Outcome:</h3>
                   <p className="text-gray-300">{project.outcome}</p>
                 </div>
