@@ -297,6 +297,8 @@ export default function ImpactAndPurpose() {
                     alt={partner.name}
                     width={120}
                     height={60}
+                    // The 'filter grayscale opacity-50' class makes the logos appear black and white and faded.
+                    // Remove or adjust this class if you prefer them in full color or more prominent.
                     className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
@@ -309,6 +311,8 @@ export default function ImpactAndPurpose() {
                     alt={partner.name}
                     width={120}
                     height={60}
+                    // The 'filter grayscale opacity-50' class makes the logos appear black and white and faded.
+                    // Remove or adjust this class if you prefer them in full color or more prominent.
                     className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
