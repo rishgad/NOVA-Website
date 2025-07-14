@@ -42,7 +42,7 @@ const opportunities = [
   {
     icon: <Users className="w-8 h-8" />,
     title: "Elite Referrals",
-    description: "Leverage our alumni network across Silicon Valley, Wall Street, and beyond",
+    description: "Leverage our client network across Silicon Valley, Wall Street, and beyond",
     color: "text-orange-400",
     gradient: "from-orange-600 to-orange-400",
   },

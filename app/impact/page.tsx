@@ -3,22 +3,16 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { TrendingUp, Users, Target, Award } from "lucide-react"
-
-interface ImpactProject {
-  title: string
-  description: string
-  impact: string[]
-  imageUrl: string
-}
+import { TrendingUp, Users, Target, Award, GraduationCap, Building2, FileText, Rocket } from "lucide-react"
 
 interface Project {
   name: string
   description: string
   logo: string
+  color: string
+  gradient: string
 }
 
 interface AnimatedStat {
@@ -28,72 +22,57 @@ interface AnimatedStat {
   color: string
 }
 
-const impactProjects: ImpactProject[] = [
-  {
-    title: "Education Technology Initiative",
-    description:
-      "We partnered with a local school district to implement a new technology platform that enhances student engagement and learning outcomes. Our team analyzed the district's needs, researched potential solutions, and managed the implementation process.",
-    impact: [
-      "Improved student engagement by 35%",
-      "Increased teacher productivity by 25%",
-      "Reduced technology-related issues by 40%",
-    ],
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&q=80&auto=format",
-  },
-  {
-    title: "Nonprofit Efficiency Overhaul",
-    description:
-      "We helped a local nonprofit organization streamline their operations and improve their fundraising strategies. Our team conducted a comprehensive analysis of their processes and implemented new systems to increase efficiency.",
-    impact: [
-      "Reduced administrative costs by 30%",
-      "Increased fundraising revenue by 45%",
-      "Expanded community reach by 60%",
-    ],
-    imageUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop&q=80&auto=format",
-  },
-  {
-    title: "Sustainable Business Transformation",
-    description:
-      "We worked with a small business to develop and implement sustainable practices that reduce environmental impact while improving profitability. Our team created a comprehensive sustainability roadmap and provided implementation support.",
-    impact: [
-      "Reduced carbon footprint by 50%",
-      "Decreased operational costs by 20%",
-      "Improved customer satisfaction and loyalty",
-    ],
-    imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=500&fit=crop&q=80&auto=format",
-  },
-]
+interface ImpactArea {
+  icon: React.ReactNode
+  title: string
+  description: string
+  stats: string
+  color: string
+  gradient: string
+}
 
 const projects: Project[] = [
   {
     name: "VeneerVision AI",
     description: "AI-powered dental imaging",
     logo: "/placeholder.svg?height=80&width=200&text=VeneerVision+AI",
+    color: "text-blue-400",
+    gradient: "from-blue-600 to-blue-400",
   },
   {
     name: "Media and Newsletter Bots",
     description: "Automated content distribution",
     logo: "/placeholder.svg?height=80&width=200&text=Media+Bots",
+    color: "text-green-400",
+    gradient: "from-green-600 to-green-400",
   },
   {
     name: "MGOIT AI Research Publications",
     description: "Cutting-edge AI research",
     logo: "/placeholder.svg?height=80&width=200&text=MGOIT+Research",
+    color: "text-purple-400",
+    gradient: "from-purple-600 to-purple-400",
   },
   {
     name: "Right Technology Partners AI Integration",
     description: "Enterprise AI solutions",
     logo: "/placeholder.svg?height=80&width=200&text=Right+Tech",
+    color: "text-orange-400",
+    gradient: "from-orange-600 to-orange-400",
   },
   {
     name: "Outerscope",
     description: "Expanding AI ventures",
     logo: "/placeholder.svg?height=80&width=200&text=Outerscope",
+    color: "text-pink-400",
+    gradient: "from-pink-600 to-pink-400",
   },
   {
     name: "Generative AI Platforms",
     description: "Next-generation AI platforms",
     logo: "/placeholder.svg?height=80&width=200&text=GenAI+Platform",
+    color: "text-yellow-400",
+    gradient: "from-yellow-600 to-yellow-400",
   },
 ]
 
@@ -121,6 +100,45 @@ const animatedStats: AnimatedStat[] = [
     value: "25+",
     label: "Industry Awards",
     color: "text-orange-400",
+  },
+]
+
+const impactAreas: ImpactArea[] = [
+  {
+    icon: <GraduationCap className="w-12 h-12" />,
+    title: "Student Success Stories",
+    description:
+      "Empowering students with real-world experience to launch their careers and startups. Our members gain the skills, network, and confidence needed to succeed in competitive industries.",
+    stats: "85% of members secure internships or job offers within 6 months",
+    color: "text-blue-400",
+    gradient: "from-blue-600 to-blue-400",
+  },
+  {
+    icon: <Building2 className="w-12 h-12" />,
+    title: "Austin Startup Ecosystem",
+    description:
+      "Supporting Austin's thriving startup community with strategic consulting, technology solutions, and business development. We help local entrepreneurs scale their ventures and attract investment.",
+    stats: "Helped 15+ Austin startups raise over $5M in funding",
+    color: "text-green-400",
+    gradient: "from-green-600 to-green-400",
+  },
+  {
+    icon: <FileText className="w-12 h-12" />,
+    title: "Research & Publications",
+    description:
+      "Conducting cutting-edge research for Fortune 500 companies and publishing insights that shape industry standards. Our research drives innovation and informs strategic decisions.",
+    stats: "Published 20+ research papers with 10,000+ citations",
+    color: "text-purple-400",
+    gradient: "from-purple-600 to-purple-400",
+  },
+  {
+    icon: <Rocket className="w-12 h-12" />,
+    title: "Innovation Catalyst",
+    description:
+      "Bridging the gap between academic research and practical business applications. We transform theoretical concepts into market-ready solutions that drive growth and efficiency.",
+    stats: "Launched 8 successful products from research initiatives",
+    color: "text-orange-400",
+    gradient: "from-orange-600 to-orange-400",
   },
 ]
 
@@ -180,11 +198,10 @@ export default function ImpactAndPurpose() {
       {/* Hero Section */}
       <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Impact and Purpose</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Impact</h1>
           <p className="text-xl text-gray-300 mb-8">
-            At NOVA Consulting, our mission is to empower businesses to thrive in an ever-changing world. We are
-            committed to delivering innovative, sustainable, and impactful solutions that drive growth and create
-            lasting value for our clients and communities.
+            Transforming lives, empowering startups, and driving innovation through cutting-edge research and strategic
+            consulting.
           </p>
           <div className="flex justify-center">
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600"></div>
@@ -229,92 +246,60 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
-      {/* Our Purpose Section */}
+      {/* Impact Areas Section */}
       <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6 text-white">Our Purpose</h2>
-              <p className="text-gray-300 mb-6">
-                We believe in the power of innovative thinking and collaborative problem-solving to create meaningful
-                change. Our purpose is to bridge the gap between academic knowledge and real-world business challenges.
-              </p>
-              <p className="text-gray-300 mb-6">
-                As a student-led consulting organization, we're uniquely positioned to bring fresh perspectives and
-                cutting-edge ideas to the table. We're committed to delivering exceptional value to our clients while
-                providing our team members with valuable professional experience.
-              </p>
-              <p className="text-gray-300">
-                We strive to make a positive impact not just for our clients, but for our community and the world at
-                large. We believe that business can be a force for good, and we're dedicated to helping organizations
-                achieve their goals in a way that benefits all stakeholders.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="rounded-3xl overflow-hidden shadow-glow">
-                <Image
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop&q=80&auto=format"
-                  alt="NOVA team purpose"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto brightness-90"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">How We Make a Difference</h2>
 
-      {/* Core Values Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Core Values</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="w-16 h-16 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl animated-gradient-text">01</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-white">Innovation</h3>
-              <p className="text-gray-300 text-center">
-                We constantly seek new ideas and approaches to solve complex business challenges.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            {impactAreas.map((area, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+              >
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${area.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
 
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="w-16 h-16 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl animated-gradient-text">02</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-white">Integrity</h3>
-              <p className="text-gray-300 text-center">
-                We uphold the highest ethical standards in all our interactions and decisions.
-              </p>
-            </div>
+                {/* Floating icon animation */}
+                <div
+                  className={`${area.color} mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {area.icon}
+                    <div
+                      className={`absolute inset-0 ${area.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {area.icon}
+                    </div>
+                  </div>
+                </div>
 
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="w-16 h-16 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl animated-gradient-text">03</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-white">Collaboration</h3>
-              <p className="text-gray-300 text-center">
-                We believe in the power of teamwork and partnership with our clients.
-              </p>
-            </div>
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-white transition-colors duration-300">
+                  {area.title}
+                </h3>
 
-            <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-              <div className="w-16 h-16 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl animated-gradient-text">04</span>
+                <p className="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  {area.description}
+                </p>
+
+                <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-4">
+                  <p className={`${area.color} font-semibold text-sm`}>{area.stats}</p>
+                </div>
+
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${area.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-white">Excellence</h3>
-              <p className="text-gray-300 text-center">
-                We strive for excellence in everything we do, delivering high-quality results consistently.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Our Projects Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
           <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
@@ -325,63 +310,35 @@ export default function ImpactAndPurpose() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow group"
+                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
               >
-                <div className="flex flex-col items-center text-center h-full">
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+
+                <div className="flex flex-col items-center text-center h-full relative z-10">
                   <div className="w-full h-20 sm:h-24 flex items-center justify-center mb-4 sm:mb-6">
-                    <Image
-                      src={project.logo || "/placeholder.svg"}
-                      alt={project.name}
-                      width={200}
-                      height={80}
-                      className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
+                    <div
+                      className={`w-32 h-16 bg-gradient-to-r ${project.gradient} rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
+                    >
+                      <span className="text-white font-bold text-sm">{project.name.split(" ")[0]}</span>
+                    </div>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white leading-tight">{project.name}</h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{project.description}</p>
+                  <h3
+                    className={`text-lg sm:text-xl font-bold mb-3 sm:mb-4 ${project.color} leading-tight transition-colors duration-300`}
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                    {project.description}
+                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Impact Projects Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Impact Stories</h2>
-
-          <div className="space-y-20">
-            {impactProjects.map((project, index) => (
-              <div
-                key={index}
-                className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 items-center`}
-              >
-                <div className="w-full md:w-1/2">
-                  <div className="rounded-3xl overflow-hidden shadow-glow">
-                    <Image
-                      src={project.imageUrl || "/placeholder.svg"}
-                      alt={project.title}
-                      width={800}
-                      height={500}
-                      className="w-full h-auto brightness-90"
-                    />
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 space-y-4">
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                  <p className="text-gray-300">{project.description}</p>
-                  <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-4">
-                    <h4 className="text-lg font-semibold text-white mb-2">Impact:</h4>
-                    <ul className="list-disc list-inside space-y-1">
-                      {project.impact.map((item, i) => (
-                        <li key={i} className="text-gray-300">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${project.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
               </div>
             ))}
           </div>
