@@ -163,18 +163,51 @@ const clientIndustries: ClientIndustry[] = [
 ]
 
 const mentoringPartners: MentoringPartner[] = [
-  { name: "Cisco", logo: "/placeholder.svg?height=60&width=120&text=Cisco" },
-  { name: "Accenture", logo: "/placeholder.svg?height=60&width=120&text=Accenture" },
-  { name: "American Eagle", logo: "/placeholder.svg?height=60&width=120&text=American%20Eagle" },
-  { name: "Microsoft", logo: "/placeholder.svg?height=60&width=120&text=Microsoft" },
-  { name: "NVIDIA", logo: "/placeholder.svg?height=60&width=120&text=NVIDIA" },
-  { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
-  { name: "Deloitte", logo: "/placeholder.svg?height=60&width=120&text=Deloitte" },
-  { name: "EY", logo: "/placeholder.svg?height=60&width=120&text=EY" },
-  { name: "KPMG", logo: "/placeholder.svg?height=60&width=120&text=KPMG" },
-  { name: "IBM", logo: "/placeholder.svg?height=60&width=120&text=IBM" },
-  { name: "Salesforce", logo: "/placeholder.svg?height=60&width=120&text=Salesforce" },
-  { name: "Meta", logo: "/placeholder.svg?height=60&width=120&text=Meta" },
+  { name: "Cisco", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.png" },
+  {
+    name: "Accenture",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png",
+  },
+  {
+    name: "American Eagle",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/American_Eagle_Outfitters_logo.svg/2560px-American_Eagle_Outfitters_logo.svg.png",
+  },
+  {
+    name: "Microsoft",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png",
+  },
+  {
+    name: "NVIDIA",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/2560px-Nvidia_logo.svg.png",
+  },
+  {
+    name: "Google",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
+  },
+  {
+    name: "Deloitte",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Deloitte_logo.svg/2560px-Deloitte_logo.svg.png",
+  },
+  {
+    name: "EY",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/EY_logo_2019.svg/2560px-EY_logo_2019.svg.png",
+  },
+  {
+    name: "KPMG",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/KPMG_logo.svg/2560px-KPMG_logo.svg.png",
+  },
+  {
+    name: "IBM",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png",
+  },
+  {
+    name: "Salesforce",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/2560px-Salesforce.com_logo.svg.png",
+  },
+  {
+    name: "Meta",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Meta_Platforms_logo.svg/2560px-Meta_Platforms_logo.svg.png",
+  },
 ]
 
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
