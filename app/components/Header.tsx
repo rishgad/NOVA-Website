@@ -54,7 +54,7 @@ export default function Header() {
     <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
-          <Link href="/" className="w-24">
+          <Link href="/" className="w-20 sm:w-24">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
               alt="NOVA Consulting"
