@@ -1,6 +1,12 @@
+"use client"
+
+import type React from "react"
+
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "../components/Footer"
+import { TrendingUp, Users, Target, Award } from "lucide-react"
 
 interface ImpactProject {
   title: string
@@ -13,6 +19,13 @@ interface Project {
   name: string
   description: string
   logo: string
+}
+
+interface AnimatedStat {
+  icon: React.ReactNode
+  value: string
+  label: string
+  color: string
 }
 
 const impactProjects: ImpactProject[] = [
@@ -84,6 +97,83 @@ const projects: Project[] = [
   },
 ]
 
+const animatedStats: AnimatedStat[] = [
+  {
+    icon: <TrendingUp className="w-8 h-8" />,
+    value: "150%",
+    label: "Average ROI for Clients",
+    color: "text-green-400",
+  },
+  {
+    icon: <Users className="w-8 h-8" />,
+    value: "50+",
+    label: "Projects Completed",
+    color: "text-blue-400",
+  },
+  {
+    icon: <Target className="w-8 h-8" />,
+    value: "95%",
+    label: "Client Satisfaction Rate",
+    color: "text-purple-400",
+  },
+  {
+    icon: <Award className="w-8 h-8" />,
+    value: "25+",
+    label: "Industry Awards",
+    color: "text-orange-400",
+  },
+]
+
+function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
+  const [count, setCount] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const numericValue = Number.parseInt(targetValue.replace(/\D/g, ""))
+  const suffix = targetValue.replace(/\d/g, "")
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    const element = document.getElementById(`counter-${targetValue}`)
+    if (element) observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [targetValue])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    let startTime: number
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      setCount(Math.floor(easeOutQuart * numericValue))
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [isVisible, numericValue, duration])
+
+  return (
+    <span id={`counter-${targetValue}`} className="font-bold text-3xl sm:text-4xl">
+      {count}
+      {suffix}
+    </span>
+  )
+}
+
 export default function ImpactAndPurpose() {
   return (
     <div className="flex flex-col pt-4">
@@ -102,8 +192,45 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
+      {/* Animated Impact Stats */}
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
+            Our Impact by the Numbers
+          </h2>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {animatedStats.map((stat, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 sm:p-8 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-glow"
+              >
+                <div
+                  className={`${stat.color} mb-4 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {stat.icon}
+                    <div
+                      className={`absolute inset-0 ${stat.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {stat.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`${stat.color} mb-2`}>
+                  <AnimatedCounter targetValue={stat.value} />
+                </div>
+
+                <p className="text-sm sm:text-base text-gray-300 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Purpose Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2">
@@ -139,7 +266,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Core Values</h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -187,7 +314,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Our Projects Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4 text-white">Our Projects</h2>
           <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
@@ -220,9 +347,9 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Impact Projects Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Impact</h2>
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Our Impact Stories</h2>
 
           <div className="space-y-20">
             {impactProjects.map((project, index) => (
@@ -262,7 +389,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-30 relative z-10">
+      <section className="py-20 px-6 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Make an Impact?</h2>
           <p className="text-xl text-gray-300 mb-8">
