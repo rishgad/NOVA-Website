@@ -323,6 +323,27 @@ section {
   mix-blend-mode: screen;
 }
 
+/* New class for glowing underline effect on nav links */
+.nav-link-underline-glow::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust distance from text */
+  left: 50%;
+  transform: translateX(-50%) scaleX(0); /* Start from center, no width */
+  width: 100%;
+  height: 2px;
+  background-color: currentColor; /* Uses the text color for the underline */
+  box-shadow: 0 0 8px currentColor; /* Glow effect */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+  opacity: 0;
+}
+
+.nav-link-underline-glow:hover::after {
+  transform: translateX(-50%) scaleX(1); /* Expand to full width */
+  opacity: 1;
+  box-shadow: 0 0 15px currentColor; /* More intense glow on hover */
+}
+
 /* Mobile responsive improvements */
 @media (max-width: 640px) {
   .button-ellipse {
