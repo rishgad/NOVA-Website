@@ -163,16 +163,18 @@ const clientIndustries: ClientIndustry[] = [
 ]
 
 const mentoringPartners: MentoringPartner[] = [
-  { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
+  { name: "Cisco", logo: "/placeholder.svg?height=60&width=120&text=Cisco" },
+  { name: "Accenture", logo: "/placeholder.svg?height=60&width=120&text=Accenture" },
+  { name: "American Eagle", logo: "/placeholder.svg?height=60&width=120&text=American%20Eagle" },
   { name: "Microsoft", logo: "/placeholder.svg?height=60&width=120&text=Microsoft" },
-  { name: "Amazon", logo: "/placeholder.svg?height=60&width=120&text=Amazon" },
-  { name: "Meta", logo: "/placeholder.svg?height=60&width=120&text=Meta" },
   { name: "NVIDIA", logo: "/placeholder.svg?height=60&width=120&text=NVIDIA" },
-  { name: "IBM", logo: "/placeholder.svg?height=60&width=120&text=IBM" },
-  { name: "Salesforce", logo: "/placeholder.svg?height=60&width=120&text=Salesforce" },
+  { name: "Google", logo: "/placeholder.svg?height=60&width=120&text=Google" },
   { name: "Deloitte", logo: "/placeholder.svg?height=60&width=120&text=Deloitte" },
   { name: "EY", logo: "/placeholder.svg?height=60&width=120&text=EY" },
   { name: "KPMG", logo: "/placeholder.svg?height=60&width=120&text=KPMG" },
+  { name: "IBM", logo: "/placeholder.svg?height=60&width=120&text=IBM" },
+  { name: "Salesforce", logo: "/placeholder.svg?height=60&width=120&text=Salesforce" },
+  { name: "Meta", logo: "/placeholder.svg?height=60&width=120&text=Meta" },
 ]
 
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
