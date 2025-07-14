@@ -170,10 +170,10 @@ const mentoringPartners: MentoringPartner[] = [
   { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg" },
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
   { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
-  { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel_logo_%282020%29.svg" },
+  { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
+  { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
+  { name: "HP", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" },
   { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" },
-  { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Adobe_logo.svg" },
-  { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Oracle_logo.svg" },
 ]
 
 function AnimatedCounter({ targetValue, duration = 2000 }: { targetValue: string; duration?: number }) {
@@ -319,30 +319,28 @@ export default function ImpactAndPurpose() {
         </div>
       </section>
 
-      {/* Mentoring Partners Carousel Section */}
-      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-black bg-opacity-30">
+      {/* Mentoring Partners Section */}
+      <section className="py-16 sm:py-20 relative z-10 bg-black bg-opacity-30">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
-            Mentoring Partners & Affiliates
+            Mentors & Affiliates from these Companies
           </h2>
           <p className="text-lg text-center mb-12 text-gray-300 max-w-3xl mx-auto">
             We are proud to collaborate with and receive mentorship from leaders across various industries.
           </p>
 
-          <div className="relative">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 justify-items-center">
-              {mentoringPartners.map((partner, index) => (
-                <div key={index} className="flex items-center justify-center p-2">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={120}
-                    height={60}
-                    className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 justify-items-center">
+            {mentoringPartners.map((partner, index) => (
+              <div key={index} className="flex items-center justify-center p-2">
+                <Image
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={partner.name}
+                  width={120}
+                  height={60}
+                  className="h-8 sm:h-12 w-auto object-contain filter grayscale opacity-50 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
