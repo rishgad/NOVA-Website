@@ -185,71 +185,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Opportunities Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-              Your Gateway to <span className="animated-gradient-text">Extraordinary Opportunities</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Join NOVA and unlock doors that others can only dream of. Our members don't just build careers—they shape
-              the future.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {opportunities.map((opportunity, index) => (
-              <div
-                key={index}
-                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
-              >
-                {/* Animated background gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${opportunity.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
-                ></div>
-
-                {/* Floating icon animation */}
-                <div
-                  className={`${opportunity.color} mb-4 sm:mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
-                >
-                  <div className="relative">
-                    {opportunity.icon}
-                    <div
-                      className={`absolute inset-0 ${opportunity.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
-                    >
-                      {opportunity.icon}
-                    </div>
-                  </div>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
-                  {opportunity.title}
-                </h3>
-
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                  {opportunity.description}
-                </p>
-
-                {/* Animated border */}
-                <div
-                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${opportunity.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
-                ></div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8">
-              Ready to transform your future? The next chapter of your success story starts here.
-            </p>
-            <Link href="/recruitment" className="button-ellipse group">
-              <span className="button-text">Join NOVA Today</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Who We Are</h2>
@@ -354,6 +289,71 @@ export default function Home() {
                 <span className="button-text">Meet Our Founders</span>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Opportunities Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Your Gateway to <span className="animated-gradient-text">Extraordinary Opportunities</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Join NOVA and unlock doors that others can only dream of. Our members don't just build careers—they shape
+              the future.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {opportunities.map((opportunity, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+              >
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${opportunity.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+
+                {/* Floating icon animation */}
+                <div
+                  className={`${opportunity.color} mb-4 sm:mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {opportunity.icon}
+                    <div
+                      className={`absolute inset-0 ${opportunity.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {opportunity.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
+                  {opportunity.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  {opportunity.description}
+                </p>
+
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${opportunity.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8">
+              Ready to transform your future? The next chapter of your success story starts here.
+            </p>
+            <Link href="/recruitment" className="button-ellipse group">
+              <span className="button-text">Join NOVA Today</span>
+            </Link>
           </div>
         </div>
       </section>
