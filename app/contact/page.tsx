@@ -15,8 +15,8 @@ const contactMethods = [
     icon: <Mail className="w-6 h-6" />,
     title: "Email Us",
     description: "Send us a detailed message",
-    contact: "ryanthomas2271@gmail.com",
-    action: "mailto:ryanthomas2271@gmail.com",
+    contact: "info@novaconsulting.com",
+    action: "mailto:info@novaconsulting.com",
     color: "text-blue-400",
     gradient: "from-blue-600 to-blue-400",
   },
@@ -75,9 +75,9 @@ ${message}
 
 ---
 Sent from NOVA Consulting website contact form
-    `)
+  `)
 
-    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
+    const mailtoLink = `mailto:info@novaconsulting.com?subject=${mailtoSubject}&body=${mailtoBody}`
     window.location.href = mailtoLink
 
     toast({
