@@ -114,12 +114,13 @@ export default function Home() {
           </div>
           <div className="text-center">
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontWeight: 900,
+                fontWeight: 700,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
+                marginTop: "-0.5rem", // Pull text closer to logo
               }}
             >
               TEXAS NOVA
@@ -131,6 +132,7 @@ export default function Home() {
                 fontWeight: 500,
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
+                marginTop: "0.25rem", // Fine-tune spacing
               }}
             >
               CONSULTING GROUP
