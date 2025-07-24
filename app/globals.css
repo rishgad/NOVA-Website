@@ -5,6 +5,9 @@
 :root {
   --primary: 255 255 255;
   --secondary: 0 0 0;
+  --navy-primary: 0 57 89; /* #003959 */
+  --navy-light: 0 87 134; /* Lighter navy for accents */
+  --navy-dark: 0 37 59; /* Darker navy for depth */
 }
 
 /* Apply font variables */
@@ -16,16 +19,20 @@
   h5,
   h6 {
     font-family: var(--font-orbitron);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em; /* Reduced for more professional look */
+    font-weight: 600;
   }
 
   body {
     font-family: var(--font-space-grotesk);
+    background-color: rgb(var(--navy-primary));
+    color: #ffffff;
   }
 
   .button-text {
-    font-family: var(--font-orbitron);
-    letter-spacing: 0.05em;
+    font-family: var(--font-space-grotesk); /* Changed from Orbitron for more professional look */
+    letter-spacing: 0.02em;
+    font-weight: 500;
   }
 }
 
@@ -46,10 +53,10 @@
     filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
   }
   50% {
-    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
   }
   100% {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
   }
 }
 
@@ -63,7 +70,7 @@
 }
 
 .animate-scroll {
-  animation: scroll 40s linear infinite; /* Increased duration for smoother scroll */
+  animation: scroll 40s linear infinite;
 }
 
 .logo-glow {
@@ -71,7 +78,6 @@
 }
 
 body {
-  background-color: black;
   position: relative;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
@@ -84,74 +90,57 @@ body::-webkit-scrollbar {
 }
 
 .animated-gradient-text {
-  background: linear-gradient(270deg, #8a2be2, #1e90ff, #8a2be2);
+  background: linear-gradient(270deg, #ffffff, #e0e7ff, #ffffff);
   background-size: 200% 200%;
-  animation: gradientAnimation 10s ease infinite;
+  animation: gradientAnimation 8s ease infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Update the button styles to be more futuristic */
+/* Professional McKinsey-style button */
 .button-ellipse {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 32px;
-  background-color: rgba(255, 255, 255, 0.9);
+  padding: 14px 32px;
+  background-color: #ffffff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   overflow: hidden;
   transition: all 0.3s ease;
-  border-radius: 25px;
-  min-width: 180px;
-  height: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  border-radius: 4px; /* More rectangular, professional look */
+  min-width: 160px;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.02em;
   font-size: 0.9rem;
 }
 
 .button-text {
-  color: black;
-  font-family: var(--font-orbitron);
+  color: rgb(var(--navy-primary));
+  font-family: var(--font-space-grotesk);
 }
 
 .button-ellipse:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-  background-color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f9fafb;
 }
 
 .button-ellipse:before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 26px;
-  background: linear-gradient(45deg, #8a2be2, #1e90ff, #8a2be2);
-  background-size: 400% 400%;
-  z-index: -1;
-  animation: gradientAnimation 10s ease infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  display: none; /* Remove gradient animation for professional look */
 }
 
-.button-ellipse:hover:before {
-  opacity: 1;
-}
-
-/* New styles */
+/* Professional card styling */
 .shadow-glow {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .rounded-3xl {
-  border-radius: 1.5rem;
+  border-radius: 12px; /* Less rounded for professional look */
 }
 
 section {
@@ -172,9 +161,9 @@ section {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #fff, transparent);
+  width: 80px;
+  height: 2px;
+  background: #ffffff;
 }
 
 /* Team Card Wrapper Styles */
@@ -220,13 +209,13 @@ section {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
-  filter: drop-shadow(0 0 15px currentColor);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .team-role-icon svg {
@@ -235,36 +224,40 @@ section {
 }
 
 .team-card-wrapper:hover .team-role-icon {
-  transform: scale(1.1);
+  transform: scale(1.05);
   border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .team-info-section {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
+  color: rgb(var(--navy-primary));
 }
 
 .team-member-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(var(--navy-primary));
   margin-bottom: 0.5rem;
   font-family: var(--font-orbitron);
 }
 
 .team-member-role {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0.75rem;
+  color: rgb(var(--navy-light));
 }
 
 .team-member-description {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(var(--navy-primary));
+  opacity: 0.8;
   line-height: 1.4;
   margin-bottom: 1rem;
 }
@@ -279,77 +272,77 @@ section {
 
 .skill-tag {
   padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  border-radius: 16px;
   font-size: 0.75rem;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid currentColor;
-  border-opacity: 0.5;
+  background: rgba(0, 57, 89, 0.1);
+  border: 1px solid rgba(0, 57, 89, 0.3);
+  color: rgb(var(--navy-primary));
 }
 
 .team-connect-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid currentColor;
-  border-opacity: 0.3;
-  color: currentColor;
+  background: rgb(var(--navy-primary));
+  border: 1px solid rgb(var(--navy-primary));
+  color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 25px;
+  border-radius: 4px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  font-family: var(--font-orbitron);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: var(--font-space-grotesk);
+  text-transform: none;
+  letter-spacing: 0.02em;
   pointer-events: auto;
 }
 
 .team-connect-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: rgb(var(--navy-light));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 57, 89, 0.3);
 }
 
 .mouse-follower {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-  mix-blend-mode: screen;
+  display: none; /* Remove for professional look */
 }
 
-/* New class for glowing underline effect on nav links */
+/* Professional nav link styling */
 .nav-link-underline-glow::after {
   content: "";
   position: absolute;
-  bottom: -5px; /* Adjust distance from text */
+  bottom: -5px;
   left: 50%;
-  transform: translateX(-50%) scaleX(0); /* Start from center, no width */
+  transform: translateX(-50%) scaleX(0);
   width: 100%;
   height: 2px;
-  background-color: currentColor; /* Uses the text color for the underline */
-  box-shadow: 0 0 8px currentColor; /* Glow effect */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+  background-color: #ffffff;
+  transition: transform 0.3s ease-out;
   opacity: 0;
 }
 
 .nav-link-underline-glow:hover::after {
-  transform: translateX(-50%) scaleX(1); /* Expand to full width */
+  transform: translateX(-50%) scaleX(1);
   opacity: 1;
-  box-shadow: 0 0 15px currentColor; /* More intense glow on hover */
+}
+
+/* Professional card backgrounds */
+.professional-card {
+  background: rgba(255, 255, 255, 0.95);
+  color: rgb(var(--navy-primary));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.professional-card-dark {
+  background: rgba(0, 37, 59, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Mobile responsive improvements */
 @media (max-width: 640px) {
   .button-ellipse {
-    min-width: 160px;
-    height: 48px;
-    padding: 10px 24px;
+    min-width: 140px;
+    height: 44px;
+    padding: 12px 24px;
     font-size: 0.85rem;
   }
 

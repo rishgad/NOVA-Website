@@ -13,35 +13,35 @@ export default function Header() {
     <>
       <Link
         href="/"
-        className="group relative inline-block text-lg text-white hover:text-purple-400 transition-all duration-300 hover:scale-105 nav-link-underline-glow"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
         onClick={() => setIsOpen(false)}
       >
         Home
       </Link>
       <Link
         href="/about"
-        className="group relative inline-block text-lg text-white hover:text-blue-400 transition-all duration-300 hover:scale-105 nav-link-underline-glow"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
         onClick={() => setIsOpen(false)}
       >
         Meet the Team
       </Link>
       <Link
         href="/impact"
-        className="group relative inline-block text-lg text-white hover:text-green-400 transition-all duration-300 hover:scale-105 nav-link-underline-glow"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
         onClick={() => setIsOpen(false)}
       >
         Our Impact
       </Link>
       <Link
         href="/recruitment"
-        className="group relative inline-block text-lg text-white hover:text-orange-400 transition-all duration-300 hover:scale-105 nav-link-underline-glow"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
         onClick={() => setIsOpen(false)}
       >
         Join Us
       </Link>
       <Link
         href="/contact"
-        className="group relative inline-block text-lg text-white hover:text-pink-400 transition-all duration-300 hover:scale-105 nav-link-underline-glow"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
         onClick={() => setIsOpen(false)}
       >
         Contact Us
@@ -50,31 +50,29 @@ export default function Header() {
   )
 
   return (
-    <header className="bg-black bg-opacity-30 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
-      <nav className="container mx-auto px-4 py-2">
+    <header className="bg-black bg-opacity-20 backdrop-blur-sm border-b border-white border-opacity-10 fixed w-full top-0 z-50">
+      <nav className="container mx-auto px-4 py-3">
         <div className="flex justify-center items-center">
-          {/* Desktop Navigation - Centered with increased spacing */}
-          <div className="hidden md:flex space-x-16 font-orbitron tracking-wider">{navLinks}</div>
-          {/* Mobile Navigation (Hamburger Menu) - Always visible and centered on mobile */}
+          {/* Desktop Navigation - Centered with professional spacing */}
+          <div className="hidden md:flex space-x-12 font-space-grotesk">{navLinks}</div>
+          {/* Mobile Navigation */}
           <div className="md:hidden w-full flex justify-center">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white h-12 w-12 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white h-10 w-10 rounded bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300"
                 >
-                  <Menu className="h-7 w-7 relative z-10" />
+                  <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle navigation menu</span>
-                  {/* Cool effect for the button */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-full"></div>
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="bg-black bg-opacity-90 backdrop-blur-lg border-l border-gray-700 w-[250px] sm:w-[300px]"
+                className="bg-black bg-opacity-95 backdrop-blur-lg border-l border-gray-700 w-[250px] sm:w-[300px]"
               >
-                <div className="flex flex-col gap-6 pt-8 font-orbitron tracking-wider text-lg">{navLinks}</div>
+                <div className="flex flex-col gap-6 pt-8 font-space-grotesk text-lg">{navLinks}</div>
               </SheetContent>
             </Sheet>
           </div>
