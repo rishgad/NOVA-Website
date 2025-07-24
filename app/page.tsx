@@ -117,7 +117,7 @@ export default function Home() {
               className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontWeight: 700,
+                fontWeight: 600, // Changed from 700 to 600 for thinner look
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 marginTop: "-0.5rem", // Pull text closer to logo
