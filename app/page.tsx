@@ -98,17 +98,17 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-0 pb-16">
         <div
-          className={`w-48 sm:w-64 md:w-80 mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
+          className={`w-64 sm:w-80 md:w-96 mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
         >
           <div className={`relative ${logoVisible ? "logo-glow" : ""}`}>
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
-              alt="NOVA Consulting"
+              src="/images/texas-nova-logo.jpeg"
+              alt="Texas NOVA Consulting Group"
               width={400}
-              height={200}
-              className="w-full h-auto opacity-90 mix-blend-screen"
+              height={400}
+              className="w-full h-auto"
               priority
             />
           </div>
