@@ -59,6 +59,34 @@
   transform: scale(1.02);
 }
 
+/* Logo specific typography */
+.nova-logo-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-stretch: condensed;
+}
+
+.nova-logo-subtitle {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75em;
+}
+
+/* Make the text look more "tough" and impactful */
+@media (min-width: 640px) {
+  .nova-logo-title {
+    letter-spacing: 0.2em;
+  }
+
+  .nova-logo-subtitle {
+    letter-spacing: 0.3em;
+  }
+}
+
 /* Update the logo glow animation */
 @keyframes logoGlow {
   0% {

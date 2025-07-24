@@ -114,14 +114,24 @@ export default function Home() {
           </div>
           <div className="text-center">
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 tracking-wide"
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 700 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-2"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 900,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+              }}
             >
               TEXAS NOVA
             </h1>
             <p
-              className="text-lg sm:text-xl text-gray-300 tracking-widest"
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
+              className="text-sm sm:text-base text-gray-300"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 500,
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+              }}
             >
               CONSULTING GROUP
             </p>
