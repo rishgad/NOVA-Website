@@ -98,19 +98,33 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-0 pb-16">
         <div
-          className={`w-64 sm:w-80 md:w-96 mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
+          className={`flex flex-col items-center mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
         >
-          <div className={`relative ${logoVisible ? "logo-glow" : ""}`}>
+          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-6`}>
             <Image
-              src="/images/texas-nova-logo.jpeg"
-              alt="Texas NOVA Consulting Group"
-              width={400}
-              height={400}
-              className="w-full h-auto"
+              src="/images/nova-network-logo.png"
+              alt="NOVA Network"
+              width={200}
+              height={200}
+              className="w-48 sm:w-56 md:w-64 h-auto opacity-80 mix-blend-screen"
               priority
             />
+          </div>
+          <div className="text-center">
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 tracking-wide"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 700 }}
+            >
+              TEXAS NOVA
+            </h1>
+            <p
+              className="text-lg sm:text-xl text-gray-300 tracking-widest"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
+            >
+              CONSULTING GROUP
+            </p>
           </div>
         </div>
         <div

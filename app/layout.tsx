@@ -1,7 +1,7 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Space_Grotesk, Orbitron } from "next/font/google"
+import { Space_Grotesk, Orbitron, Inter } from "next/font/google"
 import Header from "./components/Header"
 import ParticleBackground from "./components/ParticleBackground"
 
@@ -17,6 +17,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 })
 
+// Add Inter font definition
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
+
 export const metadata: Metadata = {
   title: "NOVA Consulting",
   description: "Innovative solutions for your business challenges",
@@ -30,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${orbitron.variable} ${spaceGrotesk.variable} text-white min-h-screen`}>
+      <body className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable} text-white min-h-screen`}>
         {/* Canvas-based Particle Background */}
         <ParticleBackground />
 

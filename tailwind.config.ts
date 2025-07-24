@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
+    "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -47,6 +48,7 @@ const config: Config = {
       fontFamily: {
         orbitron: ["var(--font-orbitron)"],
         "space-grotesk": ["var(--font-space-grotesk)"],
+        inter: ["var(--font-inter)"],
       },
       borderRadius: {
         lg: "var(--radius)",
