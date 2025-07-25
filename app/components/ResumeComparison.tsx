@@ -136,35 +136,58 @@ function ResumeWithoutNOVA() {
   return (
     <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg opacity-75 resume-card resume-comparison-mobile">
       <div className="resume-card-header">
-        <h4 className="font-bold text-gray-800 text-lg">EDUCATION</h4>
+        <h4 className="font-bold text-gray-800 text-lg">WORK EXPERIENCE</h4>
       </div>
 
       <div className="resume-card-content">
         <div className="resume-experience">
           <div className="resume-experience-header">
-            <h5 className="font-semibold text-gray-800">University of Texas at Austin</h5>
+            <h5 className="font-semibold text-gray-800">Campus Tech Store | Sales Associate</h5>
             <div className="flex justify-between items-center">
-              <p className="text-gray-600 text-sm">Bachelor of Science, Computer Science</p>
-              <p className="text-gray-600 text-sm">GPA: 3.7/4.0</p>
+              <p className="text-gray-600 text-sm">Austin, TX</p>
+              <p className="text-gray-600 text-sm">Sep. 2024 - Present</p>
             </div>
           </div>
-          <p className="text-sm text-gray-700 mt-1">Expected Graduation: May 2026</p>
+          <ul className="space-y-2 mt-2">
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Assist customers with technology purchases and provide product recommendations
+              </span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Process transactions and maintain inventory of tech products
+              </span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Participate in weekly team meetings to discuss sales strategies
+              </span>
+            </li>
+          </ul>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <h4 className="font-bold text-gray-800 text-lg mb-2">ACTIVITIES</h4>
-          <ul className="space-y-2">
+        <div className="resume-experience mt-4 pt-4 border-t border-gray-200">
+          <div className="resume-experience-header">
+            <h5 className="font-semibold text-gray-800">Computer Science Student Association | Member</h5>
+            <div className="flex justify-between items-center">
+              <p className="text-gray-600 text-sm">University of Texas</p>
+              <p className="text-gray-600 text-sm">Jan. 2024 - Present</p>
+            </div>
+          </div>
+          <ul className="space-y-2 mt-2">
             <li className="flex">
               <span className="text-gray-800 mr-2">•</span>
-              <span className="text-gray-700 text-sm">Member, Computer Science Student Association</span>
+              <span className="text-gray-700 text-sm">Attend weekly meetings and participate in coding workshops</span>
             </li>
             <li className="flex">
               <span className="text-gray-800 mr-2">•</span>
-              <span className="text-gray-700 text-sm">Volunteer, Local Food Bank</span>
-            </li>
-            <li className="flex">
-              <span className="text-gray-800 mr-2">•</span>
-              <span className="text-gray-700 text-sm">Intramural Soccer Team</span>
+              <span className="text-gray-700 text-sm">
+                Volunteer at department events and help with organization activities
+              </span>
             </li>
           </ul>
         </div>
