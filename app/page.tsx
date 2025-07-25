@@ -96,11 +96,12 @@ export default function Home() {
   return (
     <div className="flex flex-col pt-16">
       {/* Hero Section */}
-      <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-0 pb-16">
+      <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-4 pb-16">
         <div
           className={`flex flex-col items-center mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
+          style={{ marginTop: "-2rem" }} // Move the entire logo section up
         >
           <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-4`}>
             <Image
