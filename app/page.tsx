@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "./components/Footer"
+import ResumeComparison from "./components/ResumeComparison"
 import { Briefcase, Users, Rocket, TrendingUp, Star, Zap, MapPin, Globe, Trophy } from "lucide-react"
 
 const partners = [
@@ -96,15 +97,15 @@ export default function Home() {
   return (
     <div className="flex flex-col pt-16">
       {/* Hero Section */}
-      <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-4 pb-16">
+      <section className="flex flex-col items-center relative z-10 px-4 sm:px-6 pt-4 pb-12 sm:pb-16">
         <div
-          className={`flex flex-col items-center mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
+          className={`flex flex-col items-center mb-8 sm:mb-12 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
           style={{ marginTop: "-3rem" }} // Move the entire logo section higher up
         >
-          <div className={`relative flex justify-center ${logoVisible ? "logo-glow" : ""} mb-8`}>
-            <div className="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full overflow-hidden">
+          <div className={`relative flex justify-center ${logoVisible ? "logo-glow" : ""} mb-6 sm:mb-8`}>
+            <div className="w-40 sm:w-48 md:w-56 h-40 sm:h-48 md:h-56 rounded-full overflow-hidden">
               <Image
                 src="/images/nova-network-logo.png"
                 alt="NOVA Network"
@@ -117,7 +118,7 @@ export default function Home() {
           </div>
           <div className="text-center" style={{ marginTop: "0.5rem" }}>
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-2"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-2"
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
@@ -129,7 +130,7 @@ export default function Home() {
               TEXAS NOVA
             </h1>
             <p
-              className="text-sm sm:text-base text-gray-300"
+              className="text-xs sm:text-sm md:text-base text-gray-300"
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
@@ -148,14 +149,14 @@ export default function Home() {
             contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-lg sm:text-xl mb-8 sm:mb-12 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
             UT Austin's Premier AI Consulting Organization
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-            <Link href="/about" className="button-ellipse">
+            <Link href="/about" className="button-ellipse mx-auto sm:mx-0">
               <span className="button-text">Meet the Team</span>
             </Link>
-            <Link href="/impact" className="button-ellipse">
+            <Link href="/impact" className="button-ellipse mx-auto sm:mx-0">
               <span className="button-text">Our Impact</span>
             </Link>
           </div>
@@ -163,9 +164,9 @@ export default function Home() {
       </section>
 
       {/* Partners Carousel Section */}
-      <section className="py-16 sm:py-20 relative z-10 overflow-hidden bg-white bg-opacity-5">
+      <section className="py-12 sm:py-16 relative z-10 overflow-hidden bg-white bg-opacity-5">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8 text-white">
             Our partners come from the top companies in the US
           </h2>
 
@@ -173,17 +174,17 @@ export default function Home() {
             <div className="flex animate-scroll">
               {/* First set of logos */}
               {partners.map((partner, index) => (
-                <div key={`first-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <div className="h-8 sm:h-12 w-24 sm:w-32 bg-white rounded flex items-center justify-center shadow-sm">
-                    <span className="text-gray-800 font-semibold text-xs sm:text-sm">{partner.name}</span>
+                <div key={`first-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
+                  <div className="h-8 sm:h-10 w-20 sm:w-28 bg-white rounded flex items-center justify-center shadow-sm">
+                    <span className="text-gray-800 font-semibold text-xs">{partner.name}</span>
                   </div>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {partners.map((partner, index) => (
-                <div key={`second-${index}`} className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center">
-                  <div className="h-8 sm:h-12 w-24 sm:w-32 bg-white rounded flex items-center justify-center shadow-sm">
-                    <span className="text-gray-800 font-semibold text-xs sm:text-sm">{partner.name}</span>
+                <div key={`second-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
+                  <div className="h-8 sm:h-10 w-20 sm:w-28 bg-white rounded flex items-center justify-center shadow-sm">
+                    <span className="text-gray-800 font-semibold text-xs">{partner.name}</span>
                   </div>
                 </div>
               ))}
@@ -193,37 +194,37 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Who We Are</h2>
+      <section className="py-12 sm:py-16 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">Who We Are</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          <div className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-            <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4 sm:mb-6 mx-auto">
-              <span className="text-xl sm:text-2xl font-bold text-blue-600">01</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+          <div className="professional-card rounded-3xl p-5 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+              <span className="text-lg sm:text-xl font-bold text-blue-600">01</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4">Innovation Leaders</h3>
-            <p className="text-sm sm:text-base text-gray-700 text-center leading-relaxed">
+            <h3 className="text-base sm:text-lg font-bold text-center mb-2 sm:mb-3">Innovation Leaders</h3>
+            <p className="text-sm text-gray-700 text-center leading-relaxed">
               We're a team of forward-thinking consultants dedicated to pushing boundaries and finding innovative
               solutions.
             </p>
           </div>
 
-          <div className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 sm:mb-6 mx-auto">
-              <span className="text-xl sm:text-2xl font-bold text-green-600">02</span>
+          <div className="professional-card rounded-3xl p-5 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-green-100 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+              <span className="text-lg sm:text-xl font-bold text-green-600">02</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4">Student-Led</h3>
-            <p className="text-sm sm:text-base text-gray-700 text-center leading-relaxed">
+            <h3 className="text-base sm:text-lg font-bold text-center mb-2 sm:mb-3">Student-Led</h3>
+            <p className="text-sm text-gray-700 text-center leading-relaxed">
               Founded and operated by passionate students bringing fresh perspectives and cutting-edge knowledge.
             </p>
           </div>
 
-          <div className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-            <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4 sm:mb-6 mx-auto">
-              <span className="text-xl sm:text-2xl font-bold text-purple-600">03</span>
+          <div className="professional-card rounded-3xl p-5 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-purple-100 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+              <span className="text-lg sm:text-xl font-bold text-purple-600">03</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4">Results-Driven</h3>
-            <p className="text-sm sm:text-base text-gray-700 text-center leading-relaxed">
+            <h3 className="text-base sm:text-lg font-bold text-center mb-2 sm:mb-3">Results-Driven</h3>
+            <p className="text-sm text-gray-700 text-center leading-relaxed">
               We measure our success by the tangible results and value we create for our clients.
             </p>
           </div>
@@ -231,116 +232,27 @@ export default function Home() {
       </section>
 
       {/* Resume Comparison Section - Moved above Opportunities */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
+      <section className="py-12 sm:py-16 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
               The <span className="animated-gradient-text">NOVA Difference</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               While others are doing interview prep, NOVA members are building careers that speak for themselves.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-            {/* Resume With NOVA */}
-            <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-bold text-center text-blue-400 mb-8">Resume With NOVA</h3>
+          <ResumeComparison />
 
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <div className="border-b-2 border-gray-300 pb-2 mb-4">
-                  <h4 className="font-bold text-gray-800 text-lg">WORK EXPERIENCE</h4>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h5 className="font-semibold text-gray-800">NOVA Consulting | Technical Consultant</h5>
-                        <p className="text-gray-600 text-sm">Austin, TX</p>
-                      </div>
-                      <p className="text-gray-600 text-sm">Sep. 2024 - Present</p>
-                    </div>
-                    <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                      <li>
-                        • Led AI implementation project for local startup, resulting in 30% efficiency improvement and
-                        $50K cost savings
-                      </li>
-                      <li>
-                        • Conducted market analysis for tech client, identifying 3 new target segments with $500K
-                        potential
-                      </li>
-                      <li>
-                        • Developed custom data analytics dashboard that increased client's customer retention by 25%
-                      </li>
-                      <li>
-                        • Presented findings to executive team at Austin-based company, securing follow-up project worth
-                        $15K
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h5 className="font-semibold text-gray-800">NexusAI Labs | Project Lead</h5>
-                        <p className="text-gray-600 text-sm">Austin, TX</p>
-                      </div>
-                      <p className="text-gray-600 text-sm">Jan. 2024 - Aug. 2024</p>
-                    </div>
-                    <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                      <li>• Built AI-powered content recommendation system used by 5 local businesses</li>
-                      <li>• Secured $20K in funding through university innovation grant</li>
-                      <li>• Led team of 4 student developers to deliver working prototype in 8 weeks</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Resume Without NOVA */}
-            <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-400 mb-8">Resume Without NOVA</h3>
-
-              <div className="bg-white rounded-lg p-6 shadow-lg opacity-75">
-                <div className="border-b-2 border-gray-300 pb-2 mb-4">
-                  <h4 className="font-bold text-gray-800 text-lg">EDUCATION</h4>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h5 className="font-semibold text-gray-800">University of Texas at Austin</h5>
-                        <p className="text-gray-600 text-sm">Bachelor of Science, Computer Science</p>
-                      </div>
-                      <p className="text-gray-600 text-sm">GPA: 3.7/4.0</p>
-                    </div>
-                    <p className="text-sm text-gray-700">Expected Graduation: May 2026</p>
-                  </div>
-                </div>
-
-                <div className="border-b-2 border-gray-300 pb-2 mb-4 mt-6">
-                  <h4 className="font-bold text-gray-800 text-lg">ACTIVITIES</h4>
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-sm text-gray-700">• Member, Computer Science Student Association</p>
-                  <p className="text-sm text-gray-700">• Volunteer, Local Food Bank</p>
-                  <p className="text-sm text-gray-700">• Intramural Soccer Team</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-xl sm:text-2xl font-bold text-white mb-4">
+          <div className="text-center mt-8 sm:mt-12">
+            <p className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
               While everyone else is doing interview prep...
             </p>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
               NOVA members are building the experience that makes interviews irrelevant.
             </p>
-            <Link href="/recruitment" className="button-ellipse">
+            <Link href="/recruitment" className="button-ellipse mx-auto">
               <span className="button-text">Start Building Your Future</span>
             </Link>
           </div>
@@ -348,38 +260,38 @@ export default function Home() {
       </section>
 
       {/* Opportunities Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6">
+      <section className="py-12 sm:py-16 relative z-10 px-4 sm:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
               Your Gateway to <span className="animated-gradient-text">Extraordinary Opportunities</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Join NOVA and unlock doors that others can only dream of. Our members don't just build careers—they shape
               the future.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {opportunities.map((opportunity, index) => (
               <div
                 key={index}
-                className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                className="professional-card rounded-3xl p-5 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
               >
-                <div className={`${opportunity.color} mb-4 sm:mb-6`}>{opportunity.icon}</div>
+                <div className={`${opportunity.color} mb-3 sm:mb-4`}>{opportunity.icon}</div>
 
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{opportunity.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">{opportunity.title}</h3>
 
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{opportunity.description}</p>
+                <p className="text-sm text-gray-700 leading-relaxed">{opportunity.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
+          <div className="text-center mt-8 sm:mt-12">
+            <p className="text-base sm:text-lg text-gray-200 mb-5 sm:mb-6">
               Ready to transform your future? The next chapter of your success story starts here.
             </p>
-            <Link href="/recruitment" className="button-ellipse">
+            <Link href="/recruitment" className="button-ellipse mx-auto">
               <span className="button-text">Join NOVA Today</span>
             </Link>
           </div>
@@ -387,57 +299,61 @@ export default function Home() {
       </section>
 
       {/* Contact Preview Section */}
-      <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Get In Touch</h2>
+      <section className="py-12 sm:py-16 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
+          Get In Touch
+        </h2>
 
-        <div className="professional-card-dark rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Ready to transform your business?</h3>
-          <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+        <div className="professional-card-dark rounded-3xl p-6 sm:p-8 md:p-12 max-w-4xl mx-auto text-center">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-white">
+            Ready to transform your business?
+          </h3>
+          <p className="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6 leading-relaxed">
             Our team of experts is ready to help you navigate challenges and seize new opportunities.
           </p>
-          <Link href="/contact" className="button-ellipse">
+          <Link href="/contact" className="button-ellipse mx-auto">
             <span className="button-text">Contact Us</span>
           </Link>
         </div>
       </section>
 
       {/* Be Part of Something Revolutionary - Moved to bottom */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6">
+      <section className="py-12 sm:py-16 relative z-10 px-4 sm:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
               Be Part of Something <span className="animated-gradient-text">Revolutionary</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               NOVA started at UT Austin and is rapidly expanding nationwide. Join the founding generation and help us
               redefine student consulting.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {expansionHighlights.map((highlight, index) => (
               <div
                 key={index}
-                className="professional-card-dark rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow text-center"
+                className="professional-card-dark rounded-3xl p-5 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow text-center"
               >
-                <div className={`${highlight.color} mb-4 sm:mb-6 flex justify-center`}>{highlight.icon}</div>
+                <div className={`${highlight.color} mb-3 sm:mb-4 flex justify-center`}>{highlight.icon}</div>
 
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">{highlight.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3 text-white">{highlight.title}</h3>
 
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{highlight.description}</p>
+                <p className="text-sm text-gray-300 leading-relaxed">{highlight.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
+          <div className="text-center mt-8 sm:mt-12">
+            <p className="text-base sm:text-lg text-gray-200 mb-5 sm:mb-6">
               Don't just witness the future of consulting—help create it. Your journey to extraordinary begins now.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <Link href="/recruitment" className="button-ellipse">
+              <Link href="/recruitment" className="button-ellipse mx-auto sm:mx-0">
                 <span className="button-text">Apply Now</span>
               </Link>
-              <Link href="/about" className="button-ellipse">
+              <Link href="/about" className="button-ellipse mx-auto sm:mx-0">
                 <span className="button-text">Meet Our Founders</span>
               </Link>
             </div>

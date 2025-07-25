@@ -384,6 +384,8 @@ section {
     height: 44px;
     padding: 12px 24px;
     font-size: 0.85rem;
+    width: 100%; /* Make buttons full width on mobile */
+    max-width: 300px; /* But cap their width */
   }
 
   .team-card-wrapper {
@@ -399,6 +401,77 @@ section {
     width: 50px;
     height: 50px;
   }
+
+  /* Improved mobile typography */
+  h1 {
+    font-size: 2rem; /* Slightly smaller on mobile */
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Improved section spacing on mobile */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Better card spacing on mobile */
+  .professional-card,
+  .professional-card-dark {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Resume comparison mobile improvements */
+  .resume-comparison-mobile {
+    font-size: 0.85rem;
+  }
+
+  .resume-comparison-mobile h5 {
+    font-size: 1rem;
+  }
+
+  .resume-comparison-mobile ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+}
+
+/* Improved mobile spacing */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .button-ellipse {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+
+  .rounded-3xl {
+    border-radius: 8px; /* Even less rounded on small mobile */
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -406,4 +479,77 @@ section {
     --primary: 255 255 255;
     --secondary: 0 0 0;
   }
+}
+
+/* Mobile-optimized resume comparison */
+.resume-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-card-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 57, 89, 0.2);
+}
+
+.resume-card-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.resume-experience {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.resume-experience:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 57, 89, 0.1);
+}
+
+.resume-experience-header {
+  margin-bottom: 0.75rem;
+}
+
+.resume-bullet {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.resume-bullet:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgb(var(--navy-primary));
+}
+
+/* Mobile-optimized tabs for resume comparison */
+.resume-tabs {
+  display: flex;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resume-tab {
+  flex: 1;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resume-tab.active {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgb(var(--navy-primary));
+}
+
+.resume-tab:not(.active) {
+  background-color: rgba(0, 37, 59, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
