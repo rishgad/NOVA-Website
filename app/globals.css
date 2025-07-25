@@ -27,6 +27,8 @@
     font-family: var(--font-space-grotesk);
     background-color: rgb(var(--navy-primary));
     color: #ffffff;
+    /* Add a subtle gradient background for mobile when particles are disabled */
+    background-image: linear-gradient(135deg, rgb(var(--navy-primary)) 0%, rgb(var(--navy-dark)) 100%);
   }
 
   .button-text {
@@ -378,7 +380,18 @@ section {
 }
 
 /* Mobile responsive improvements */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  /* Disable particle effects on mobile by ensuring clean background */
+  body {
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--navy-primary)) 0%,
+      rgb(var(--navy-dark)) 50%,
+      rgb(var(--navy-primary)) 100%
+    );
+    background-attachment: fixed;
+  }
+
   .button-ellipse {
     min-width: 140px;
     height: 44px;

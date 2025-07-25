@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface Particle {
   x: number
@@ -19,8 +19,29 @@ export default function ParticleBackground() {
   const animationRef = useRef<number>()
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      const isMobileDevice =
+        window.innerWidth <= 768 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      setIsMobile(isMobileDevice)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => {
+      window.removeEventListener("resize", checkMobile)
+    }
+  }, [])
+
+  useEffect(() => {
+    // Don't initialize particles on mobile
+    if (isMobile) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -149,7 +170,12 @@ export default function ParticleBackground() {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [])
+  }, [isMobile])
+
+  // Don't render canvas on mobile
+  if (isMobile) {
+    return null
+  }
 
   return (
     <canvas
