@@ -101,9 +101,11 @@ export default function Home() {
           className={`flex flex-col items-center mb-12 sm:mb-16 md:mb-8 transition-all duration-1000 ease-out ${
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
-          style={{ marginTop: "-2rem" }} // Move the entire logo section up
+          style={{ marginTop: "-3rem" }} // Move the entire logo section higher up
         >
-          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-4`}>
+          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-8`}>
+            {" "}
+            {/* Increased bottom margin from 4 to 8 */}
             <Image
               src="/images/nova-network-logo.png"
               alt="NOVA Network"
@@ -113,16 +115,17 @@ export default function Home() {
               priority
             />
           </div>
-          <div className="text-center">
+          <div className="text-center" style={{ marginTop: "0.5rem" }}>
+            {" "}
+            {/* Added positive margin to push text down */}
             <h1
               className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-2"
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontWeight: 500, // Made even thinner for more class
-                letterSpacing: "0.2em", // Increased letter spacing for elegance
+                fontWeight: 500,
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                marginTop: "-1rem", // Pulled closer to logo for better blending
-                opacity: 0.95, // Slightly more transparent to blend with logo
+                opacity: 0.95,
               }}
             >
               TEXAS NOVA
@@ -132,10 +135,10 @@ export default function Home() {
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
-                letterSpacing: "0.3em", // Increased letter spacing to match
+                letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                marginTop: "0.1rem", // Tighter spacing
-                opacity: 0.9, // Slightly more transparent
+                marginTop: "0.1rem",
+                opacity: 0.9,
               }}
             >
               CONSULTING GROUP
