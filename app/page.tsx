@@ -302,25 +302,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Preview Section */}
-      <section className="py-12 sm:py-16 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
-          Get In Touch
-        </h2>
-
-        <div className="professional-card-dark rounded-3xl p-6 sm:p-8 md:p-12 max-w-4xl mx-auto text-center">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-white">
-            Ready to transform your business?
-          </h3>
-          <p className="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6 leading-relaxed">
-            Our team of experts is ready to help you navigate challenges and seize new opportunities.
-          </p>
-          <Link href="/contact" className="button-ellipse mx-auto">
-            <span className="button-text">Contact Us</span>
-          </Link>
-        </div>
-      </section>
-
       {/* Be Part of Something Revolutionary - Moved to bottom */}
       <section className="py-12 sm:py-16 relative z-10 px-4 sm:px-6">
         <div className="container mx-auto">
@@ -362,6 +343,25 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Preview Section */}
+      <section className="py-12 sm:py-16 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">
+          Get In Touch
+        </h2>
+
+        <div className="professional-card-dark rounded-3xl p-6 sm:p-8 md:p-12 max-w-4xl mx-auto text-center">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-white">
+            Ready to transform your business?
+          </h3>
+          <p className="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6 leading-relaxed">
+            Our team of experts is ready to help you navigate challenges and seize new opportunities.
+          </p>
+          <Link href="/contact" className="button-ellipse mx-auto">
+            <span className="button-text">Contact Us</span>
+          </Link>
         </div>
       </section>
 
