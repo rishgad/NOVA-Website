@@ -186,10 +186,10 @@ Sent from NOVA Consulting website contact form
             <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-center">
               <div className="w-32 mx-auto mb-6">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image_2-12-25_at_8.04_PM-removebg-preview-a4vRtTrLEtOfSa8Zmq0ImD0l80z6b9.png"
+                  src="/images/nova-network-logo.png"
                   alt="NOVA Consulting"
                   width={200}
-                  height={100}
+                  height={200}
                   className="w-full h-auto opacity-90 mix-blend-screen"
                 />
               </div>
