@@ -103,21 +103,19 @@ export default function Home() {
           }`}
           style={{ marginTop: "-3rem" }} // Move the entire logo section higher up
         >
-          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-8`}>
-            {" "}
-            {/* Increased bottom margin from 4 to 8 */}
-            <Image
-              src="/images/nova-network-logo.png"
-              alt="NOVA Network"
-              width={200}
-              height={200}
-              className="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full object-cover opacity-70 mix-blend-screen"
-              priority
-            />
+          <div className={`relative flex justify-center ${logoVisible ? "logo-glow" : ""} mb-8`}>
+            <div className="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full overflow-hidden">
+              <Image
+                src="/images/nova-network-logo.png"
+                alt="NOVA Network"
+                width={256}
+                height={256}
+                className="w-full h-full object-cover opacity-70 mix-blend-screen"
+                priority
+              />
+            </div>
           </div>
           <div className="text-center" style={{ marginTop: "0.5rem" }}>
-            {" "}
-            {/* Added positive margin to push text down */}
             <h1
               className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-2"
               style={{
@@ -232,90 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Founding Chapter & Expansion Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-              Be Part of Something <span className="animated-gradient-text">Revolutionary</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              NOVA started at UT Austin and is rapidly expanding nationwide. Join the founding generation and help us
-              redefine student consulting.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            {expansionHighlights.map((highlight, index) => (
-              <div
-                key={index}
-                className="professional-card-dark rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow text-center"
-              >
-                <div className={`${highlight.color} mb-4 sm:mb-6 flex justify-center`}>{highlight.icon}</div>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">{highlight.title}</h3>
-
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{highlight.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
-              Don't just witness the future of consulting—help create it. Your journey to extraordinary begins now.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <Link href="/recruitment" className="button-ellipse">
-                <span className="button-text">Apply Now</span>
-              </Link>
-              <Link href="/about" className="button-ellipse">
-                <span className="button-text">Meet Our Founders</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Opportunities Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-              Your Gateway to <span className="animated-gradient-text">Extraordinary Opportunities</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Join NOVA and unlock doors that others can only dream of. Our members don't just build careers—they shape
-              the future.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {opportunities.map((opportunity, index) => (
-              <div
-                key={index}
-                className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
-              >
-                <div className={`${opportunity.color} mb-4 sm:mb-6`}>{opportunity.icon}</div>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{opportunity.title}</h3>
-
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{opportunity.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
-              Ready to transform your future? The next chapter of your success story starts here.
-            </p>
-            <Link href="/recruitment" className="button-ellipse">
-              <span className="button-text">Join NOVA Today</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Resume Comparison Section */}
+      {/* Resume Comparison Section - Moved above Opportunities */}
       <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 sm:mb-16">
@@ -348,19 +263,19 @@ export default function Home() {
                     </div>
                     <ul className="text-sm text-gray-700 space-y-1 ml-4">
                       <li>
-                        • Led AI implementation project for healthcare startup, resulting in 40% efficiency improvement
-                        and $2M cost savings
+                        • Led AI implementation project for local startup, resulting in 30% efficiency improvement and
+                        $50K cost savings
                       </li>
                       <li>
-                        • Conducted strategic analysis for Fortune 500 client, identifying market opportunities worth
-                        $15M in potential revenue
+                        • Conducted market analysis for tech client, identifying 3 new target segments with $500K
+                        potential
                       </li>
                       <li>
-                        • Developed custom machine learning solution that increased client's customer retention by 35%
+                        • Developed custom data analytics dashboard that increased client's customer retention by 25%
                       </li>
                       <li>
-                        • Presented findings to C-suite executives at 3 major corporations, securing follow-up contracts
-                        worth $500K
+                        • Presented findings to executive team at Austin-based company, securing follow-up project worth
+                        $15K
                       </li>
                     </ul>
                   </div>
@@ -368,15 +283,15 @@ export default function Home() {
                   <div>
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h5 className="font-semibold text-gray-800">VeneerVision AI | Co-Founder & CTO</h5>
+                        <h5 className="font-semibold text-gray-800">NexusAI Labs | Project Lead</h5>
                         <p className="text-gray-600 text-sm">Austin, TX</p>
                       </div>
                       <p className="text-gray-600 text-sm">Jan. 2024 - Aug. 2024</p>
                     </div>
                     <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                      <li>• Built AI-powered dental imaging platform serving 50+ dental practices across Texas</li>
-                      <li>• Secured $250K in seed funding from prominent Austin investors</li>
-                      <li>• Managed team of 8 engineers and designers to deliver MVP in 4 months</li>
+                      <li>• Built AI-powered content recommendation system used by 5 local businesses</li>
+                      <li>• Secured $20K in funding through university innovation grant</li>
+                      <li>• Led team of 4 student developers to deliver working prototype in 8 weeks</li>
                     </ul>
                   </div>
                 </div>
@@ -432,6 +347,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Opportunities Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Your Gateway to <span className="animated-gradient-text">Extraordinary Opportunities</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+              Join NOVA and unlock doors that others can only dream of. Our members don't just build careers—they shape
+              the future.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {opportunities.map((opportunity, index) => (
+              <div
+                key={index}
+                className="professional-card rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+              >
+                <div className={`${opportunity.color} mb-4 sm:mb-6`}>{opportunity.icon}</div>
+
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{opportunity.title}</h3>
+
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{opportunity.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
+              Ready to transform your future? The next chapter of your success story starts here.
+            </p>
+            <Link href="/recruitment" className="button-ellipse">
+              <span className="button-text">Join NOVA Today</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Preview Section */}
       <section className="py-16 sm:py-20 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">Get In Touch</h2>
@@ -444,6 +398,50 @@ export default function Home() {
           <Link href="/contact" className="button-ellipse">
             <span className="button-text">Contact Us</span>
           </Link>
+        </div>
+      </section>
+
+      {/* Be Part of Something Revolutionary - Moved to bottom */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Be Part of Something <span className="animated-gradient-text">Revolutionary</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+              NOVA started at UT Austin and is rapidly expanding nationwide. Join the founding generation and help us
+              redefine student consulting.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {expansionHighlights.map((highlight, index) => (
+              <div
+                key={index}
+                className="professional-card-dark rounded-3xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-glow text-center"
+              >
+                <div className={`${highlight.color} mb-4 sm:mb-6 flex justify-center`}>{highlight.icon}</div>
+
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">{highlight.title}</h3>
+
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{highlight.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
+              Don't just witness the future of consulting—help create it. Your journey to extraordinary begins now.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+              <Link href="/recruitment" className="button-ellipse">
+                <span className="button-text">Apply Now</span>
+              </Link>
+              <Link href="/about" className="button-ellipse">
+                <span className="button-text">Meet Our Founders</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
