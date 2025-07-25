@@ -102,25 +102,26 @@ export default function Home() {
             logoVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-10"
           }`}
         >
-          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-6`}>
+          <div className={`relative ${logoVisible ? "logo-glow" : ""} mb-4`}>
             <Image
               src="/images/nova-network-logo.png"
               alt="NOVA Network"
               width={200}
               height={200}
-              className="w-48 sm:w-56 md:w-64 h-auto opacity-80 mix-blend-screen"
+              className="w-48 sm:w-56 md:w-64 h-auto opacity-70 mix-blend-screen"
               priority
             />
           </div>
           <div className="text-center">
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
+              className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-2"
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontWeight: 600, // Changed from 700 to 600 for thinner look
-                letterSpacing: "0.15em",
+                fontWeight: 500, // Made even thinner for more class
+                letterSpacing: "0.2em", // Increased letter spacing for elegance
                 textTransform: "uppercase",
-                marginTop: "-0.5rem", // Pull text closer to logo
+                marginTop: "-1rem", // Pulled closer to logo for better blending
+                opacity: 0.95, // Slightly more transparent to blend with logo
               }}
             >
               TEXAS NOVA
@@ -130,9 +131,10 @@ export default function Home() {
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.3em", // Increased letter spacing to match
                 textTransform: "uppercase",
-                marginTop: "0.25rem", // Fine-tune spacing
+                marginTop: "0.1rem", // Tighter spacing
+                opacity: 0.9, // Slightly more transparent
               }}
             >
               CONSULTING GROUP
