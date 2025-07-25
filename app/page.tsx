@@ -111,7 +111,7 @@ export default function Home() {
               alt="NOVA Network"
               width={200}
               height={200}
-              className="w-48 sm:w-56 md:w-64 h-auto opacity-70 mix-blend-screen"
+              className="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 rounded-full object-cover opacity-70 mix-blend-screen"
               priority
             />
           </div>
@@ -310,6 +310,123 @@ export default function Home() {
             </p>
             <Link href="/recruitment" className="button-ellipse">
               <span className="button-text">Join NOVA Today</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Comparison Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              The <span className="animated-gradient-text">NOVA Difference</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+              While others are doing interview prep, NOVA members are building careers that speak for themselves.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+            {/* Resume With NOVA */}
+            <div className="space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-center text-blue-400 mb-8">Resume With NOVA</h3>
+
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="border-b-2 border-gray-300 pb-2 mb-4">
+                  <h4 className="font-bold text-gray-800 text-lg">WORK EXPERIENCE</h4>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h5 className="font-semibold text-gray-800">NOVA Consulting | Technical Consultant</h5>
+                        <p className="text-gray-600 text-sm">Austin, TX</p>
+                      </div>
+                      <p className="text-gray-600 text-sm">Sep. 2024 - Present</p>
+                    </div>
+                    <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                      <li>
+                        • Led AI implementation project for healthcare startup, resulting in 40% efficiency improvement
+                        and $2M cost savings
+                      </li>
+                      <li>
+                        • Conducted strategic analysis for Fortune 500 client, identifying market opportunities worth
+                        $15M in potential revenue
+                      </li>
+                      <li>
+                        • Developed custom machine learning solution that increased client's customer retention by 35%
+                      </li>
+                      <li>
+                        • Presented findings to C-suite executives at 3 major corporations, securing follow-up contracts
+                        worth $500K
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h5 className="font-semibold text-gray-800">VeneerVision AI | Co-Founder & CTO</h5>
+                        <p className="text-gray-600 text-sm">Austin, TX</p>
+                      </div>
+                      <p className="text-gray-600 text-sm">Jan. 2024 - Aug. 2024</p>
+                    </div>
+                    <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                      <li>• Built AI-powered dental imaging platform serving 50+ dental practices across Texas</li>
+                      <li>• Secured $250K in seed funding from prominent Austin investors</li>
+                      <li>• Managed team of 8 engineers and designers to deliver MVP in 4 months</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Resume Without NOVA */}
+            <div className="space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-400 mb-8">Resume Without NOVA</h3>
+
+              <div className="bg-white rounded-lg p-6 shadow-lg opacity-75">
+                <div className="border-b-2 border-gray-300 pb-2 mb-4">
+                  <h4 className="font-bold text-gray-800 text-lg">EDUCATION</h4>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h5 className="font-semibold text-gray-800">University of Texas at Austin</h5>
+                        <p className="text-gray-600 text-sm">Bachelor of Science, Computer Science</p>
+                      </div>
+                      <p className="text-gray-600 text-sm">GPA: 3.7/4.0</p>
+                    </div>
+                    <p className="text-sm text-gray-700">Expected Graduation: May 2026</p>
+                  </div>
+                </div>
+
+                <div className="border-b-2 border-gray-300 pb-2 mb-4 mt-6">
+                  <h4 className="font-bold text-gray-800 text-lg">ACTIVITIES</h4>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="text-sm text-gray-700">• Member, Computer Science Student Association</p>
+                  <p className="text-sm text-gray-700">• Volunteer, Local Food Bank</p>
+                  <p className="text-sm text-gray-700">• Intramural Soccer Team</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-xl sm:text-2xl font-bold text-white mb-4">
+              While everyone else is doing interview prep...
+            </p>
+            <p className="text-lg text-gray-300 mb-8">
+              NOVA members are building the experience that makes interviews irrelevant.
+            </p>
+            <Link href="/recruitment" className="button-ellipse">
+              <span className="button-text">Start Building Your Future</span>
             </Link>
           </div>
         </div>
