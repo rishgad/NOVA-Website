@@ -232,10 +232,10 @@ export default function Home() {
       </section>
 
       {/* Resume Comparison Section - Moved above Opportunities */}
-      <section className="py-12 sm:py-16 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-white bg-opacity-5">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">
               The <span className="animated-gradient-text">NOVA Difference</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
@@ -243,18 +243,22 @@ export default function Home() {
             </p>
           </div>
 
-          <ResumeComparison />
+          <div className="mb-12 sm:mb-16">
+            <ResumeComparison />
+          </div>
 
-          <div className="text-center mt-8 sm:mt-12">
-            <p className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              While everyone else is doing interview prep...
-            </p>
-            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
-              NOVA members are building the experience that makes interviews irrelevant.
-            </p>
-            <Link href="/recruitment" className="button-ellipse mx-auto">
-              <span className="button-text">Start Building Your Future</span>
-            </Link>
+          <div className="text-center pt-8 sm:pt-12 border-t border-white border-opacity-20">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
+                While everyone else is doing interview prep...
+              </p>
+              <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed">
+                NOVA members are building the experience that makes interviews irrelevant.
+              </p>
+              <Link href="/recruitment" className="button-ellipse mx-auto">
+                <span className="button-text">Start Building Your Future</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
