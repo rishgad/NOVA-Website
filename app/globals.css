@@ -512,6 +512,7 @@ section {
   margin-bottom: 0.75rem;
 }
 
+/* Remove the resume-bullet class styling that wasn't working properly */
 .resume-bullet {
   position: relative;
   padding-left: 1rem;
@@ -524,6 +525,25 @@ section {
   position: absolute;
   left: 0;
   color: rgb(var(--navy-primary));
+}
+
+/* Add these styles to ensure bullet points are visible */
+.resume-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.resume-card li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.resume-card li span:first-child {
+  flex-shrink: 0;
+  font-size: 1.2em;
+  line-height: 1;
+  margin-top: 0.1em;
 }
 
 /* Mobile-optimized tabs for resume comparison */

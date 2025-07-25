@@ -71,24 +71,36 @@ function ResumeWithNOVA() {
               <p className="text-gray-600 text-sm">Sep. 2024 - Present</p>
             </div>
           </div>
-          <ul className="space-y-1">
-            <li className="resume-bullet">
-              Led AI implementation project for local startup, resulting in 30% efficiency improvement and $50K cost
-              savings
+          <ul className="space-y-2 mt-2">
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Led AI implementation project for local startup, resulting in 30% efficiency improvement and $50K cost
+                savings
+              </span>
             </li>
-            <li className="resume-bullet">
-              Conducted market analysis for tech client, identifying 3 new target segments with $500K potential
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Conducted market analysis for tech client, identifying 3 new target segments with $500K potential
+              </span>
             </li>
-            <li className="resume-bullet">
-              Developed custom data analytics dashboard that increased client's customer retention by 25%
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Developed custom data analytics dashboard that increased client's customer retention by 25%
+              </span>
             </li>
-            <li className="resume-bullet">
-              Presented findings to executive team at Austin-based company, securing follow-up project worth $15K
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Presented findings to executive team at Austin-based company, securing follow-up project worth $15K
+              </span>
             </li>
           </ul>
         </div>
 
-        <div className="resume-experience">
+        <div className="resume-experience mt-4 pt-4 border-t border-gray-200">
           <div className="resume-experience-header">
             <h5 className="font-semibold text-gray-800">NexusAI Labs | Project Lead</h5>
             <div className="flex justify-between items-center">
@@ -96,10 +108,23 @@ function ResumeWithNOVA() {
               <p className="text-gray-600 text-sm">Jan. 2024 - Aug. 2024</p>
             </div>
           </div>
-          <ul className="space-y-1">
-            <li className="resume-bullet">Built AI-powered content recommendation system used by 5 local businesses</li>
-            <li className="resume-bullet">Secured $20K in funding through university innovation grant</li>
-            <li className="resume-bullet">Led team of 4 student developers to deliver working prototype in 8 weeks</li>
+          <ul className="space-y-2 mt-2">
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Built AI-powered content recommendation system used by 5 local businesses
+              </span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">Secured $20K in funding through university innovation grant</span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">
+                Led team of 4 student developers to deliver working prototype in 8 weeks
+              </span>
+            </li>
           </ul>
         </div>
       </div>
@@ -128,10 +153,19 @@ function ResumeWithoutNOVA() {
 
         <div className="mt-4 pt-4 border-t border-gray-200">
           <h4 className="font-bold text-gray-800 text-lg mb-2">ACTIVITIES</h4>
-          <ul className="space-y-1">
-            <li className="resume-bullet">Member, Computer Science Student Association</li>
-            <li className="resume-bullet">Volunteer, Local Food Bank</li>
-            <li className="resume-bullet">Intramural Soccer Team</li>
+          <ul className="space-y-2">
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">Member, Computer Science Student Association</span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">Volunteer, Local Food Bank</span>
+            </li>
+            <li className="flex">
+              <span className="text-gray-800 mr-2">•</span>
+              <span className="text-gray-700 text-sm">Intramural Soccer Team</span>
+            </li>
           </ul>
         </div>
       </div>
