@@ -35,7 +35,7 @@ const jobPositions: JobPosition[] = [
       "Strong technical and problem-solving skills",
       "Experience with programming languages and technology platforms",
       "Interest in consulting and client-facing work",
-      "Ability to commit 10-15 hours per week",
+      "Ability to commit 2-3 hours per week (depending on project)",
     ],
   },
 ]
@@ -102,7 +102,7 @@ const faqs = [
   {
     question: "What is the time commitment?",
     answer:
-      "Most positions require 10-15 hours per week, but we offer flexibility around academic schedules and exam periods.",
+      "Time commitment depends on the project, but most of the time it's 2-3 hours per week. We offer flexibility around academic schedules and exam periods.",
   },
   {
     question: "Can I apply if I'm a freshman?",
