@@ -208,6 +208,8 @@ section {
   background: #ffffff;
 }
 
+/* Update the team card styles for better mobile responsiveness */
+
 /* Team Card Wrapper Styles */
 .team-card-wrapper {
   position: relative;
@@ -235,7 +237,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem;
   pointer-events: none;
   z-index: 10;
 }
@@ -245,11 +247,12 @@ section {
   justify-content: center;
   align-items: center;
   flex: 1;
+  min-height: 140px;
 }
 
 .team-role-icon {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
@@ -261,8 +264,8 @@ section {
 }
 
 .team-role-icon svg {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .team-card-wrapper:hover .team-role-icon {
@@ -275,59 +278,63 @@ section {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   color: rgb(var(--navy-primary));
+  flex-shrink: 0;
 }
 
 .team-member-name {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: rgb(var(--navy-primary));
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   font-family: var(--font-orbitron);
+  line-height: 1.2;
 }
 
 .team-member-role {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   color: rgb(var(--navy-light));
+  line-height: 1.2;
 }
 
 .team-member-description {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: rgb(var(--navy-primary));
   opacity: 0.8;
-  line-height: 1.4;
-  margin-bottom: 1rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
 }
 
 .team-skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .skill-tag {
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.65rem;
   background: rgba(0, 57, 89, 0.1);
   border: 1px solid rgba(0, 57, 89, 0.3);
   color: rgb(var(--navy-primary));
+  line-height: 1.2;
 }
 
 .team-connect-btn {
   background: rgb(var(--navy-primary));
   border: 1px solid rgb(var(--navy-primary));
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -335,12 +342,117 @@ section {
   text-transform: none;
   letter-spacing: 0.02em;
   pointer-events: auto;
+  line-height: 1.2;
 }
 
 .team-connect-btn:hover {
   background: rgb(var(--navy-light));
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 57, 89, 0.3);
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .team-card-wrapper {
+    height: 400px;
+  }
+
+  .team-card-content {
+    padding: 1.25rem;
+  }
+
+  .team-icon-section {
+    min-height: 120px;
+  }
+
+  .team-role-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .team-role-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .team-info-section {
+    padding: 0.875rem;
+  }
+
+  .team-member-name {
+    font-size: 1rem;
+  }
+
+  .team-member-role {
+    font-size: 0.8rem;
+  }
+
+  .team-member-description {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .team-skills {
+    gap: 0.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-tag {
+    padding: 0.1rem 0.4rem;
+    font-size: 0.6rem;
+  }
+
+  .team-connect-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .team-card-wrapper {
+    height: 380px;
+  }
+
+  .team-card-content {
+    padding: 1rem;
+  }
+
+  .team-icon-section {
+    min-height: 100px;
+  }
+
+  .team-role-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .team-role-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .team-info-section {
+    padding: 0.75rem;
+  }
+
+  .team-member-name {
+    font-size: 0.95rem;
+  }
+
+  .team-member-role {
+    font-size: 0.75rem;
+  }
+
+  .team-member-description {
+    font-size: 0.65rem;
+    line-height: 1.25;
+  }
+
+  .team-connect-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.65rem;
+  }
 }
 
 .mouse-follower {
