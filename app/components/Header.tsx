@@ -52,13 +52,6 @@ export default function Header() {
       >
         Contact Us
       </Link>
-      <Link
-        href="/analytics"
-        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => handleNavClick("analytics")}
-      >
-        Analytics
-      </Link>
     </>
   )
 
