@@ -4,6 +4,8 @@ import type { Metadata } from "next"
 import { Space_Grotesk, Orbitron, Inter } from "next/font/google"
 import Header from "./components/Header"
 import ParticleBackground from "./components/ParticleBackground"
+import { AnalyticsProvider } from "./components/AnalyticsProvider"
+import { Suspense } from "react"
 
 // Define a futuristic primary font
 const orbitron = Orbitron({
@@ -37,13 +39,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable} text-white min-h-screen`}>
-        {/* Canvas-based Particle Background */}
-        <ParticleBackground />
-
-        <div className="relative z-10">
-          <Header />
-          <main className="pt-16 font-space-grotesk">{children}</main>
-        </div>
+        <AnalyticsProvider>
+          {/* Canvas-based Particle Background */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <ParticleBackground />
+            <div className="relative z-10">
+              <Header />
+              <main className="pt-16 font-space-grotesk">{children}</main>
+            </div>
+          </Suspense>
+        </AnalyticsProvider>
       </body>
     </html>
   )

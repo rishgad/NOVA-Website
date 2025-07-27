@@ -5,46 +5,59 @@ import { useState } from "react"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { trackClick } from "@/lib/analytics"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+
+  const handleNavClick = (linkName: string) => {
+    trackClick(`nav_${linkName}`)
+    setIsOpen(false)
+  }
 
   const navLinks = (
     <>
       <Link
         href="/"
         className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => setIsOpen(false)}
+        onClick={() => handleNavClick("home")}
       >
         Home
       </Link>
       <Link
         href="/about"
         className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => setIsOpen(false)}
+        onClick={() => handleNavClick("about")}
       >
         Meet the Team
       </Link>
       <Link
         href="/impact"
         className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => setIsOpen(false)}
+        onClick={() => handleNavClick("impact")}
       >
         Our Impact
       </Link>
       <Link
         href="/recruitment"
         className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => setIsOpen(false)}
+        onClick={() => handleNavClick("recruitment")}
       >
         Join Us
       </Link>
       <Link
         href="/contact"
         className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
-        onClick={() => setIsOpen(false)}
+        onClick={() => handleNavClick("contact")}
       >
         Contact Us
+      </Link>
+      <Link
+        href="/analytics"
+        className="text-lg text-white hover:text-gray-200 transition-colors duration-300 nav-link-underline-glow"
+        onClick={() => handleNavClick("analytics")}
+      >
+        Analytics
       </Link>
     </>
   )
@@ -63,6 +76,7 @@ export default function Header() {
                   variant="ghost"
                   size="icon"
                   className="text-white h-10 w-10 rounded bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300"
+                  onClick={() => trackClick("mobile_menu")}
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle navigation menu</span>
