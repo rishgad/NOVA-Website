@@ -1,0 +1,428 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { toast } from "@/components/ui/use-toast"
+import Link from "next/link"
+import Footer from "../components/Footer"
+import { ChevronDown, ChevronUp, Sparkles, Zap, Trophy } from "lucide-react"
+
+interface JobPosition {
+  id: string
+  title: string
+  department: string
+  location: string
+  type: string
+  description: string
+  requirements: string[]
+}
+
+const jobPositions: JobPosition[] = [
+  {
+    id: "tech-consultant-1",
+    title: "Technical Consultant",
+    department: "Technology Solutions",
+    location: "Austin, TX (Remote options available)",
+    type: "Part-time",
+    description:
+      "Join our technical consulting team and work directly with clients to solve complex technology challenges. You'll help analyze systems, develop technical recommendations, and implement innovative solutions.",
+    requirements: [
+      "Currently enrolled in undergraduate program (sophomore or junior preferred)",
+      "Strong technical and problem-solving skills",
+      "Experience with programming languages and technology platforms",
+      "Interest in consulting and client-facing work",
+      "Ability to commit 2-3 hours per week (depending on project)",
+    ],
+  },
+]
+
+const benefits = [
+  {
+    title: "Professional Development",
+    description:
+      "Gain valuable consulting experience and develop professional skills that will set you apart in your career.",
+    icon: "🚀",
+  },
+  {
+    title: "Networking Opportunities",
+    description: "Connect with business leaders, industry professionals, and fellow ambitious students.",
+    icon: "🤝",
+  },
+  {
+    title: "Meaningful Projects",
+    description: "Work on real projects with real impact, solving actual business challenges for our clients.",
+    icon: "💼",
+  },
+  {
+    title: "Flexible Schedule",
+    description: "We understand student life. Our flexible hours work around your academic commitments.",
+    icon: "⏰",
+  },
+  {
+    title: "Mentorship",
+    description: "Receive guidance from experienced team members who are invested in your growth.",
+    icon: "🧠",
+  },
+  {
+    title: "Leadership Opportunities",
+    description: "Take on increasing responsibility and develop leadership skills as you grow with us.",
+    icon: "⭐",
+  },
+]
+
+const steps = [
+  {
+    number: "01",
+    title: "Application",
+    description: "Submit your application with your resume and tell us why you're interested in joining NOVA.",
+  },
+  {
+    number: "02",
+    title: "Initial Review",
+    description:
+      "Our team will review your application and reach out to qualified candidates for a first-round interview.",
+  },
+  {
+    number: "03",
+    title: "Interview",
+    description: "Meet with our recruitment team to discuss your experience, skills, and interest in NOVA.",
+  },
+]
+
+const faqs = [
+  {
+    question: "Do I need prior consulting experience to apply?",
+    answer:
+      "No, we value potential and enthusiasm over experience. We provide training and mentorship to help you develop the necessary skills.",
+  },
+  {
+    question: "What is the time commitment?",
+    answer:
+      "Time commitment depends on the project, but most of the time it's 2-3 hours per week. We offer flexibility around academic schedules and exam periods.",
+  },
+  {
+    question: "Can I apply if I'm a freshman?",
+    answer: "Yes, freshmen are welcome to apply! We encourage students from all class levels to join our team.",
+  },
+  {
+    question: "Can I apply if I'm a graduate student?",
+    answer:
+      "Yes, we have positions suitable for graduate students, particularly in specialized technical or strategic roles.",
+  },
+]
+
+const exclusiveFeatures = [
+  {
+    icon: <Sparkles className="w-8 h-8" />,
+    title: "Exclusive Access",
+    description: "Get early access to cutting-edge AI tools and platforms before they hit the market",
+    color: "text-purple-400",
+    gradient: "from-purple-600 to-purple-400",
+  },
+  {
+    icon: <Zap className="w-8 h-8" />,
+    title: "Fast-Track Program",
+    description: "Accelerated learning path with personalized mentorship from industry leaders",
+    color: "text-blue-400",
+    gradient: "from-blue-600 to-blue-400",
+  },
+  {
+    icon: <Trophy className="w-8 h-8" />,
+    title: "Achievement Recognition",
+    description: "Official certifications and LinkedIn endorsements that boost your professional profile",
+    color: "text-orange-400",
+    gradient: "from-orange-600 to-orange-400",
+  },
+]
+
+export default function Recruitment() {
+  const [fullName, setFullName] = useState("")
+  const [email, setEmail] = useState("")
+  const [resume, setResume] = useState<File | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Create mailto link with application details
+    const subject = encodeURIComponent("NOVA Consulting Application - " + fullName)
+    const body = encodeURIComponent(`
+Application for Technical Consultant Position
+
+Name: ${fullName}
+Email: ${email}
+Resume: ${resume ? resume.name : "Not attached"}
+
+Please find my resume attached. I am excited about the opportunity to join NOVA Consulting and contribute to your innovative projects.
+
+Best regards,
+${fullName}
+  `)
+
+    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = mailtoLink
+
+    toast({
+      title: "Application prepared!",
+      description: "Your email client will open. Please attach your resume and send the email.",
+    })
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setResume(e.target.files[0])
+    }
+  }
+
+  const toggleFaq = (index: number) => {
+    if (openFaq === index) {
+      setOpenFaq(null)
+    } else {
+      setOpenFaq(index)
+    }
+  }
+
+  return (
+    <div className="flex flex-col pt-4">
+      {/* Hero Section */}
+      <section className="py-20 px-6 relative z-10">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Join Our Team</h1>
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Be part of a dynamic student-led consulting team making real impact. We're looking for talented, ambitious
+            students to join us on our mission.
+          </p>
+        </div>
+      </section>
+
+      {/* Exclusive Features Section */}
+      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              Exclusive <span className="animated-gradient-text">Member Benefits</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Join NOVA and unlock exclusive opportunities that set you apart from the competition.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {exclusiveFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
+              >
+                {/* Animated background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+
+                {/* Floating icon animation */}
+                <div
+                  className={`${feature.color} mb-4 sm:mb-6 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                >
+                  <div className="relative">
+                    {feature.icon}
+                    <div
+                      className={`absolute inset-0 ${feature.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
+                    >
+                      {feature.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
+                  {feature.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-gray-300 text-center leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  {feature.description}
+                </p>
+
+                {/* Animated border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
+                ></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture Section */}
+      <section className="py-20 px-6 relative z-10">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-3xl font-bold mb-6 text-white">Our Culture</h2>
+              <p className="text-gray-300 mb-6">
+                At NOVA, we believe in fostering an environment of innovation, collaboration, and growth. Our team
+                members are passionate about making a difference and developing their professional skills.
+              </p>
+              <p className="text-gray-300 mb-6">
+                We value diversity of thought, background, and experience. Everyone's voice is heard, and we encourage
+                our team members to bring their unique perspectives to the table.
+              </p>
+              <p className="text-gray-300">
+                As a student-led organization, we understand the importance of balancing academic commitments with
+                professional development. We offer flexible schedules and a supportive community.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="rounded-3xl overflow-hidden shadow-glow">
+                <Image
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80&auto=format"
+                  alt="NOVA team culture"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto brightness-90"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Why Join NOVA?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+              >
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-bold mb-2 text-white">{benefit.title}</h3>
+                <p className="text-gray-300">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Application Process Section */}
+      <section className="py-20 px-6 relative z-10">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Application Process</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+              >
+                <div className="w-12 h-12 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4">
+                  <span className="text-lg animated-gradient-text">{step.number}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                <p className="text-gray-300">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Application Form Section */}
+      <section id="apply" className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Apply Now</h2>
+
+          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
+            <h3 className="text-xl font-bold mb-6 text-white">Application for Technical Consultant</h3>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-1">
+                  Full Name
+                </label>
+                <Input
+                  id="fullName"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="resume" className="block text-sm font-medium text-gray-300 mb-1">
+                  Resume (PDF)
+                </label>
+                <Input
+                  id="resume"
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleFileChange}
+                  required
+                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
+                />
+              </div>
+
+              <div className="flex justify-center">
+                <Button type="submit" className="bg-white text-black hover:bg-gray-200 rounded-full">
+                  Submit Application
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-6 relative z-10">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Frequently Asked Questions</h2>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:shadow-glow"
+              >
+                <button onClick={() => toggleFaq(index)} className="flex justify-between items-center w-full text-left">
+                  <h3 className="text-xl font-bold text-white">{faq.question}</h3>
+                  {openFaq === index ? <ChevronUp className="text-white" /> : <ChevronDown className="text-white" />}
+                </button>
+
+                {openFaq === index && (
+                  <div className="mt-4 pt-4 border-t border-gray-700">
+                    <p className="text-gray-300">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-300 mb-6">Have more questions? We're happy to help!</p>
+            <Link href="/contact" className="button-ellipse inline-block">
+              <span className="button-text">Contact Us</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  )
+}
