@@ -5,6 +5,8 @@ import { Space_Grotesk, Orbitron, Inter } from "next/font/google"
 import Header from "./components/Header"
 import ParticleBackground from "./components/ParticleBackground"
 import { AnalyticsProvider } from "./components/AnalyticsProvider"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Suspense } from "react"
 
 // Define a futuristic primary font
@@ -48,6 +50,12 @@ export default function RootLayout({
               <main className="pt-16 font-space-grotesk">{children}</main>
             </div>
           </Suspense>
+
+          {/* Vercel Analytics - tracks page views and performance */}
+          <Analytics />
+
+          {/* Vercel Speed Insights - tracks Core Web Vitals */}
+          <SpeedInsights />
         </AnalyticsProvider>
       </body>
     </html>
