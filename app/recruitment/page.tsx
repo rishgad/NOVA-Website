@@ -296,9 +296,9 @@ export default function Recruitment() {
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Apply Now</h2>
 
           <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow text-center">
-            <h3 className="text-xl font-bold mb-6 text-white">Ready to Join NOVA?</h3>
+            <h3 className="text-xl font-bold mb-6 text-white">BOARD APPLICATIONS OPEN NOW</h3>
             <p className="text-gray-300 mb-8 leading-relaxed">
-              Take the first step towards an extraordinary career. Our application process is designed to identify passionate, driven students who are ready to make an impact.
+              Board applications are open now! If you want to make a difference and be part of the board that makes this club an even better experience, apply now!
             </p>
             
             <a
