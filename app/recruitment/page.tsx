@@ -5,11 +5,9 @@ import type React from "react"
 import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { toast } from "@/components/ui/use-toast"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { ChevronDown, ChevronUp, Sparkles, Zap, Trophy } from "lucide-react"
+import { ChevronDown, ChevronUp, Sparkles, Zap, Trophy } from 'lucide-react'
 
 interface JobPosition {
   id: string
@@ -140,43 +138,7 @@ const exclusiveFeatures = [
 ]
 
 export default function Recruitment() {
-  const [fullName, setFullName] = useState("")
-  const [email, setEmail] = useState("")
-  const [resume, setResume] = useState<File | null>(null)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Create mailto link with application details
-    const subject = encodeURIComponent("NOVA Consulting Application - " + fullName)
-    const body = encodeURIComponent(`
-Application for Technical Consultant Position
-
-Name: ${fullName}
-Email: ${email}
-Resume: ${resume ? resume.name : "Not attached"}
-
-Please find my resume attached. I am excited about the opportunity to join NOVA Consulting and contribute to your innovative projects.
-
-Best regards,
-${fullName}
-  `)
-
-    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${subject}&body=${body}`
-    window.location.href = mailtoLink
-
-    toast({
-      title: "Application prepared!",
-      description: "Your email client will open. Please attach your resume and send the email.",
-    })
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setResume(e.target.files[0])
-    }
-  }
 
   const toggleFaq = (index: number) => {
     if (openFaq === index) {
@@ -333,57 +295,25 @@ ${fullName}
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold text-center mb-16 text-white">Apply Now</h2>
 
-          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow">
-            <h3 className="text-xl font-bold mb-6 text-white">Application for Technical Consultant</h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-1">
-                  Full Name
-                </label>
-                <Input
-                  id="fullName"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  required
-                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="resume" className="block text-sm font-medium text-gray-300 mb-1">
-                  Resume (PDF)
-                </label>
-                <Input
-                  id="resume"
-                  type="file"
-                  accept=".pdf"
-                  onChange={handleFileChange}
-                  required
-                  className="bg-white bg-opacity-20 text-white placeholder-gray-400 rounded-full"
-                />
-              </div>
-
-              <div className="flex justify-center">
-                <Button type="submit" className="bg-white text-black hover:bg-gray-200 rounded-full">
-                  Submit Application
-                </Button>
-              </div>
-            </form>
+          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow text-center">
+            <h3 className="text-xl font-bold mb-6 text-white">BOARD APPLICATIONS OPEN NOW</h3>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Board applications are open now! If you want to make a difference and be part of the board that makes this club an even better experience, apply now!
+            </p>
+            
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => trackClick("application_form_external")}
+            >
+              Complete Application Form
+            </a>
+            
+            <p className="text-sm text-gray-400 mt-4">
+              Opens in a new tab • Takes approximately 5-10 minutes
+            </p>
           </div>
         </div>
       </section>
