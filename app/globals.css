@@ -6,11 +6,10 @@
   --primary: 255 255 255;
   --secondary: 0 0 0;
   --navy-primary: 0 57 89; /* #003959 */
-  --navy-light: 0 87 134; /* Lighter navy for accents */
-  --navy-dark: 0 37 59; /* Darker navy for depth */
+  --navy-light: 0 87 134;
+  --navy-dark: 0 37 59;
 }
 
-/* Apply font variables */
 @layer base {
   h1,
   h2,
@@ -18,8 +17,8 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-orbitron);
-    letter-spacing: 0.02em; /* Reduced for more professional look */
+    font-family: var(--font-space-grotesk);
+    letter-spacing: -0.01em;
     font-weight: 600;
   }
 
@@ -27,47 +26,27 @@
     font-family: var(--font-space-grotesk);
     background-color: rgb(var(--navy-primary));
     color: #ffffff;
-    /* Add a subtle gradient background for mobile when particles are disabled */
-    background-image: linear-gradient(135deg, rgb(var(--navy-primary)) 0%, rgb(var(--navy-dark)) 100%);
-  }
-
-  .button-text {
-    font-family: var(--font-space-grotesk); /* Changed from Orbitron for more professional look */
-    letter-spacing: 0.02em;
-    font-weight: 500;
   }
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+body {
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Add this new section for logo styling */
-.nova-logo-network {
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
-  transition: all 0.3s ease;
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
-.nova-logo-network:hover {
-  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
-  transform: scale(1.02);
-}
-
-/* Logo specific typography */
+/* Logo typography */
 .nova-logo-title {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-stretch: condensed;
 }
 
 .nova-logo-subtitle {
@@ -78,30 +57,16 @@
   font-size: 0.75em;
 }
 
-/* Make the text look more "tough" and impactful */
 @media (min-width: 640px) {
   .nova-logo-title {
     letter-spacing: 0.2em;
   }
-
   .nova-logo-subtitle {
     letter-spacing: 0.3em;
   }
 }
 
-/* Update the logo glow animation */
-@keyframes logoGlow {
-  0% {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
-  }
-  50% {
-    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
-  }
-  100% {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
-  }
-}
-
+/* Scroll animation for carousel */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -115,351 +80,15 @@
   animation: scroll 40s linear infinite;
 }
 
-.logo-glow {
-  animation: logoGlow 2s ease-out forwards;
-}
-
-body {
-  position: relative;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-body::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.animated-gradient-text {
-  background: linear-gradient(270deg, #ffffff, #e0e7ff, #ffffff);
-  background-size: 200% 200%;
-  animation: gradientAnimation 8s ease infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Professional McKinsey-style button */
-.button-ellipse {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  background-color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  border-radius: 4px; /* More rectangular, professional look */
-  min-width: 160px;
-  height: 48px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.02em;
-  font-size: 0.9rem;
-}
-
-.button-text {
-  color: rgb(var(--navy-primary));
-  font-family: var(--font-space-grotesk);
-}
-
-.button-ellipse:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background-color: #f9fafb;
-}
-
-.button-ellipse:before {
-  display: none; /* Remove gradient animation for professional look */
-}
-
-/* Professional card styling */
-.shadow-glow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.rounded-3xl {
-  border-radius: 12px; /* Less rounded for professional look */
-}
-
 section {
   scroll-margin-top: 80px;
 }
 
-/* Team page specific styles */
-.team-title {
-  position: relative;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.team-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: #ffffff;
-}
-
-/* Update the team card styles for better mobile responsiveness */
-
-/* Team Card Wrapper Styles */
-.team-card-wrapper {
-  position: relative;
-  height: 450px;
-  width: 100%;
-}
-
-/* Hide default profile card content */
-.nova-team-card .pc-content {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.nova-team-card .avatar {
-  display: none;
-}
-
-/* Custom team card content */
-.team-card-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.team-icon-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  min-height: 140px;
-}
-
-.team-role-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
-}
-
-.team-role-icon svg {
-  width: 50px;
-  height: 50px;
-}
-
-.team-card-wrapper:hover .team-role-icon {
-  transform: scale(1.05);
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.team-info-section {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-  color: rgb(var(--navy-primary));
-  flex-shrink: 0;
-}
-
-.team-member-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: rgb(var(--navy-primary));
-  margin-bottom: 0.25rem;
-  font-family: var(--font-orbitron);
-  line-height: 1.2;
-}
-
-.team-member-role {
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: rgb(var(--navy-light));
-  line-height: 1.2;
-}
-
-.team-member-description {
-  font-size: 0.75rem;
-  color: rgb(var(--navy-primary));
-  opacity: 0.8;
-  line-height: 1.3;
-  margin-bottom: 0.75rem;
-}
-
-.team-skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.25rem;
-  margin-bottom: 1rem;
-}
-
-.skill-tag {
-  padding: 0.15rem 0.5rem;
-  border-radius: 12px;
-  font-size: 0.65rem;
-  background: rgba(0, 57, 89, 0.1);
-  border: 1px solid rgba(0, 57, 89, 0.3);
-  color: rgb(var(--navy-primary));
-  line-height: 1.2;
-}
-
-.team-connect-btn {
-  background: rgb(var(--navy-primary));
-  border: 1px solid rgb(var(--navy-primary));
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: var(--font-space-grotesk);
-  text-transform: none;
-  letter-spacing: 0.02em;
-  pointer-events: auto;
-  line-height: 1.2;
-}
-
-.team-connect-btn:hover {
-  background: rgb(var(--navy-light));
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 57, 89, 0.3);
-}
-
-/* Mobile specific adjustments */
-@media (max-width: 768px) {
-  .team-card-wrapper {
-    height: 400px;
-  }
-
-  .team-card-content {
-    padding: 1.25rem;
-  }
-
-  .team-icon-section {
-    min-height: 120px;
-  }
-
-  .team-role-icon {
-    width: 80px;
-    height: 80px;
-  }
-
-  .team-role-icon svg {
-    width: 40px;
-    height: 40px;
-  }
-
-  .team-info-section {
-    padding: 0.875rem;
-  }
-
-  .team-member-name {
-    font-size: 1rem;
-  }
-
-  .team-member-role {
-    font-size: 0.8rem;
-  }
-
-  .team-member-description {
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .team-skills {
-    gap: 0.2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .skill-tag {
-    padding: 0.1rem 0.4rem;
-    font-size: 0.6rem;
-  }
-
-  .team-connect-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
-  }
-}
-
-/* Extra small mobile devices */
-@media (max-width: 480px) {
-  .team-card-wrapper {
-    height: 380px;
-  }
-
-  .team-card-content {
-    padding: 1rem;
-  }
-
-  .team-icon-section {
-    min-height: 100px;
-  }
-
-  .team-role-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .team-role-icon svg {
-    width: 35px;
-    height: 35px;
-  }
-
-  .team-info-section {
-    padding: 0.75rem;
-  }
-
-  .team-member-name {
-    font-size: 0.95rem;
-  }
-
-  .team-member-role {
-    font-size: 0.75rem;
-  }
-
-  .team-member-description {
-    font-size: 0.65rem;
-    line-height: 1.25;
-  }
-
-  .team-connect-btn {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.65rem;
-  }
-}
-
-.mouse-follower {
-  display: none; /* Remove for professional look */
-}
-
 /* Professional nav link styling */
+.nav-link-underline-glow {
+  position: relative;
+}
+
 .nav-link-underline-glow::after {
   content: "";
   position: absolute;
@@ -467,7 +96,7 @@ section {
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: 100%;
-  height: 2px;
+  height: 1.5px;
   background-color: #ffffff;
   transition: transform 0.3s ease-out;
   opacity: 0;
@@ -478,135 +107,37 @@ section {
   opacity: 1;
 }
 
-/* Professional card backgrounds */
-.professional-card {
-  background: rgba(255, 255, 255, 0.95);
+/* Professional button */
+.button-ellipse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background-color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  min-width: 160px;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  letter-spacing: 0.02em;
+  font-size: 0.9rem;
+}
+
+.button-text {
   color: rgb(var(--navy-primary));
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-space-grotesk);
+  font-weight: 500;
 }
 
-.professional-card-dark {
-  background: rgba(0, 37, 59, 0.8);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.button-ellipse:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f9fafb;
 }
 
-/* Mobile responsive improvements */
-@media (max-width: 768px) {
-  /* Disable particle effects on mobile by ensuring clean background */
-  body {
-    background-image: linear-gradient(
-      135deg,
-      rgb(var(--navy-primary)) 0%,
-      rgb(var(--navy-dark)) 50%,
-      rgb(var(--navy-primary)) 100%
-    );
-    background-attachment: fixed;
-  }
-
-  .button-ellipse {
-    min-width: 140px;
-    height: 44px;
-    padding: 12px 24px;
-    font-size: 0.85rem;
-    width: 100%; /* Make buttons full width on mobile */
-    max-width: 300px; /* But cap their width */
-  }
-
-  .team-card-wrapper {
-    height: 400px;
-  }
-
-  .team-role-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .team-role-icon svg {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* Improved mobile typography */
-  h1 {
-    font-size: 2rem; /* Slightly smaller on mobile */
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1.35rem;
-    line-height: 1.3;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  /* Improved section spacing on mobile */
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  /* Better card spacing on mobile */
-  .professional-card,
-  .professional-card-dark {
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Resume comparison mobile improvements */
-  .resume-comparison-mobile {
-    font-size: 0.85rem;
-  }
-
-  .resume-comparison-mobile h5 {
-    font-size: 1rem;
-  }
-
-  .resume-comparison-mobile ul li {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-}
-
-/* Improved mobile spacing */
-@media (max-width: 480px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .button-ellipse {
-    height: 40px;
-    padding: 10px 20px;
-    font-size: 0.8rem;
-  }
-
-  .grid {
-    gap: 1rem;
-  }
-
-  .rounded-3xl {
-    border-radius: 8px; /* Even less rounded on small mobile */
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: 255 255 255;
-    --secondary: 0 0 0;
-  }
-}
-
-/* Mobile-optimized resume comparison */
+/* Resume card styles */
 .resume-card {
   height: 100%;
   display: flex;
@@ -637,7 +168,6 @@ section {
   margin-bottom: 0.75rem;
 }
 
-/* Remove the resume-bullet class styling that wasn't working properly */
 .resume-bullet {
   position: relative;
   padding-left: 1rem;
@@ -646,13 +176,12 @@ section {
 }
 
 .resume-bullet:before {
-  content: "•";
+  content: "\2022";
   position: absolute;
   left: 0;
   color: rgb(var(--navy-primary));
 }
 
-/* Add these styles to ensure bullet points are visible */
 .resume-card ul {
   list-style: none;
   padding-left: 0;
@@ -671,7 +200,6 @@ section {
   margin-top: 0.1em;
 }
 
-/* Mobile-optimized tabs for resume comparison */
 .resume-tabs {
   display: flex;
   margin-bottom: 1rem;
@@ -686,7 +214,7 @@ section {
   text-align: center;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .resume-tab.active {
@@ -697,4 +225,83 @@ section {
 .resume-tab:not(.active) {
   background-color: rgba(0, 37, 59, 0.8);
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .button-ellipse {
+    min-width: 140px;
+    height: 44px;
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .button-ellipse {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Legacy classes used by other pages - kept minimal */
+.animated-gradient-text {
+  color: #ffffff;
+}
+
+.shadow-glow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.professional-card {
+  background: rgba(255, 255, 255, 0.95);
+  color: rgb(var(--navy-primary));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.professional-card-dark {
+  background: rgba(0, 37, 59, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: 255 255 255;
+    --secondary: 0 0 0;
+  }
 }

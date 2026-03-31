@@ -1,74 +1,41 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Footer from "../components/Footer"
-import { ChevronDown, ChevronUp, Sparkles, Zap, Trophy } from 'lucide-react'
-
-interface JobPosition {
-  id: string
-  title: string
-  department: string
-  location: string
-  type: string
-  description: string
-  requirements: string[]
-}
-
-const jobPositions: JobPosition[] = [
-  {
-    id: "tech-consultant-1",
-    title: "Technical Consultant",
-    department: "Technology Solutions",
-    location: "Austin, TX (Remote options available)",
-    type: "Part-time",
-    description:
-      "Join our technical consulting team and work directly with clients to solve complex technology challenges. You'll help analyze systems, develop technical recommendations, and implement innovative solutions.",
-    requirements: [
-      "Currently enrolled in undergraduate program (sophomore or junior preferred)",
-      "Strong technical and problem-solving skills",
-      "Experience with programming languages and technology platforms",
-      "Interest in consulting and client-facing work",
-      "Ability to commit 2-3 hours per week (depending on project)",
-    ],
-  },
-]
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { trackClick } from "@/lib/analytics"
 
 const benefits = [
   {
     title: "Professional Development",
     description:
       "Gain valuable consulting experience and develop professional skills that will set you apart in your career.",
-    icon: "🚀",
   },
   {
     title: "Networking Opportunities",
-    description: "Connect with business leaders, industry professionals, and fellow ambitious students.",
-    icon: "🤝",
+    description:
+      "Connect with business leaders, industry professionals, and fellow ambitious students.",
   },
   {
     title: "Meaningful Projects",
-    description: "Work on real projects with real impact, solving actual business challenges for our clients.",
-    icon: "💼",
+    description:
+      "Work on real projects with real impact, solving actual business challenges for our clients.",
   },
   {
     title: "Flexible Schedule",
-    description: "We understand student life. Our flexible hours work around your academic commitments.",
-    icon: "⏰",
+    description:
+      "We understand student life. Our flexible hours work around your academic commitments.",
   },
   {
     title: "Mentorship",
-    description: "Receive guidance from experienced team members who are invested in your growth.",
-    icon: "🧠",
+    description:
+      "Receive guidance from experienced team members who are invested in your growth.",
   },
   {
     title: "Leadership Opportunities",
-    description: "Take on increasing responsibility and develop leadership skills as you grow with us.",
-    icon: "⭐",
+    description:
+      "Take on increasing responsibility and develop leadership skills as you grow with us.",
   },
 ]
 
@@ -76,7 +43,8 @@ const steps = [
   {
     number: "01",
     title: "Application",
-    description: "Submit your application with your resume and tell us why you're interested in joining NOVA.",
+    description:
+      "Submit your application with your resume and tell us why you're interested in joining NOVA.",
   },
   {
     number: "02",
@@ -87,7 +55,8 @@ const steps = [
   {
     number: "03",
     title: "Interview",
-    description: "Meet with our recruitment team to discuss your experience, skills, and interest in NOVA.",
+    description:
+      "Meet with our recruitment team to discuss your experience, skills, and interest in NOVA.",
   },
 ]
 
@@ -104,7 +73,8 @@ const faqs = [
   },
   {
     question: "Can I apply if I'm a freshman?",
-    answer: "Yes, freshmen are welcome to apply! We encourage students from all class levels to join our team.",
+    answer:
+      "Yes, freshmen are welcome to apply! We encourage students from all class levels to join our team.",
   },
   {
     question: "Can I apply if I'm a graduate student?",
@@ -113,245 +83,154 @@ const faqs = [
   },
 ]
 
-const exclusiveFeatures = [
-  {
-    icon: <Sparkles className="w-8 h-8" />,
-    title: "Exclusive Access",
-    description: "Get early access to cutting-edge AI tools and platforms before they hit the market",
-    color: "text-purple-400",
-    gradient: "from-purple-600 to-purple-400",
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Fast-Track Program",
-    description: "Accelerated learning path with personalized mentorship from industry leaders",
-    color: "text-blue-400",
-    gradient: "from-blue-600 to-blue-400",
-  },
-  {
-    icon: <Trophy className="w-8 h-8" />,
-    title: "Achievement Recognition",
-    description: "Official certifications and LinkedIn endorsements that boost your professional profile",
-    color: "text-orange-400",
-    gradient: "from-orange-600 to-orange-400",
-  },
-]
-
 export default function Recruitment() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   const toggleFaq = (index: number) => {
-    if (openFaq === index) {
-      setOpenFaq(null)
-    } else {
-      setOpenFaq(index)
-    }
+    setOpenFaq(openFaq === index ? null : index)
   }
 
   return (
-    <div className="flex flex-col pt-4">
-      {/* Hero Section */}
-      <section className="py-20 px-6 relative z-10">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Join Our Team</h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Be part of a dynamic student-led consulting team making real impact. We're looking for talented, ambitious
-            students to join us on our mission.
-          </p>
-        </div>
-      </section>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-1">
+        {/* Hero */}
+        <section className="py-20 px-6">
+          <div className="container mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Join Our Team
+            </h1>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Be part of a dynamic student-led consulting team making real
+              impact. We're looking for talented, ambitious students to join us
+              on our mission.
+            </p>
+          </div>
+        </section>
 
-      {/* Exclusive Features Section */}
-      <section className="py-16 sm:py-20 relative z-10 px-4 sm:px-6 bg-black bg-opacity-20">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-              Exclusive <span className="animated-gradient-text">Member Benefits</span>
+        {/* Why Join */}
+        <section className="py-16 px-6 bg-white/[0.03]">
+          <div className="container mx-auto max-w-5xl">
+            <h2 className="text-3xl font-bold text-white text-center mb-12">
+              Why Join NOVA
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Join NOVA and unlock exclusive opportunities that set you apart from the competition.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {exclusiveFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="group bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-glow relative overflow-hidden"
-              >
-                {/* Animated background gradient */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {benefits.map((benefit, index) => (
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
-                ></div>
-
-                {/* Floating icon animation */}
-                <div
-                  className={`${feature.color} mb-4 sm:mb-6 flex justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2`}
+                  key={index}
+                  className="bg-white/5 border border-white/10 rounded-lg p-6"
                 >
-                  <div className="relative">
-                    {feature.icon}
-                    <div
-                      className={`absolute inset-0 ${feature.color} opacity-30 blur-lg scale-150 group-hover:opacity-60 transition-opacity duration-500`}
-                    >
-                      {feature.icon}
-                    </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Application Process */}
+        <section className="py-16 px-6">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold text-white text-center mb-12">
+              Application Process
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {steps.map((step, index) => (
+                <div key={index} className="text-center md:text-left">
+                  <div className="text-3xl font-bold text-white/20 mb-3">
+                    {step.number}
                   </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-center mb-3 sm:mb-4 text-white group-hover:text-white transition-colors duration-300">
-                  {feature.title}
-                </h3>
-
-                <p className="text-sm sm:text-base text-gray-300 text-center leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                  {feature.description}
-                </p>
-
-                {/* Animated border */}
-                <div
-                  className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-30 transition-all duration-500`}
-                ></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Culture Section */}
-      <section className="py-20 px-6 relative z-10">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6 text-white">Our Culture</h2>
-              <p className="text-gray-300 mb-6">
-                At NOVA, we believe in fostering an environment of innovation, collaboration, and growth. Our team
-                members are passionate about making a difference and developing their professional skills.
-              </p>
-              <p className="text-gray-300 mb-6">
-                We value diversity of thought, background, and experience. Everyone's voice is heard, and we encourage
-                our team members to bring their unique perspectives to the table.
-              </p>
-              <p className="text-gray-300">
-                As a student-led organization, we understand the importance of balancing academic commitments with
-                professional development. We offer flexible schedules and a supportive community.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="rounded-3xl overflow-hidden shadow-glow">
-                <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80&auto=format"
-                  alt="NOVA team culture"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto brightness-90"
-                />
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Why Join NOVA?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
-              >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-white">{benefit.title}</h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Process Section */}
-      <section className="py-20 px-6 relative z-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Application Process</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
-              >
-                <div className="w-12 h-12 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-4">
-                  <span className="text-lg animated-gradient-text">{step.number}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
-                <p className="text-gray-300">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Form Section */}
-      <section id="apply" className="py-20 px-6 bg-black bg-opacity-20 relative z-10">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Apply Now</h2>
-
-          <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 shadow-glow text-center">
-            <h3 className="text-xl font-bold mb-6 text-white">BOARD APPLICATIONS OPEN NOW</h3>
-            <p className="text-gray-300 mb-8 leading-relaxed">
-              Board applications are open now! If you want to make a difference and be part of the board that makes this club an even better experience, apply now!
+        {/* Apply Now */}
+        <section className="py-16 px-6 bg-white/[0.03]">
+          <div className="container mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Apply Now</h2>
+            <p className="text-gray-300 mb-2 text-lg font-medium">
+              Board applications are open now.
             </p>
-            
+            <p className="text-gray-400 mb-8 text-sm leading-relaxed">
+              If you want to make a difference and be part of the board that
+              makes this club an even better experience, apply now.
+            </p>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-3 bg-white text-[rgb(0,57,89)] font-medium rounded text-sm hover:bg-gray-100 transition-colors duration-200"
               onClick={() => trackClick("application_form_external")}
             >
               Complete Application Form
             </a>
-            
-            <p className="text-sm text-gray-400 mt-4">
-              Opens in a new tab • Takes approximately 5-10 minutes
+            <p className="text-xs text-gray-500 mt-4">
+              Opens in a new tab &middot; Takes approximately 5-10 minutes
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 px-6 relative z-10">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-16 text-white">Frequently Asked Questions</h2>
+        {/* FAQ */}
+        <section className="py-16 px-6">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold text-white text-center mb-12">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border border-white/10 rounded-lg overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="flex justify-between items-center w-full text-left p-5 hover:bg-white/[0.03] transition-colors duration-200"
+                  >
+                    <span className="text-base font-medium text-white pr-4">
+                      {faq.question}
+                    </span>
+                    {openFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === index && (
+                    <div className="px-5 pb-5 pt-0">
+                      <p className="text-sm text-gray-300 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-black bg-opacity-30 backdrop-blur-sm rounded-3xl p-6 transform transition-all duration-300 hover:shadow-glow"
+            <div className="mt-12 text-center">
+              <p className="text-gray-400 mb-4 text-sm">
+                Have more questions?
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white/20 text-white font-medium rounded text-sm hover:bg-white/5 transition-colors duration-200"
               >
-                <button onClick={() => toggleFaq(index)} className="flex justify-between items-center w-full text-left">
-                  <h3 className="text-xl font-bold text-white">{faq.question}</h3>
-                  {openFaq === index ? <ChevronUp className="text-white" /> : <ChevronDown className="text-white" />}
-                </button>
-
-                {openFaq === index && (
-                  <div className="mt-4 pt-4 border-t border-gray-700">
-                    <p className="text-gray-300">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+                Contact Us
+              </Link>
+            </div>
           </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-gray-300 mb-6">Have more questions? We're happy to help!</p>
-            <Link href="/contact" className="button-ellipse inline-block">
-              <span className="button-text">Contact Us</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
+        </section>
+      </div>
       <Footer />
     </div>
   )

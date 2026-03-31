@@ -148,16 +148,16 @@ const impactAreas: ImpactArea[] = [
 ]
 
 const clientIndustries: ClientIndustry[] = [
-  { name: "Technology", icon: "💻", color: "text-blue-400" },
-  { name: "Healthcare", icon: "🏥", color: "text-green-400" },
-  { name: "Media & Entertainment", icon: "🎬", color: "text-purple-400" },
-  { name: "Sports & Recreation", icon: "⚽", color: "text-orange-400" },
-  { name: "Hospitality", icon: "🏨", color: "text-pink-400" },
-  { name: "Retail & E-commerce", icon: "🛍️", color: "text-yellow-400" },
-  { name: "Financial Services", icon: "💰", color: "text-cyan-400" },
-  { name: "Manufacturing", icon: "🏭", color: "text-red-400" },
-  { name: "Education", icon: "📚", color: "text-indigo-400" },
-  { name: "Real Estate", icon: "🏢", color: "text-teal-400" },
+  { name: "Technology", icon: "", color: "text-white" },
+  { name: "Healthcare", icon: "", color: "text-white" },
+  { name: "Media & Entertainment", icon: "", color: "text-white" },
+  { name: "Sports & Recreation", icon: "", color: "text-white" },
+  { name: "Hospitality", icon: "", color: "text-white" },
+  { name: "Retail & E-commerce", icon: "", color: "text-white" },
+  { name: "Financial Services", icon: "", color: "text-white" },
+  { name: "Manufacturing", icon: "", color: "text-white" },
+  { name: "Education", icon: "", color: "text-white" },
+  { name: "Real Estate", icon: "", color: "text-white" },
 ]
 
 // Removed mentoringPartners array as the section is being removed
@@ -244,22 +244,16 @@ export default function ImpactAndPurpose() {
               {/* First set of industries */}
               {clientIndustries.map((industry, index) => (
                 <div key={`first-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
-                  <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-                    <div className="text-center">
-                      <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
-                      <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
-                    </div>
+                  <div className="bg-white/5 border border-white/10 rounded-lg px-5 py-3 min-w-[140px] sm:min-w-[170px]">
+                    <h3 className="text-sm sm:text-base font-medium text-white text-center">{industry.name}</h3>
                   </div>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {clientIndustries.map((industry, index) => (
                 <div key={`second-${index}`} className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center">
-                  <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 min-w-[160px] sm:min-w-[200px] transform transition-all duration-300 hover:scale-105 hover:shadow-glow">
-                    <div className="text-center">
-                      <div className="text-3xl sm:text-4xl mb-2">{industry.icon}</div>
-                      <h3 className={`text-sm sm:text-base font-semibold ${industry.color}`}>{industry.name}</h3>
-                    </div>
+                  <div className="bg-white/5 border border-white/10 rounded-lg px-5 py-3 min-w-[140px] sm:min-w-[170px]">
+                    <h3 className="text-sm sm:text-base font-medium text-white text-center">{industry.name}</h3>
                   </div>
                 </div>
               ))}
