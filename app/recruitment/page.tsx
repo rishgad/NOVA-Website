@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Footer from "../components/Footer"
+import TabFadeIn from "../components/TabFadeIn"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { trackClick } from "@/lib/analytics"
 
@@ -10,53 +11,56 @@ const benefits = [
   {
     title: "Professional Development",
     description:
-      "Gain valuable consulting experience and develop professional skills that will set you apart in your career.",
+      "Gain hands-on consulting experience working with real clients. Develop analytical, communication, and project management skills that employers value.",
   },
   {
-    title: "Networking Opportunities",
+    title: "Networking",
     description:
-      "Connect with business leaders, industry professionals, and fellow ambitious students.",
+      "Build relationships with business leaders, industry professionals, and a community of ambitious, like-minded students.",
   },
   {
-    title: "Meaningful Projects",
+    title: "Real Projects",
     description:
-      "Work on real projects with real impact, solving actual business challenges for our clients.",
+      "Work on meaningful engagements with measurable outcomes. Our projects span AI, strategy, and analytics across diverse industries.",
   },
   {
-    title: "Flexible Schedule",
+    title: "Flexible Commitment",
     description:
-      "We understand student life. Our flexible hours work around your academic commitments.",
+      "We understand student life. Our flexible structure works around your academic schedule, typically requiring 2-3 hours per week.",
   },
   {
     title: "Mentorship",
     description:
-      "Receive guidance from experienced team members who are invested in your growth.",
+      "Receive guidance from experienced team members and industry mentors who are invested in your personal and professional growth.",
   },
   {
-    title: "Leadership Opportunities",
+    title: "Leadership Track",
     description:
-      "Take on increasing responsibility and develop leadership skills as you grow with us.",
+      "Take on increasing responsibility as you grow. Our leadership pipeline develops the next generation of consulting leaders.",
   },
 ]
 
 const steps = [
   {
     number: "01",
-    title: "Application",
+    title: "Submit Application",
     description:
-      "Submit your application with your resume and tell us why you're interested in joining NOVA.",
+      "Complete our application form with your resume and a brief statement of interest. We want to understand your motivation and what you'll bring to NOVA.",
+    timeline: "Open now",
   },
   {
     number: "02",
-    title: "Initial Review",
+    title: "Application Review",
     description:
-      "Our team will review your application and reach out to qualified candidates for a first-round interview.",
+      "Our recruitment team reviews every application carefully. We evaluate potential, enthusiasm, and alignment with NOVA's mission\u2014prior consulting experience is not required.",
+    timeline: "1-2 weeks",
   },
   {
     number: "03",
     title: "Interview",
     description:
-      "Meet with our recruitment team to discuss your experience, skills, and interest in NOVA.",
+      "Qualified candidates are invited for a conversational interview with our team. This is a chance for us to get to know you and for you to learn more about NOVA.",
+    timeline: "30 minutes",
   },
 ]
 
@@ -64,22 +68,22 @@ const faqs = [
   {
     question: "Do I need prior consulting experience to apply?",
     answer:
-      "No, we value potential and enthusiasm over experience. We provide training and mentorship to help you develop the necessary skills.",
+      "No. We value potential and enthusiasm over experience. We provide comprehensive training and mentorship to help you develop the skills needed to succeed.",
   },
   {
     question: "What is the time commitment?",
     answer:
-      "Time commitment depends on the project, but most of the time it's 2-3 hours per week. We offer flexibility around academic schedules and exam periods.",
+      "The typical commitment is 2-3 hours per week, depending on the project phase. We offer flexibility around academic schedules and exam periods.",
   },
   {
     question: "Can I apply if I'm a freshman?",
     answer:
-      "Yes, freshmen are welcome to apply! We encourage students from all class levels to join our team.",
+      "Absolutely. We welcome students from all class levels. Some of our strongest contributors joined as freshmen.",
   },
   {
     question: "Can I apply if I'm a graduate student?",
     answer:
-      "Yes, we have positions suitable for graduate students, particularly in specialized technical or strategic roles.",
+      "Yes. We have positions well-suited for graduate students, particularly in specialized technical and strategic roles where deeper expertise adds significant value.",
   },
 ]
 
@@ -94,141 +98,263 @@ export default function Recruitment() {
     <div className="flex flex-col min-h-screen">
       <div className="flex-1">
         {/* Hero */}
-        <section className="py-20 px-6">
-          <div className="container mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Join Our Team
-            </h1>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Be part of a dynamic student-led consulting team making real
-              impact. We're looking for talented, ambitious students to join us
-              on our mission.
-            </p>
-          </div>
+        <section className="pt-20 pb-12 px-6">
+          <TabFadeIn direction="top">
+            <div className="container mx-auto max-w-4xl text-center">
+              <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                Recruitment
+              </p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Join Our Team
+              </h1>
+              <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                Be part of a dynamic, student-led consulting team making real impact.
+                We're looking for talented, ambitious students ready to grow.
+              </p>
+            </div>
+          </TabFadeIn>
         </section>
 
-        {/* Why Join */}
-        <section className="py-16 px-6 bg-white/[0.03]">
+        {/* Why NOVA */}
+        <section className="py-16 px-6">
           <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Why Join NOVA
-            </h2>
+            <TabFadeIn direction="left">
+              <div className="max-w-3xl mb-12">
+                <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                  Why NOVA
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                  Build experience that matters.
+                </h2>
+                <p className="text-gray-300 leading-relaxed">
+                  Joining NOVA means more than a line on your resume. It means working on
+                  real problems, building real skills, and connecting with people who will
+                  shape your career.
+                </p>
+              </div>
+            </TabFadeIn>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-white/5 border border-white/10 rounded-lg p-6"
-                >
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
+                <TabFadeIn key={index} direction="bottom" delay={100 + index * 100}>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 transition-colors duration-200 hover:bg-white/[0.08] h-full">
+                    <h3 className="text-base font-semibold text-white mb-2">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </TabFadeIn>
               ))}
             </div>
+
+            <TabFadeIn direction="bottom" delay={200}>
+              <div className="mt-16 pt-12 border-t border-white/10">
+                <div className="grid md:grid-cols-3 gap-8 text-center">
+                  <div>
+                    <p className="text-3xl font-bold text-white mb-1">2-3 hrs</p>
+                    <p className="text-sm text-gray-400">Weekly time commitment</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-white mb-1">All levels</p>
+                    <p className="text-sm text-gray-400">Freshmen through grad students</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-white mb-1">No experience</p>
+                    <p className="text-sm text-gray-400">Required to apply</p>
+                  </div>
+                </div>
+              </div>
+            </TabFadeIn>
           </div>
         </section>
 
         {/* Application Process */}
-        <section className="py-16 px-6">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Application Process
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+        <section className="py-16 px-6 border-t border-white/10">
+          <div className="container mx-auto max-w-5xl">
+            <TabFadeIn direction="left">
+              <div className="max-w-3xl mb-12">
+                <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                  Application Process
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                  Three steps to joining NOVA.
+                </h2>
+                <p className="text-gray-300 leading-relaxed">
+                  Our process is straightforward and designed to be respectful of your
+                  time. We're looking for people with drive and curiosity, not perfect
+                  resumes.
+                </p>
+              </div>
+            </TabFadeIn>
+
+            <div className="space-y-8">
               {steps.map((step, index) => (
-                <div key={index} className="text-center md:text-left">
-                  <div className="text-3xl font-bold text-white/20 mb-3">
-                    {step.number}
+                <TabFadeIn key={index} direction="right" delay={150 + index * 150}>
+                  <div className="flex gap-8 items-start">
+                    <div className="flex-shrink-0">
+                      <p className="text-4xl font-bold text-white/15">{step.number}</p>
+                    </div>
+                    <div className="flex-1 pb-8 border-b border-white/10 last:border-0">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="text-lg font-semibold text-white">{step.title}</h3>
+                        <span className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400">
+                          {step.timeline}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-300 leading-relaxed max-w-2xl">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                </TabFadeIn>
               ))}
             </div>
+
+            <TabFadeIn direction="bottom" delay={200}>
+              <div className="mt-12 bg-white/5 border border-white/10 rounded-lg p-8">
+                <p className="text-sm text-gray-400 mb-2">What we look for</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    "Intellectual curiosity and willingness to learn",
+                    "Strong communication and collaboration skills",
+                    "Initiative and a bias toward action",
+                    "Interest in technology, strategy, or analytics",
+                  ].map((trait, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-white/30 mt-0.5">&mdash;</span>
+                      <p className="text-sm text-gray-300">{trait}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </TabFadeIn>
           </div>
         </section>
 
-        {/* Apply Now */}
-        <section className="py-16 px-6 bg-white/[0.03]">
-          <div className="container mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Apply Now</h2>
-            <p className="text-gray-300 mb-2 text-lg font-medium">
-              Board applications are open now.
-            </p>
-            <p className="text-gray-400 mb-8 text-sm leading-relaxed">
-              If you want to make a difference and be part of the board that
-              makes this club an even better experience, apply now.
-            </p>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-[rgb(0,57,89)] font-medium rounded text-sm hover:bg-gray-100 transition-colors duration-200"
-              onClick={() => trackClick("application_form_external")}
-            >
-              Complete Application Form
-            </a>
-            <p className="text-xs text-gray-500 mt-4">
-              Opens in a new tab &middot; Takes approximately 5-10 minutes
-            </p>
+        {/* Apply */}
+        <section className="py-16 px-6 border-t border-white/10">
+          <div className="container mx-auto max-w-3xl">
+            <TabFadeIn direction="top">
+              <div className="text-center mb-12">
+                <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                  Apply Now
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                  Board applications are open.
+                </h2>
+                <p className="text-gray-300 leading-relaxed max-w-xl mx-auto">
+                  If you want to make a difference and be part of the board that shapes
+                  this organization, we want to hear from you.
+                </p>
+              </div>
+            </TabFadeIn>
+
+            <TabFadeIn direction="bottom" delay={200}>
+              <div className="bg-white/5 border border-white/10 rounded-lg p-8 md:p-12 text-center">
+                <p className="text-gray-300 mb-8 leading-relaxed">
+                  Our application takes approximately 5-10 minutes to complete. You'll
+                  need your resume and a brief statement about why you're interested in
+                  NOVA.
+                </p>
+
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-[rgb(0,57,89)] font-medium rounded text-sm hover:bg-gray-100 transition-colors duration-200"
+                  onClick={() => trackClick("application_form_external")}
+                >
+                  Complete Application Form
+                </a>
+                <p className="text-xs text-gray-500 mt-4">
+                  Opens in a new tab
+                </p>
+              </div>
+            </TabFadeIn>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="py-16 px-6">
+        <section className="py-16 px-6 border-t border-white/10">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Frequently Asked Questions
-            </h2>
+            <TabFadeIn direction="left">
+              <div className="mb-12">
+                <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                  FAQ
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                  Common questions, answered.
+                </h2>
+              </div>
+            </TabFadeIn>
+
             <div className="space-y-3">
               {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-white/10 rounded-lg overflow-hidden"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="flex justify-between items-center w-full text-left p-5 hover:bg-white/[0.03] transition-colors duration-200"
-                  >
-                    <span className="text-base font-medium text-white pr-4">
-                      {faq.question}
-                    </span>
-                    {openFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                <TabFadeIn key={index} direction="right" delay={100 + index * 100}>
+                  <div className="border border-white/10 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => toggleFaq(index)}
+                      className="flex justify-between items-center w-full text-left p-5 hover:bg-white/[0.03] transition-colors duration-200"
+                    >
+                      <span className="text-base font-medium text-white pr-4">
+                        {faq.question}
+                      </span>
+                      {openFaq === index ? (
+                        <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    {openFaq === index && (
+                      <div className="px-5 pb-5 pt-0">
+                        <p className="text-sm text-gray-300 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
                     )}
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-5 pb-5 pt-0">
-                      <p className="text-sm text-gray-300 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                </TabFadeIn>
               ))}
             </div>
-
-            <div className="mt-12 text-center">
-              <p className="text-gray-400 mb-4 text-sm">
-                Have more questions?
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-white/20 text-white font-medium rounded text-sm hover:bg-white/5 transition-colors duration-200"
-              >
-                Contact Us
-              </Link>
-            </div>
           </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-16 px-6 border-t border-white/10">
+          <TabFadeIn direction="bottom">
+            <div className="container mx-auto max-w-3xl">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+                  <p className="text-sm text-gray-400 mb-2">Questions?</p>
+                  <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                    Reach out to our team directly if you have any questions about the
+                    application process.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="text-sm text-white hover:text-gray-300 transition-colors duration-200"
+                  >
+                    Contact us &rarr;
+                  </Link>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+                  <p className="text-sm text-gray-400 mb-2">Not sure yet?</p>
+                  <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                    Learn more about what we do and the impact our members make before
+                    deciding to apply.
+                  </p>
+                  <Link
+                    href="/impact"
+                    className="text-sm text-white hover:text-gray-300 transition-colors duration-200"
+                  >
+                    See our impact &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </TabFadeIn>
         </section>
       </div>
       <Footer />
