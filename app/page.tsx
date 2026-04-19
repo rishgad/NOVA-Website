@@ -3,10 +3,30 @@
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "./components/Footer"
-import ResumeComparison from "./components/ResumeComparison"
 import FadeIn from "./components/FadeIn"
 import { Briefcase, Users, Rocket, TrendingUp, Star, Zap, MapPin, Globe, Trophy } from "lucide-react"
-import { SiGoogle, SiMeta, SiApple, SiNvidia, SiOpenai, SiSalesforce, SiStripe, SiPalantir } from "react-icons/si"
+import { SiGoogle, SiMeta, SiApple, SiNvidia, SiOpenai, SiSalesforce, SiStripe, SiPalantir, SiVisa, SiCisco } from "react-icons/si"
+
+type Placement =
+  | { name: string; kind: "image"; file: string; height?: string; filter?: string }
+  | { name: string; kind: "icon";  icon: React.ReactNode }
+  | { name: string; kind: "text";  style: string }
+
+const placements: Placement[] = [
+  { name: "Raytheon Technologies",    kind: "image", file: "Raytheon-Logo.png",                          height: "h-20" },
+  { name: "Visa",                     kind: "icon",  icon: <SiVisa className="text-6xl" /> },
+  { name: "IBM",                      kind: "image", file: "ibm-transparent.svg", filter: "grayscale brightness-150 opacity-70 hover:opacity-100" },
+  { name: "PwC",                      kind: "image", file: "PwC-logo.png" },
+  { name: "Cisco",                    kind: "icon",  icon: <SiCisco className="text-6xl" /> },
+  { name: "Accenture",                kind: "image", file: "accenturelogo.png" },
+  { name: "AMD",                      kind: "image", file: "AMD-Logo.png" },
+  { name: "U.S. Chamber of Commerce", kind: "image", file: "United_States_Chamber_of_Commerce_logo.svg.png" },
+  { name: "Pinterest",                kind: "image", file: "Pinterest-logo.png" },
+  { name: "PepsiCo",                  kind: "image", file: "PepsiCo-Logo-1.png" },
+  { name: "Wex",                      kind: "image", file: "wexlogo.png" },
+  { name: "Johnson & Johnson",        kind: "image", file: "The_new_logo_of_Johnson_&_Johnson.png" },
+  { name: "Capital One",              kind: "image", file: "Capital_One_logo.svg.png" },
+]
 
 const partners = [
   { name: "Google",     icon: <SiGoogle     className="w-auto h-auto" /> },
@@ -18,6 +38,7 @@ const partners = [
   { name: "Stripe",     icon: <SiStripe     className="w-auto h-auto" /> },
   { name: "Palantir",   icon: <SiPalantir   className="w-auto h-auto" /> },
 ]
+
 
 const opportunities = [
   {
@@ -91,7 +112,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={100}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-[-0.04em] mt-4 mb-8 max-w-4xl">
-              Where ambition<br />meets real work.
+              Where Ambition<br />Meets Real Work.
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
@@ -109,15 +130,14 @@ export default function Home() {
       </section>
 
       {/* Partners Carousel */}
-      <section className="py-16 relative z-10 overflow-hidden border-t border-white/8 border-b border-white/8">
+      <section className="py-16 relative z-10 overflow-hidden bg-[#0d1f38]">
         <div className="container mx-auto px-6 mb-10">
           <p className="section-label text-center">02 — Partners</p>
           <p className="text-center text-white/40 text-sm">Our partners come from the top companies in the US</p>
         </div>
         <div className="relative">
-          {/* fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-[#0a1628] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-[#0a1628] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-[#0d1f38] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-[#0d1f38] to-transparent" />
           <div className="animate-scroll">
             {[...partners, ...partners, ...partners].map((partner, index) => (
               <div key={index} className="flex-shrink-0 mx-10 flex items-center justify-center text-white/35 hover:text-white/70 transition-colors duration-200">
@@ -128,12 +148,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Placements */}
+      <section className="py-16 px-6 relative z-10">
+        <div className="container mx-auto max-w-6xl mb-10">
+          <FadeIn>
+            <p className="section-label">03 — Placements</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 max-w-2xl">
+              Where Our Members Land.
+            </h2>
+            <p className="text-white/55 text-lg max-w-xl leading-relaxed">
+              NOVA alumni have gone on to intern and work at some of the world's most prestigious organizations.
+            </p>
+          </FadeIn>
+        </div>
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-[#0a1628] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-[#0a1628] to-transparent" />
+          <div className="animate-scroll">
+            {[...placements, ...placements, ...placements].map((item, index) => (
+              <div key={index} className="flex-shrink-0 mx-10 flex items-center justify-center">
+                {item.kind === "image" && (
+                  <img
+                    src={`/images/logos/${item.file}`}
+                    alt={item.name}
+                    className={`${item.height ?? "h-16"} w-auto max-w-[200px] object-contain transition-opacity duration-200 ${item.filter ?? "grayscale invert mix-blend-screen opacity-60 hover:opacity-100"}`}
+                  />
+                )}
+                {item.kind === "icon" && (
+                  <span className="text-white/50 hover:text-white/90 transition-colors duration-200">
+                    {item.icon}
+                  </span>
+                )}
+                {item.kind === "text" && (
+                  <span className={`${item.style} text-white/50 hover:text-white/90 transition-colors duration-200`}>
+                    {item.name}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Who We Are */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-16 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <FadeIn>
-            <p className="section-label">03 — Who We Are</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-16 max-w-2xl">
+            <p className="section-label">04 — Who We Are</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-10 max-w-2xl">
               Built different, from the ground up.
             </h2>
           </FadeIn>
@@ -167,43 +229,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NOVA Difference */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
-        <div className="container mx-auto max-w-6xl">
-          <FadeIn>
-            <p className="section-label">04 — The NOVA Difference</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 max-w-2xl">
-              While others prep for interviews, we build careers.
-            </h2>
-            <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-16">
-              NOVA members graduate with a portfolio that speaks for itself.
-            </p>
-          </FadeIn>
-          <ResumeComparison />
-          <div className="mt-16 pt-12 border-t border-white/8">
-            <FadeIn>
-              <Link href="/apply" className="btn-filled">Start Building Your Future</Link>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
       {/* Opportunities */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-16 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <FadeIn>
             <p className="section-label">05 — Opportunities</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 max-w-2xl">
               Your gateway to extraordinary.
             </h2>
-            <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-16">
+            <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-10">
               Join NOVA and unlock doors that others can only dream of.
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {opportunities.map((opportunity, index) => (
               <FadeIn key={index} delay={index * 60}>
-                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-7 hover:bg-white/[0.04] transition-colors duration-200 h-full">
+                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-7 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-200 h-full">
                   <div className="text-white/40 mb-5">{opportunity.icon}</div>
                   <h3 className="text-base font-semibold text-white mb-2">{opportunity.title}</h3>
                   <p className="text-sm text-white/55 leading-relaxed">{opportunity.description}</p>
@@ -220,21 +261,21 @@ export default function Home() {
       </section>
 
       {/* Our Expansion */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-16 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <FadeIn>
             <p className="section-label">06 — Our Expansion</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 max-w-2xl">
               Be part of something revolutionary.
             </h2>
-            <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-16">
+            <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-10">
               NOVA started at UT Austin and is rapidly expanding nationwide.
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {expansionHighlights.map((highlight, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 hover:bg-white/[0.04] transition-colors duration-200 h-full">
+                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-200 h-full">
                   <div className="text-white/40 mb-5">{highlight.icon}</div>
                   <h3 className="text-lg font-semibold text-white mb-3">{highlight.title}</h3>
                   <p className="text-sm text-white/55 leading-relaxed">{highlight.description}</p>
@@ -246,7 +287,7 @@ export default function Home() {
       </section>
 
       {/* Get In Touch CTA */}
-      <section className="py-24 px-6 border-t border-white/8 relative z-10">
+      <section className="py-16 px-6 relative z-10">
         <div className="container mx-auto max-w-4xl">
           <FadeIn>
             <p className="section-label">07 — Get In Touch</p>
