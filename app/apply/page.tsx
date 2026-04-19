@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Footer from "../components/Footer"
+import FadeIn from "../components/FadeIn"
 import TabFadeIn from "../components/TabFadeIn"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { trackClick } from "@/lib/analytics"
@@ -52,8 +53,8 @@ const steps = [
     number: "02",
     title: "Application Review",
     description:
-      "Our recruitment team reviews every application carefully. We evaluate potential, enthusiasm, and alignment with NOVA's mission\u2014prior consulting experience is not required.",
-    timeline: "1-2 weeks",
+      "Our recruitment team reviews every application carefully. We evaluate potential, enthusiasm, and alignment with NOVA's mission — prior consulting experience is not required.",
+    timeline: "1–2 weeks",
   },
   {
     number: "03",
@@ -87,7 +88,7 @@ const faqs = [
   },
 ]
 
-export default function Recruitment() {
+export default function ApplyPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   const toggleFaq = (index: number) => {
@@ -99,18 +100,18 @@ export default function Recruitment() {
       <div className="flex-1">
         {/* Hero */}
         <section className="py-24 px-6">
-          <TabFadeIn direction="top">
-            <div className="container mx-auto max-w-5xl">
-              <p className="section-label">01 — Recruitment</p>
+          <div className="container mx-auto max-w-5xl">
+            <FadeIn>
+              <p className="section-label">01 — Join NOVA</p>
               <h1 className="text-5xl md:text-7xl font-bold text-white tracking-[-0.04em] mt-2 mb-8 max-w-3xl leading-[0.95]">
-                Join Our Team
+                Ready to do real work?
               </h1>
-              <p className="text-lg text-white/55 leading-relaxed max-w-xl">
+              <p className="text-lg text-white/55 max-w-xl leading-relaxed">
                 Be part of a dynamic, student-led consulting team making real impact.
                 We're looking for talented, ambitious students ready to grow.
               </p>
-            </div>
-          </TabFadeIn>
+            </FadeIn>
+          </div>
         </section>
 
         {/* Why NOVA */}
@@ -130,16 +131,12 @@ export default function Recruitment() {
               </div>
             </TabFadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
-                <TabFadeIn key={index} direction="bottom" delay={100 + index * 100}>
-                  <div className="bg-[#0f2035] border border-white/8 rounded-lg p-6 transition-colors duration-200 hover:bg-white/[0.08] h-full">
-                    <h3 className="text-base font-semibold text-white mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-sm text-white/55 leading-relaxed">
-                      {benefit.description}
-                    </p>
+                <TabFadeIn key={index} direction="bottom" delay={100 + index * 80}>
+                  <div className="bg-[#0f2035] border border-white/8 rounded-lg p-6 hover:bg-white/[0.04] transition-colors duration-200 h-full">
+                    <h3 className="text-base font-semibold text-white mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-white/55 leading-relaxed">{benefit.description}</p>
                   </div>
                 </TabFadeIn>
               ))}
@@ -149,15 +146,15 @@ export default function Recruitment() {
               <div className="mt-16 pt-12 border-t border-white/8">
                 <div className="grid md:grid-cols-3 gap-8 text-center">
                   <div>
-                    <p className="text-3xl font-bold text-white mb-1">2-3 hrs</p>
+                    <p className="text-3xl font-bold text-white tracking-[-0.03em] mb-1">2–3 hrs</p>
                     <p className="text-sm text-white/40">Weekly time commitment</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-white mb-1">All levels</p>
+                    <p className="text-3xl font-bold text-white tracking-[-0.03em] mb-1">All levels</p>
                     <p className="text-sm text-white/40">Freshmen through grad students</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-white mb-1">No experience</p>
+                    <p className="text-3xl font-bold text-white tracking-[-0.03em] mb-1">No experience</p>
                     <p className="text-sm text-white/40">Required to apply</p>
                   </div>
                 </div>
@@ -177,8 +174,7 @@ export default function Recruitment() {
                 </h2>
                 <p className="text-white/55 leading-relaxed">
                   Our process is straightforward and designed to be respectful of your
-                  time. We're looking for people with drive and curiosity, not perfect
-                  resumes.
+                  time. We're looking for people with drive and curiosity, not perfect resumes.
                 </p>
               </div>
             </TabFadeIn>
@@ -197,9 +193,7 @@ export default function Recruitment() {
                           {step.timeline}
                         </span>
                       </div>
-                      <p className="text-sm text-white/55 leading-relaxed max-w-2xl">
-                        {step.description}
-                      </p>
+                      <p className="text-sm text-white/55 leading-relaxed max-w-2xl">{step.description}</p>
                     </div>
                   </div>
                 </TabFadeIn>
@@ -208,7 +202,7 @@ export default function Recruitment() {
 
             <TabFadeIn direction="bottom" delay={200}>
               <div className="mt-12 bg-[#0f2035] border border-white/8 rounded-lg p-8">
-                <p className="text-sm text-white/40 mb-2">What we look for</p>
+                <p className="text-sm text-white/40 mb-4">What we look for</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
                     "Intellectual curiosity and willingness to learn",
@@ -227,42 +221,38 @@ export default function Recruitment() {
           </div>
         </section>
 
-        {/* Apply */}
+        {/* Apply Now */}
         <section className="py-24 px-6 border-t border-white/8">
           <div className="container mx-auto max-w-3xl">
             <TabFadeIn direction="top">
               <div className="mb-12">
                 <p className="section-label">04 — Apply Now</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
-                  Board applications are open.
+                  Applications are open.
                 </h2>
-                <p className="text-white/55 leading-relaxed max-w-xl mx-auto">
-                  If you want to make a difference and be part of the board that shapes
+                <p className="text-white/55 leading-relaxed max-w-xl">
+                  If you want to make a difference and be part of the team that shapes
                   this organization, we want to hear from you.
                 </p>
               </div>
             </TabFadeIn>
 
             <TabFadeIn direction="bottom" delay={200}>
-              <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 md:p-12 text-center">
+              <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 md:p-12">
                 <p className="text-white/55 mb-8 leading-relaxed">
-                  Our application takes approximately 5-10 minutes to complete. You'll
-                  need your resume and a brief statement about why you're interested in
-                  NOVA.
+                  Our application takes approximately 5–10 minutes to complete. You'll
+                  need your resume and a brief statement about why you're interested in NOVA.
                 </p>
-
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-filled"
-                  onClick={() => trackClick("application_form_external")}
+                  onClick={() => trackClick("application_form_apply_page")}
                 >
                   Complete Application Form
                 </a>
-                <p className="text-xs text-white/30 mt-4">
-                  Opens in a new tab
-                </p>
+                <p className="text-xs text-white/30 mt-4">Opens in a new tab</p>
               </div>
             </TabFadeIn>
           </div>
@@ -288,9 +278,7 @@ export default function Recruitment() {
                       onClick={() => toggleFaq(index)}
                       className="flex justify-between items-center w-full text-left p-5 hover:bg-white/[0.03] transition-colors duration-200"
                     >
-                      <span className="text-base font-medium text-white pr-4">
-                        {faq.question}
-                      </span>
+                      <span className="text-base font-medium text-white pr-4">{faq.question}</span>
                       {openFaq === index ? (
                         <ChevronUp className="w-5 h-5 text-white/40 flex-shrink-0" />
                       ) : (
@@ -299,9 +287,7 @@ export default function Recruitment() {
                     </button>
                     {openFaq === index && (
                       <div className="px-5 pb-5 pt-0">
-                        <p className="text-sm text-white/55 leading-relaxed">
-                          {faq.answer}
-                        </p>
+                        <p className="text-sm text-white/55 leading-relaxed">{faq.answer}</p>
                       </div>
                     )}
                   </div>
@@ -319,26 +305,18 @@ export default function Recruitment() {
                 <div className="bg-[#0f2035] border border-white/8 rounded-lg p-6">
                   <p className="text-sm text-white/40 mb-2">Questions?</p>
                   <p className="text-sm text-white/55 leading-relaxed mb-4">
-                    Reach out to our team directly if you have any questions about the
-                    application process.
+                    Reach out to our team directly if you have any questions about the application process.
                   </p>
-                  <Link
-                    href="/contact"
-                    className="text-sm text-white hover:text-white/55 transition-colors duration-200"
-                  >
+                  <Link href="/contact" className="text-sm text-white hover:text-white/55 transition-colors duration-200">
                     Contact us &rarr;
                   </Link>
                 </div>
                 <div className="bg-[#0f2035] border border-white/8 rounded-lg p-6">
                   <p className="text-sm text-white/40 mb-2">Not sure yet?</p>
                   <p className="text-sm text-white/55 leading-relaxed mb-4">
-                    Learn more about what we do and the impact our members make before
-                    deciding to apply.
+                    Learn more about what we do and the impact our members make before deciding to apply.
                   </p>
-                  <Link
-                    href="/impact"
-                    className="text-sm text-white hover:text-white/55 transition-colors duration-200"
-                  >
+                  <Link href="/impact" className="text-sm text-white hover:text-white/55 transition-colors duration-200">
                     See our impact &rarr;
                   </Link>
                 </div>
