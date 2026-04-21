@@ -120,7 +120,7 @@ export default function AnalystsPage() {
         </section>
 
         {/* Program Overview */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <div className="container mx-auto max-w-6xl">
             <FadeIn>
               <p className="section-label">02 — The Program</p>
@@ -143,7 +143,7 @@ export default function AnalystsPage() {
         </section>
 
         {/* Meet the Team */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6">
           <div className="container mx-auto max-w-6xl">
             <FadeIn>
               <p className="section-label">03 — The Team</p>
@@ -209,7 +209,7 @@ export default function AnalystsPage() {
         </section>
 
         {/* Join CTA */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <FadeIn>
             <div className="container mx-auto max-w-4xl">
               <p className="section-label">04 — Join Us</p>

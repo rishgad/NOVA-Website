@@ -115,7 +115,7 @@ export default function ApplyPage() {
         </section>
 
         {/* Why NOVA */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <div className="container mx-auto max-w-5xl">
             <TabFadeIn direction="left">
               <div className="max-w-3xl mb-12">
@@ -143,7 +143,7 @@ export default function ApplyPage() {
             </div>
 
             <TabFadeIn direction="bottom" delay={200}>
-              <div className="mt-16 pt-12 border-t border-white/8">
+              <div className="mt-16 pt-12">
                 <div className="grid md:grid-cols-3 gap-8 text-center">
                   <div>
                     <p className="text-3xl font-bold text-white tracking-[-0.03em] mb-1">2–3 hrs</p>
@@ -164,7 +164,7 @@ export default function ApplyPage() {
         </section>
 
         {/* Application Process */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6">
           <div className="container mx-auto max-w-5xl">
             <TabFadeIn direction="left">
               <div className="max-w-3xl mb-12">
@@ -222,7 +222,7 @@ export default function ApplyPage() {
         </section>
 
         {/* Apply Now */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <div className="container mx-auto max-w-3xl">
             <TabFadeIn direction="top">
               <div className="mb-12">
@@ -259,7 +259,7 @@ export default function ApplyPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6">
           <div className="container mx-auto max-w-3xl">
             <TabFadeIn direction="left">
               <div className="mb-12">
@@ -298,7 +298,7 @@ export default function ApplyPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <TabFadeIn direction="bottom">
             <div className="container mx-auto max-w-3xl">
               <div className="grid md:grid-cols-2 gap-6">

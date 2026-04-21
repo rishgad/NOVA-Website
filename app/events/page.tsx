@@ -42,7 +42,7 @@ export default function EventsPage() {
         </section>
 
         {/* Upcoming Events */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <div className="container mx-auto max-w-6xl">
             <FadeIn>
               <p className="section-label">02 — Upcoming Events</p>
@@ -76,7 +76,7 @@ export default function EventsPage() {
         </section>
 
         {/* Past Events */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6">
           <div className="container mx-auto max-w-6xl">
             <FadeIn>
               <p className="section-label">03 — Past Events</p>
@@ -109,7 +109,7 @@ export default function EventsPage() {
         </section>
 
         {/* Stay Updated */}
-        <section className="py-24 px-6 border-t border-white/8">
+        <section className="py-24 px-6 bg-[#0d1f38]">
           <FadeIn>
             <div className="container mx-auto max-w-4xl">
               <p className="section-label">04 — Stay Updated</p>

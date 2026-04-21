@@ -125,7 +125,7 @@ function StoryContent() {
         </div>
 
         <TabFadeIn direction="bottom" delay={450}>
-          <div className="mt-16 pt-12 border-t border-white/10">
+          <div className="mt-16 pt-12">
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <p className="text-sm uppercase tracking-widest text-white/40 mb-3">Founded</p>
@@ -149,7 +149,7 @@ function StoryContent() {
 
 function LeadershipContent() {
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-[#0d1f38]">
       <div className="container mx-auto max-w-5xl">
         <TabFadeIn direction="left">
           <div className="max-w-3xl mb-12">
@@ -311,7 +311,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen">
       <div className="flex-1">
         {/* Hero */}
-        <section className="pt-20 pb-12 px-6">
+        <section className="pt-20 pb-12 px-6 bg-[#0d1f38]">
           <div className="container mx-auto max-w-4xl text-center">
             <p className="text-sm uppercase tracking-widest text-white/40 mb-4">
               About NOVA
@@ -353,7 +353,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <section className="py-16 px-6 border-t border-white/10">
+        <section className="py-16 px-6">
           <TabFadeIn direction="bottom">
             <div className="container mx-auto max-w-2xl text-center">
               <h2 className="text-2xl font-semibold text-white mb-4">

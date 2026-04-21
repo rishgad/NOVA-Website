@@ -137,7 +137,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* What We Offer */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-24 px-6 relative z-10 bg-[#0d1f38]">
         <div className="container mx-auto max-w-6xl">
           <TabFadeIn direction="left">
             <p className="section-label">02 — What We Offer</p>
@@ -160,7 +160,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-24 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <TabFadeIn direction="right">
             <p className="section-label">03 — By the Numbers</p>
@@ -185,7 +185,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Industries */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-24 px-6 relative z-10 bg-[#0d1f38]">
         <div className="container mx-auto max-w-6xl">
           <TabFadeIn direction="left">
             <p className="section-label">04 — Industries We Serve</p>
@@ -206,7 +206,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24 px-6 relative z-10 border-t border-white/8">
+      <section className="py-24 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <TabFadeIn direction="right">
             <p className="section-label">05 — Featured Projects</p>
@@ -229,7 +229,7 @@ export default function ImpactAndPurpose() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 border-t border-white/8 relative z-10">
+      <section className="py-24 px-6 relative z-10 bg-[#0d1f38]">
         <FadeIn>
           <div className="container mx-auto max-w-4xl">
             <p className="section-label">06 — Get Involved</p>

@@ -63,8 +63,8 @@ Sent from NOVA Consulting website contact form`
           </TabFadeIn>
         </section>
 
-        <section className="pb-24 px-6">
-          <div className="container mx-auto max-w-5xl">
+        <section className="pb-24 px-6 bg-[#0d1f38]">
+          <div className="container mx-auto max-w-4xl">
             <div className="grid lg:grid-cols-2 gap-10">
               {/* Contact Form */}
               <TabFadeIn direction="left" delay={150}>
@@ -163,16 +163,6 @@ Sent from NOVA Consulting website contact form`
                     </h2>
 
                     <div className="space-y-5">
-                      <div>
-                        <p className="text-sm text-white/40 mb-1">Phone / Text</p>
-                        <a
-                          href="tel:+17177047895"
-                          className="text-white hover:text-white/55 transition-colors duration-200"
-                        >
-                          (717) 704-7895
-                        </a>
-                      </div>
-
                       <div>
                         <p className="text-sm text-white/40 mb-1">LinkedIn</p>
                         <a

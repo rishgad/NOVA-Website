@@ -157,7 +157,7 @@ export default function Home() {
               Where Our Members Land.
             </h2>
             <p className="text-white/55 text-lg max-w-xl leading-relaxed">
-              NOVA alumni have gone on to intern and work at some of the world's most prestigious organizations.
+              NOVA members have gone on to intern and work at some of the world's most prestigious organizations.
             </p>
           </FadeIn>
         </div>
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-16 px-6 relative z-10">
+      <section className="py-16 px-6 relative z-10 bg-[#0d1f38]">
         <div className="container mx-auto max-w-6xl">
           <FadeIn>
             <p className="section-label">04 — Who We Are</p>
@@ -218,7 +218,7 @@ export default function Home() {
               },
             ].map((card, i) => (
               <FadeIn key={card.num} delay={i * 100}>
-                <div className="bg-[#0a1628] p-8 md:p-10 h-full">
+                <div className="bg-[#0f2a45] p-8 md:p-10 h-full">
                   <span className="section-number">{card.num}</span>
                   <h3 className="text-xl font-semibold text-white mt-4 mb-3">{card.title}</h3>
                   <p className="text-white/55 text-sm leading-relaxed">{card.body}</p>
@@ -261,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* Our Expansion */}
-      <section className="py-16 px-6 relative z-10">
+      <section className="py-16 px-6 relative z-10 bg-[#0d1f38]">
         <div className="container mx-auto max-w-6xl">
           <FadeIn>
             <p className="section-label">06 — Our Expansion</p>
