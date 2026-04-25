@@ -24,81 +24,41 @@ const programFeatures = [
 
 const execBoard = [
   {
-    name: "Exec Name",
+    name: "Haris Isam",
     role: "President",
-    major: "Computer Science",
-    linkedinUrl: "#",
+    major: "Economics and Applied Mathematics",
+    linkedinUrl: "https://www.linkedin.com/in/harisisam/",
+    image: "/images/headshots/harisHS.jpg",
   },
   {
-    name: "Exec Name",
+    name: "Angela Stables",
     role: "Vice President",
-    major: "Business Honors",
-    linkedinUrl: "#",
+    major: "International Political Economy",
+    linkedinUrl: "https://www.linkedin.com/in/angela-stables-9a639a300/",
+    image: "/images/headshots/angelaHS.JPG",
   },
   {
-    name: "Exec Name",
-    role: "VP of Operations",
-    major: "Information Systems",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Exec Name",
-    role: "VP of Business Development",
-    major: "Finance",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Exec Name",
-    role: "Head of Technology",
-    major: "Electrical & Computer Engineering",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Exec Name",
-    role: "Head of Analytics",
-    major: "Statistics & Data Science",
-    linkedinUrl: "#",
-  },
-]
-
-const analysts = [
-  {
-    name: "Analyst Name",
-    role: "AI Analyst",
+    name: "Rishav Gadiyar",
+    role: "Vice President of Technology",
     major: "Computer Science",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/rishavgadiyar/",
+    image: "/images/headshots/rishavgadiyarHS.JPG",
   },
   {
-    name: "Analyst Name",
-    role: "Strategy Analyst",
-    major: "Business Honors",
-    linkedinUrl: "#",
+    name: "Laela Million",
+    role: "Secretary",
+    major: "Computer Science",
+    linkedinUrl: "https://www.linkedin.com/in/laelamillion/",
+    image: "/images/headshots/laelaHS.jpeg",
   },
-  {
-    name: "Analyst Name",
-    role: "Data Analyst",
-    major: "Statistics",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Analyst Name",
-    role: "AI Analyst",
-    major: "Electrical Engineering",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Analyst Name",
-    role: "Strategy Analyst",
-    major: "Finance",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Analyst Name",
-    role: "Data Analyst",
-    major: "Mathematics",
-    linkedinUrl: "#",
-  },
-]
+  { name: "Rishi Matharasi", role: "Board Developer", major: "Computer Science", linkedinUrl: "https://www.linkedin.com/in/rishi-matharasi/", image: "/images/headshots/rishimHS.JPG" },
+  { name: "Abhinav Bulusu", role: "Board Developer", major: "Electrical and Computer Engineering", linkedinUrl: "https://www.linkedin.com/in/abhinav-bulusu/", image: "/images/headshots/abhiHS.JPG" },
+  { name: "Lakshmi Gorthi", role: "Board Developer", major: "Computer Science", linkedinUrl: "https://www.linkedin.com/in/lakshmi-g-a55155294/", image: "/images/headshots/shriyaHS.JPG" },
+  { name: "Akhilesh Singu", role: "Client Acquisition", major: "Management Information Systems + Computer Science", linkedinUrl: "https://www.linkedin.com/in/akhileshsingu/", image: "/images/headshots/akileshHS.jpeg" },
+  { name: "Arnav Shah", role: "Client Acquisition", major: " Finance + Informatics ", linkedinUrl: "https://www.linkedin.com/in/arnavshah1/", image: "/images/headshots/arnavHS.jpg" },
+  { name: "Ketaki Bakre", role: "Director of Marketing", major: "Business + Information Science", linkedinUrl: "https://www.linkedin.com/in/ketakibakre/", image: "/images/headshots/ketakiHS.JPG" },
+  { name: "Kennady Cheng", role: "Director of Socials", major: "Management Information Systems", linkedinUrl: "https://www.linkedin.com/in/kennadycheng/", image: "/images/headshots/kennadycheng.JPG" },]
+
 
 export default function AnalystsPage() {
   return (
@@ -146,64 +106,38 @@ export default function AnalystsPage() {
         <section className="py-24 px-6">
           <div className="container mx-auto max-w-6xl">
             <FadeIn>
-              <p className="section-label">03 — The Team</p>
+              <p className="section-label">03 — Leadership</p>
               <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-16 max-w-2xl">
-                Meet the team.
+                Executive Board.
               </h2>
             </FadeIn>
 
-            {/* Executive Board */}
-            <FadeIn>
-              <p className="text-xs uppercase tracking-[0.12em] text-white/25 mb-6">Executive Board</p>
-            </FadeIn>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {execBoard.map((member, index) => (
                 <TabFadeIn key={index} direction="bottom" delay={60 + index * 60}>
                   <div className="bg-[#0f2035] border border-white/8 rounded-lg p-7 hover:bg-white/[0.04] transition-colors duration-200 h-full">
-                    <div className="w-12 h-12 rounded-full bg-white/8 mb-5" />
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="w-full h-72 rounded-lg object-cover object-center mb-6" style={{objectPosition: "50% 30%"}} />
+                    ) : (
+                      <div className="w-full h-72 rounded-lg bg-white/8 mb-6" />
+                    )}
                     <h3 className="text-base font-semibold text-white mb-1">{member.name}</h3>
                     <p className="text-sm text-[#2563eb] mb-1">{member.role}</p>
                     <p className="text-sm text-white/40 mb-5">{member.major}</p>
-                    <a
-                      href={member.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs text-white/40 hover:text-white transition-colors duration-200"
-                    >
-                      <Linkedin className="w-3.5 h-3.5" />
-                      LinkedIn
-                    </a>
+                    {member.linkedinUrl && (
+                      <a
+                        href={member.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs text-white/40 hover:text-white transition-colors duration-200"
+                      >
+                        <Linkedin className="w-3.5 h-3.5" />
+                        LinkedIn
+                      </a>
+                    )}
                   </div>
                 </TabFadeIn>
               ))}
-            </div>
-
-            {/* Analysts */}
-            <div className="border-t border-white/8 pt-16">
-              <FadeIn>
-                <p className="text-xs uppercase tracking-[0.12em] text-white/25 mb-6">Analysts</p>
-              </FadeIn>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                {analysts.map((analyst, index) => (
-                  <TabFadeIn key={index} direction="bottom" delay={40 + index * 40}>
-                    <div className="bg-[#0f2035] border border-white/8 rounded-lg p-5 hover:bg-white/[0.04] transition-colors duration-200 h-full">
-                      <div className="w-8 h-8 rounded-full bg-white/8 mb-4" />
-                      <h3 className="text-sm font-semibold text-white mb-1">{analyst.name}</h3>
-                      <p className="text-xs text-[#2563eb] mb-1">{analyst.role}</p>
-                      <p className="text-xs text-white/40 mb-4">{analyst.major}</p>
-                      <a
-                        href={analyst.linkedinUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs text-white/30 hover:text-white transition-colors duration-200"
-                      >
-                        <Linkedin className="w-3 h-3" />
-                        LinkedIn
-                      </a>
-                    </div>
-                  </TabFadeIn>
-                ))}
-              </div>
             </div>
           </div>
         </section>
