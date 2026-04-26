@@ -30,7 +30,8 @@ ${message}
 Sent from NOVA Consulting website contact form`
     )
 
-    const mailtoLink = `mailto:ryanthomas2271@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
+    const mailtoLink = `mailto:texasnova01@gmail.com
+?subject=${mailtoSubject}&body=${mailtoBody}`
     window.location.href = mailtoLink
 
     toast({
@@ -54,7 +55,7 @@ Sent from NOVA Consulting website contact form`
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Get In Touch
               </h1>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-white/55 leading-relaxed">
                 Ready to transform your business with cutting-edge AI solutions?
                 We'd love to hear from you.
               </p>
@@ -62,12 +63,12 @@ Sent from NOVA Consulting website contact form`
           </TabFadeIn>
         </section>
 
-        <section className="pb-24 px-6">
-          <div className="container mx-auto max-w-5xl">
+        <section className="pb-24 px-6 bg-[#0d1f38]">
+          <div className="container mx-auto max-w-4xl">
             <div className="grid lg:grid-cols-2 gap-10">
               {/* Contact Form */}
               <TabFadeIn direction="left" delay={150}>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8">
                   <h2 className="text-xl font-semibold text-white mb-6">
                     Send us a Message
                   </h2>
@@ -77,7 +78,7 @@ Sent from NOVA Consulting website contact form`
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm text-gray-300 mb-1.5"
+                          className="block text-sm text-white/55 mb-1.5"
                         >
                           Full Name
                         </label>
@@ -87,13 +88,13 @@ Sent from NOVA Consulting website contact form`
                           onChange={(e) => setName(e.target.value)}
                           required
                           placeholder="Your full name"
-                          className="bg-white/5 text-white placeholder-gray-500 rounded border-white/10 focus:border-white/30"
+                          className="bg-white/5 text-white placeholder-gray-500 rounded border-white/8 focus:border-white/30"
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm text-gray-300 mb-1.5"
+                          className="block text-sm text-white/55 mb-1.5"
                         >
                           Email Address
                         </label>
@@ -104,7 +105,7 @@ Sent from NOVA Consulting website contact form`
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           placeholder="your.email@example.com"
-                          className="bg-white/5 text-white placeholder-gray-500 rounded border-white/10 focus:border-white/30"
+                          className="bg-white/5 text-white placeholder-gray-500 rounded border-white/8 focus:border-white/30"
                         />
                       </div>
                     </div>
@@ -112,7 +113,7 @@ Sent from NOVA Consulting website contact form`
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-sm text-gray-300 mb-1.5"
+                        className="block text-sm text-white/55 mb-1.5"
                       >
                         Subject
                       </label>
@@ -121,14 +122,14 @@ Sent from NOVA Consulting website contact form`
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                         placeholder="What's this about?"
-                        className="bg-white/5 text-white placeholder-gray-500 rounded border-white/10 focus:border-white/30"
+                        className="bg-white/5 text-white placeholder-gray-500 rounded border-white/8 focus:border-white/30"
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm text-gray-300 mb-1.5"
+                        className="block text-sm text-white/55 mb-1.5"
                       >
                         Message
                       </label>
@@ -139,13 +140,13 @@ Sent from NOVA Consulting website contact form`
                         required
                         rows={6}
                         placeholder="Tell us about your project or how we can help..."
-                        className="bg-white/5 text-white placeholder-gray-500 rounded border-white/10 focus:border-white/30 resize-none"
+                        className="bg-white/5 text-white placeholder-gray-500 rounded border-white/8 focus:border-white/30 resize-none"
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="w-full bg-white text-[rgb(0,57,89)] font-medium py-3 rounded hover:bg-gray-100 transition-colors duration-200"
+                      className="w-full bg-white text-[#0a1628] font-medium py-3 rounded hover:bg-gray-100 transition-colors duration-200"
                     >
                       Send Message
                     </Button>
@@ -156,51 +157,41 @@ Sent from NOVA Consulting website contact form`
               {/* Contact Info - Single consolidated box */}
               <div className="space-y-6">
                 <TabFadeIn direction="right" delay={300}>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+                  <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8">
                     <h2 className="text-xl font-semibold text-white mb-6">
                       Contact Information
                     </h2>
 
                     <div className="space-y-5">
                       <div>
-                        <p className="text-sm text-gray-400 mb-1">Phone / Text</p>
-                        <a
-                          href="tel:+17177047895"
-                          className="text-white hover:text-gray-300 transition-colors duration-200"
-                        >
-                          (717) 704-7895
-                        </a>
-                      </div>
-
-                      <div>
-                        <p className="text-sm text-gray-400 mb-1">LinkedIn</p>
+                        <p className="text-sm text-white/40 mb-1">LinkedIn</p>
                         <a
                           href="https://www.linkedin.com/company/texas-nova/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white hover:text-gray-300 transition-colors duration-200"
+                          className="text-white hover:text-white/55 transition-colors duration-200"
                         >
                           linkedin.com/company/texas-nova
                         </a>
                       </div>
 
                       <div>
-                        <p className="text-sm text-gray-400 mb-1">Email</p>
+                        <p className="text-sm text-white/40 mb-1">Email</p>
                         <a
-                          href="mailto:ryanthomas2271@gmail.com"
-                          className="text-white hover:text-gray-300 transition-colors duration-200"
+                          href="mailto:texasnova01@gmail.com"
+                          className="text-white hover:text-white/55 transition-colors duration-200"
                         >
-                          ryanthomas2271@gmail.com
+                          texasnova01@gmail.com
                         </a>
                       </div>
 
-                      <div className="pt-3 border-t border-white/10">
-                        <p className="text-sm text-gray-400 mb-1">Location</p>
+                      <div className="pt-3 border-t border-white/8">
+                        <p className="text-sm text-white/40 mb-1">Location</p>
                         <p className="text-white">Austin, Texas</p>
                       </div>
 
                       <div>
-                        <p className="text-sm text-gray-400 mb-1">Response Time</p>
+                        <p className="text-sm text-white/40 mb-1">Response Time</p>
                         <p className="text-white">Within 24 hours</p>
                       </div>
                     </div>
@@ -209,20 +200,20 @@ Sent from NOVA Consulting website contact form`
 
                 {/* Quick links */}
                 <TabFadeIn direction="right" delay={450}>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+                  <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8">
                     <h3 className="text-lg font-semibold text-white mb-4">
                       Looking for something else?
                     </h3>
                     <div className="space-y-3">
                       <a
                         href="/recruitment"
-                        className="block text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                        className="block text-sm text-white/40 hover:text-white transition-colors duration-200"
                       >
                         Join Our Team &rarr;
                       </a>
                       <a
                         href="/impact"
-                        className="block text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                        className="block text-sm text-white/40 hover:text-white transition-colors duration-200"
                       >
                         View Our Work &rarr;
                       </a>

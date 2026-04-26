@@ -42,7 +42,7 @@ export default function TechnologySolutions() {
     <div className="flex flex-col min-h-screen pt-20">
       <div className="container mx-auto px-6 py-12 flex-grow">
         <h1 className="text-4xl font-bold text-center mb-4 text-white">Technology Solutions</h1>
-        <p className="text-xl text-center mb-16 text-gray-300 max-w-3xl mx-auto">
+        <p className="text-xl text-center mb-16 text-white/55 max-w-3xl mx-auto">
           We leverage cutting-edge technologies to create innovative solutions that drive efficiency, growth, and
           competitive advantage.
         </p>
@@ -54,7 +54,7 @@ export default function TechnologySolutions() {
               className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 items-center`}
             >
               <div className="w-full md:w-1/2">
-                <div className="rounded-3xl overflow-hidden shadow-glow">
+                <div className="rounded-lg overflow-hidden">
                   <Image
                     src={project.imageUrl || "/placeholder.svg"}
                     alt={project.title}
@@ -66,11 +66,11 @@ export default function TechnologySolutions() {
               </div>
               <div className="w-full md:w-1/2 space-y-4">
                 <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                <p className="text-gray-400">Client: {project.client}</p>
-                <p className="text-gray-300">{project.description}</p>
-                <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-xl p-4">
+                <p className="text-white/40">Client: {project.client}</p>
+                <p className="text-white/55">{project.description}</p>
+                <div className="bg-[#0f2035] border border-white/8 rounded-lg p-4">
                   <h3 className="text-lg font-semibold text-white mb-2">Outcome:</h3>
-                  <p className="text-gray-300">{project.outcome}</p>
+                  <p className="text-white/55">{project.outcome}</p>
                 </div>
               </div>
             </div>
@@ -78,10 +78,8 @@ export default function TechnologySolutions() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-xl text-gray-300 mb-8">Ready to transform your technology infrastructure?</p>
-          <Link href="/contact" className="button-ellipse">
-            <span className="button-text">Contact Us</span>
-          </Link>
+          <p className="text-xl text-white/55 mb-8">Ready to transform your technology infrastructure?</p>
+          <Link href="/contact" className="btn-filled">Contact Us</Link>
         </div>
       </div>
 
