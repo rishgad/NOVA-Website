@@ -6,7 +6,6 @@ import Footer from "../components/Footer"
 import FadeIn from "../components/FadeIn"
 import TabFadeIn from "../components/TabFadeIn"
 import { ChevronDown, ChevronUp } from "lucide-react"
-import { trackClick } from "@/lib/analytics"
 
 const benefits = [
   {
@@ -107,8 +106,8 @@ export default function ApplyPage() {
                 Ready to do real work?
               </h1>
               <p className="text-lg text-white/55 max-w-xl leading-relaxed">
-                Be part of a dynamic, student-led consulting team making real impact.
-                We're looking for talented, ambitious students ready to grow.
+                We're building a team of people who want to do real work.
+                No experience required — just drive and curiosity.
               </p>
             </FadeIn>
           </div>
@@ -121,7 +120,7 @@ export default function ApplyPage() {
               <div className="max-w-3xl mb-12">
                 <p className="section-label">02 — Why NOVA</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
-                  Build experience that matters.
+                  What you get out of NOVA.
                 </h2>
                 <p className="text-white/55 leading-relaxed">
                   Joining NOVA means more than a line on your resume. It means working on
@@ -228,11 +227,10 @@ export default function ApplyPage() {
               <div className="mb-12">
                 <p className="section-label">04 — Apply Now</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
-                  Applications are open.
+                  Applications are closed.
                 </h2>
                 <p className="text-white/55 leading-relaxed max-w-xl">
-                  If you want to make a difference and be part of the team that shapes
-                  this organization, we want to hear from you.
+                  We are not currently accepting applications. Applications will reopen in September for our Fall 2026 cohort.
                 </p>
               </div>
             </TabFadeIn>
@@ -240,19 +238,8 @@ export default function ApplyPage() {
             <TabFadeIn direction="bottom" delay={200}>
               <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 md:p-12">
                 <p className="text-white/55 mb-8 leading-relaxed">
-                  Our application takes approximately 5–10 minutes to complete. You'll
-                  need your resume and a brief statement about why you're interested in NOVA.
+                  In the meantime, follow us on social media to stay up to date on announcements and when applications open.
                 </p>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-filled"
-                  onClick={() => trackClick("application_form_apply_page")}
-                >
-                  Complete Application Form
-                </a>
-                <p className="text-xs text-white/30 mt-4">Opens in a new tab</p>
               </div>
             </TabFadeIn>
           </div>
