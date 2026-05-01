@@ -46,7 +46,7 @@ const steps = [
     title: "Submit Application",
     description:
       "Complete our application form with your resume and a brief statement of interest. We want to understand your motivation and what you'll bring to NOVA.",
-    timeline: "Open now",
+    timeline: "Currently Closed",
   },
   {
     number: "02",

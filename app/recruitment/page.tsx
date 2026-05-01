@@ -46,7 +46,7 @@ const steps = [
     title: "Submit Application",
     description:
       "Complete our application form with your resume and a brief statement of interest. We want to understand your motivation and what you'll bring to NOVA.",
-    timeline: "Open now",
+    timeline: "Currently Closed",
   },
   {
     number: "02",
@@ -106,8 +106,8 @@ export default function Recruitment() {
                 Join Our Team
               </h1>
               <p className="text-lg text-white/55 leading-relaxed max-w-xl">
-                Be part of a dynamic, student-led consulting team making real impact.
-                We're looking for talented, ambitious students ready to grow.
+                We're building a team of people who want to do real work.
+                No experience required — just drive and curiosity.
               </p>
             </div>
           </TabFadeIn>
@@ -120,7 +120,7 @@ export default function Recruitment() {
               <div className="max-w-3xl mb-12">
                 <p className="section-label">02 — Why NOVA</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
-                  Build experience that matters.
+                  What you get out of NOVA.
                 </h2>
                 <p className="text-white/55 leading-relaxed">
                   Joining NOVA means more than a line on your resume. It means working on
