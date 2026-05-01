@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://instagram.com/texasnova"
+                  href="https://www.instagram.com/texas.nova/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors duration-200"

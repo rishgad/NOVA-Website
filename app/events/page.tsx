@@ -121,7 +121,7 @@ export default function EventsPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://instagram.com/texasnova"
+                  href="https://www.instagram.com/texas.nova/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline inline-flex items-center gap-2"
