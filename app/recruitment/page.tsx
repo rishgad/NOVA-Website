@@ -64,6 +64,15 @@ const steps = [
   },
 ]
 
+const timelineEvents = [
+  { date: "Mon 8/31", label: "First info session", category: "events" as const },
+  { date: "Tue 9/1", label: "Coffee chat #1", category: "events" as const },
+  { date: "Wed 9/2", label: "Second info session", category: "events" as const },
+  { date: "Thu 9/3", label: "Coffee chat #2", category: "events" as const },
+  { date: "Fri 9/4", label: "Apps due (midnight)", category: "process" as const },
+  { date: "Tue–Thu 9/8–10", label: "Interviews", category: "process" as const },
+]
+
 const faqs = [
   {
     question: "Do I need prior consulting experience to apply?",
@@ -227,17 +236,81 @@ export default function Recruitment() {
           </div>
         </section>
 
-        {/* Apply */}
+        {/* Timeline */}
         <section className="py-24 px-6 bg-[#0d1f38]">
+          <div className="container mx-auto max-w-5xl">
+            <TabFadeIn direction="left">
+              <div className="max-w-3xl mb-16">
+                <p className="section-label">04 — Key Dates</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
+                  Recruitment timeline.
+                </h2>
+                <p className="text-white/55 leading-relaxed">
+                  Mark your calendar. Here's what to expect from info sessions through
+                  interviews.
+                </p>
+              </div>
+            </TabFadeIn>
+
+            <TabFadeIn direction="bottom" delay={150}>
+              <div className="overflow-x-auto pb-2">
+                <div className="min-w-[860px] px-4">
+                  <div className="relative flex justify-between py-16">
+                    <div className="absolute top-1/2 left-0 right-0 h-px bg-white/10 -translate-y-1/2" />
+                    {timelineEvents.map((event, index) => (
+                      <div key={event.date} className="relative flex-1 flex justify-center">
+                        <span
+                          className={`relative z-10 block w-3.5 h-3.5 rounded-full ${
+                            event.category === "events"
+                              ? "bg-[#2563eb]"
+                              : "bg-[#0d1f38] border-2 border-[#2563eb]"
+                          }`}
+                        />
+                        <div
+                          className={`absolute left-1/2 -translate-x-1/2 text-center ${
+                            index % 2 === 0 ? "bottom-[calc(100%+10px)]" : "top-[calc(100%+10px)]"
+                          }`}
+                        >
+                          <p className="text-sm font-semibold text-white whitespace-nowrap">
+                            {event.date}
+                          </p>
+                          <p className="text-xs text-white/50 whitespace-nowrap mt-1">
+                            {event.label}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </TabFadeIn>
+
+            <TabFadeIn direction="bottom" delay={250}>
+              <div className="flex items-center justify-center gap-8 mt-10">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-[#2563eb]" />
+                  <span className="text-sm text-white/50">Recruitment events</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-[#0d1f38] border-2 border-[#2563eb]" />
+                  <span className="text-sm text-white/50">Selection process</span>
+                </div>
+              </div>
+            </TabFadeIn>
+          </div>
+        </section>
+
+        {/* Apply */}
+        <section className="py-24 px-6">
           <div className="container mx-auto max-w-3xl">
             <TabFadeIn direction="top">
               <div className="mb-12">
-                <p className="section-label">04 — Apply Now</p>
+                <p className="section-label">05 — Apply Now</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
-                  Board applications are open.
+                  Applications are open.
                 </h2>
                 <p className="text-white/55 leading-relaxed max-w-xl mx-auto">
-                  If you want to make a difference and be part of the board that shapes
+                  If you want to make a difference and be part of the team that shapes
                   this organization, we want to hear from you.
                 </p>
               </div>
@@ -247,12 +320,12 @@ export default function Recruitment() {
               <div className="bg-[#0f2035] border border-white/8 rounded-lg p-8 md:p-12 text-center">
                 <p className="text-white/55 mb-8 leading-relaxed">
                   Our application takes approximately 5-10 minutes to complete. You'll
-                  need your resume and a brief statement about why you're interested in
-                  NOVA.
+                  need your resume and be ready to answer a few short questions about
+                  yourself and why you're interested in NOVA.
                 </p>
 
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdZPS2PVLQmNeeAzQ7rWUO9ym5bKcuKMIunFy6qGjVIcB1TrA/viewform"
+                  href="https://docs.google.com/forms/d/1Hpeyt18TX7Tn7cGz42OZV44mXUaHdEQjg_0H-XnmPd4/closedform"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-filled"
@@ -273,7 +346,7 @@ export default function Recruitment() {
           <div className="container mx-auto max-w-3xl">
             <TabFadeIn direction="left">
               <div className="mb-12">
-                <p className="section-label">05 — FAQ</p>
+                <p className="section-label">06 — FAQ</p>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mt-2 mb-4 leading-tight">
                   Common questions, answered.
                 </h2>
