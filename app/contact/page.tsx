@@ -206,7 +206,7 @@ Sent from NOVA Consulting website contact form`
                     </h3>
                     <div className="space-y-3">
                       <a
-                        href="/recruitment"
+                        href="/apply"
                         className="block text-sm text-white/40 hover:text-white transition-colors duration-200"
                       >
                         Join Our Team &rarr;

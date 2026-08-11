@@ -364,7 +364,7 @@ export default function AboutPage() {
                 a real impact.
               </p>
               <Link
-                href="/recruitment"
+                href="/apply"
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-[rgb(0,57,89)] font-medium rounded text-sm hover:bg-gray-100 transition-colors duration-200"
               >
                 View Open Positions
